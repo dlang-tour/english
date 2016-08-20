@@ -1,0 +1,19 @@
+sudo: required
+language: d
+d:
+  - dmd
+  - ldc
+branches:
+  only:
+    - master
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libevent-dev
+script:
+  - git clone https://github.com/stonemaster/dlang-tour ../tour
+  - mkdir -p ../tour/public/content/lang
+  - mv * ../tour/public/content/lang
+  - wget https://raw.githubusercontent.com/dlang/tools/master/rdmd.d
+  - ${DC} rdmd.d
+  - export PATH=$PATH:$PWD
+  - (cd ../tour && dub --compiler=${DC} -- --sanitycheck .)
