@@ -73,8 +73,8 @@ or the r(aw)-prefix (`r" ... "`).
         may be a
         long document
     };
-    string raw  =  `raw "string"`; \\ raw "string"
-    string raw2 = r"raw "string""; \\ raw "string"
+    string raw  =  `raw "string"`; // raw "string"
+    string raw2 = r"raw "string""; // raw "string"
 
 ### In-depth
 
