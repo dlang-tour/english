@@ -2,7 +2,7 @@
 
 ### Pre-requirements
 
-- Heroku [account]((https://signup.heroku.com/login))
+- Heroku [account](https://signup.heroku.com/login)
 - [Git](https://git-scm.com/) installed
 - Your application should compile without error using dmd (`dub build`).
 
