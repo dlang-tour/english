@@ -90,9 +90,9 @@ import std.stdio;
 
 void main()
 {
-    string utf8 = "å ø ∑ œ";
-    wstring utf16 = "å ø ∑ œ";
-    dstring utf32 = "å ø ∑ œ";
+    string utf8 = "å ø ∑ 😦";
+    wstring utf16 = "å ø ∑ 😦";
+    dstring utf32 = "å ø ∑ 😦";
 
     writeln("utf8 length: ", utf8.length);
     writeln("utf16 length: ", utf16.length);
