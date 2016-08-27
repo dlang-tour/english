@@ -54,14 +54,18 @@ import vibe.d;
 
 class WebService
 {
-    /// session variable which will be available
-    /// for the current client's session
-    /// in other requests.
+    /*
+    session variable which will be available
+    for the current client's session
+    in other requests.
+    */
     private SessionVar!(string, "username")
         username_;
 
-    /// Because of the function name the path
-    /// will be induced to /.
+    /*
+    Because of the function name the path
+    will be induced to /.
+    */
     void index(HTTPServerResponse res)
     {
         auto contents = q{<html><head>
@@ -79,8 +83,10 @@ class WebService
                 "text/html; charset=UTF-8");
     }
 
-    /// Display the current client's
-    /// session username.
+    /*
+    Display the current client's
+    session username.
+    */
     @path("/name")
     void getName(HTTPServerRequest req,
             HTTPServerResponse res)
