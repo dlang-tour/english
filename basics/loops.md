@@ -58,7 +58,9 @@ The keyword `continue` starts with the next loop iteration.
 ```d
 import std.stdio;
 
-/// Returns: average of array
+/*
+Computes the average of an array.
+*/
 double average(int[] array) {
     // The property .empty for arrays isn't
     // native in D but has to be made accessible
