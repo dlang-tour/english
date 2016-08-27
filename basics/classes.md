@@ -53,8 +53,8 @@ if (c is null)  // ok
     ...
 ```
 
-For struct objects all bits are compared, 
-For other operand types, identity is the same as equality.
+For `struct` objects all bits are compared,
+for other operand types, identity is the same as equality.
 
 ### In-depth
 
