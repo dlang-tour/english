@@ -49,7 +49,7 @@ import std.stdio;
 
 /**
 Calculates the minimum of all values
-in slice recursively. For every recursive
+in a slice recursively. For every recursive
 call a sub-slice is taken thus we don't
 create a copy and don't do any allocations.
 */
