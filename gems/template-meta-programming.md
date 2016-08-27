@@ -89,18 +89,22 @@ import std.uni: toUpper;
 import std.string: format;
 import std.stdio: writeln;
 
-/// A Vector that just works for
-/// numbers, integers or floating points.
+/*
+A Vector that just works for
+numbers, integers or floating points.
+*/
 struct Vector3(T)
   if (is(T: real))
 {
 private:
     T x,y,z;
 
-    /// Generator for getter and setter because
-    /// we really hate boiler plate!
-    ///
-    /// var -> T getVAR() and void setVAR(T)
+    /*
+    Generator for getter and setter because
+    we really hate boiler plate!
+    
+    var -> T getVAR() and void setVAR(T)
+    */
     mixin template GetterSetter(string var) {
         // Use mixin to construct function
         // names
@@ -111,15 +115,19 @@ private:
           .format(var.toUpper, var));
     }
 
-    // Easily generate our getX, setX etc.
-    // functions with a mixin template.
+    /*
+    Easily generate getX, setX etc.
+    functions with a mixin template.
+    */
     mixin GetterSetter!"x";
     mixin GetterSetter!"y";
     mixin GetterSetter!"z";
 
 public:
-    // We don't allow the dot function
-    // for anything but floating points
+    /*
+    We don't allow the dot function
+    for anything but floating points
+    */
     static if (isFloatingPoint!T) {
         T dot(Vector3!T rhs) {
             return x*rhs.x + y*rhs.y +
