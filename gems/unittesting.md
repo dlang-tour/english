@@ -96,11 +96,13 @@ void main()
       vec);
 }
 
-// Or just somewhere else.
-// Nothing is compiled in and just
-// ignored in normal mode. Run dub test
-// locally or compile with dmd -unittest
-// to actually test your modules.
+/*
+Or just somewhere else.
+Nothing is compiled in and just
+ignored in normal mode. Run dub test
+locally or compile with dmd -unittest
+to actually test your modules.
+*/
 unittest {
     Vector3 vec;
     // .init a special built-in property that
