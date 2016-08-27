@@ -49,11 +49,11 @@ import std.stdio: write;
 import std.range: iota;
 
 /**
- * Iterates over $(D range) and applies
- * the function $(D Fnc) to each element x
- * and returns it in $(D result). Fiber yields
- * after each application.
- */
+Iterates over $(D range) and applies
+the function $(D Fnc) to each element x
+and returns it in $(D result). Fiber yields
+after each application.
+*/
 void fiberedRange(alias Fnc, R, T)(
     R range,
     ref T result)
