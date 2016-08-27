@@ -64,8 +64,10 @@ has been sent to the thread's mailbox.
 import std.stdio: writeln;
 import std.concurrency;
 
-/// A custom struct that is used as a message
-/// for a little thread army.
+/*
+A custom struct that is used as a message
+for a little thread army.
+*/
 struct NumberMessage {
     int number;
     this(int i) {
@@ -73,8 +75,10 @@ struct NumberMessage {
     }
 }
 
-/// Message is used as a stop sign for other
-/// threads
+/*
+Message is used as a stop sign for other
+threads
+*/
 struct CancelMessage {
 }
 
@@ -82,9 +86,11 @@ struct CancelMessage {
 struct CancelAckMessage {
 }
 
-/// Our thread worker main
-/// function which gets its parent id
-/// passed as argument.
+/*
+The thread worker main
+function which gets its parent id
+passed as argument.
+*/
 void worker(Tid parentId)
 {
     bool canceled = false;
