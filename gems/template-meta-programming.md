@@ -125,13 +125,13 @@ private:
 
 public:
     /*
-    We don't allow the dot function
-    for anything but floating points
+    The dot function is only available
+    for floating points types
     */
     static if (isFloatingPoint!T) {
         T dot(Vector3!T rhs) {
-            return x*rhs.x + y*rhs.y +
-                z*rhs.z;
+            return x * rhs.x + y * rhs.y +
+                z * rhs.z;
         }
     }
 }
