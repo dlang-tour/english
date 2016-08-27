@@ -55,13 +55,20 @@ functions.
 import std.stdio;
 
 interface Animal {
-    // virtual function
-    // which needs to be overridden!
+    /*
+    Virtual function
+    which needs to be overridden!
+    */
     void makeNoise();
 
-    // NVI pattern. Uses makeNoise internally
-    // to customize behaviour inheriting
-    // classes.
+    /*
+    NVI pattern. Uses makeNoise internally
+    to customize behaviour inheriting
+    classes.
+    
+    Params: 
+        n =  number of repetitions
+    */
     final void multipleNoise(int n) {
         for(int i = 0; i < n; ++i) {
             makeNoise();
