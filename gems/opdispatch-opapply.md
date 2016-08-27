@@ -70,14 +70,18 @@ must be stopped.
 ## {SourceCode}
 
 ```d
-// A Variant is something that might contain
-// any other type:
-// https://dlang.org/phobos/std_variant.html
+/*
+A Variant is something that might contain
+any other type:
+https://dlang.org/phobos/std_variant.html
+*/
+
 import std.variant: Variant;
 
-/* Type that can be filled with opDispatch
-   with any number of members. Like
-   JavaScript's var.
+/*
+Type that can be filled with opDispatch
+with any number of members. Like
+JavaScript's var.
 */
 struct var {
     private Variant[string] values;
