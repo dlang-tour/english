@@ -6,7 +6,7 @@ new constructs in one line:
 
     alias string = immutable(char)[];
 
-The term `string` is defined by an `alias` expression which defines it
+The term `string` is defined by an `alias` statement which defines it
 as a slice of `immutable(char)`'s. That is, once a `string` has been constructed
 its content will never change again. And actually this is the second
 introduction: welcome UTF-8 `string`!
@@ -32,7 +32,7 @@ units](http://unicode.org/glossary/#code_unit). All array operations can be
 used with it but they will work on code unit level, not on character level. At
 the same time standard library algorithms will interpret `string`s as sequences
 of [code points](http://unicode.org/glossary/#code_point) and there is also an
-option to treat the them as sequence of
+option to treat them as sequence of
 [graphemes](http://unicode.org/glossary/#grapheme) by explicit usage of
 [`std.uni.byGrapheme`](https://dlang.org/library/std/uni/by_grapheme.html).
 
@@ -48,7 +48,7 @@ This small example illustrates the difference in interpretation:
     import std.uni : byGrapheme;
     writeln(s.byGrapheme.walkLength); // 1
 
-Here actual array length of `s` is 3 because it contains one 3 code units -
+Here actual array length of `s` is 3 because it contains 3 code units -
 `0x41`, `0x03` and `0x08`. Of those latter two define single code point
 (combining diacritics character) and
 [`walkLength`](https://dlang.org/library/std/range/primitives/walk_length.html)
@@ -65,14 +65,16 @@ functionality is provided by
 primitives available in [`std.utf`](https://dlang.org/library/std/utf.html).
 
 To create multi-line strings use the `string str = q{ ... }` syntax.
-Raw strings that don't require laborious escaping, can be declared using
-either backticks (`` ` ... ` ``)
-or the r(aw)-prefix (`r" ... "`).
 
     string multiline = q{ This
         may be a
         long document
     };
+
+It is also possible to use raw strings to minimize amount of laborious escaping
+of reserved symbols. Raw strings can be declared using either backticks (`` `
+... ` ``) or the r(aw)-prefix (`r" ... "`).
+
     string raw  =  `raw "string"`; // raw "string"
     string raw2 = r"raw "string""; // raw "string"
 
