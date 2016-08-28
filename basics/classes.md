@@ -51,8 +51,10 @@ use the special keyword `super`.
 ```d
 import std.stdio;
 
-// Fancy type which can be used for
-// anything...
+/*
+Fancy type which can be used for
+anything...
+*/
 class Any {
     // protected is just seen by inheriting
     // classes
