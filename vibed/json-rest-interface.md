@@ -95,8 +95,10 @@ interface IRest
     @path("/api/v1/chapters")
     Chapter[] getChapters();
 
-    /// Post data as:
-    ///   { "title": "D Language" }
+    /*
+    Post data as:
+        { "title": "D Language" }
+    */
     @path("/api/v1/add-chapter")
     @method(HTTPMethod.POST)
     int addChapter(string title);
