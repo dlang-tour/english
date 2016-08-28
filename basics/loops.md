@@ -59,7 +59,7 @@ The keyword `continue` starts with the next loop iteration.
 import std.stdio;
 
 /*
-Computes the average of an array.
+Computes the average of the elements of an array.
 */
 double average(int[] array) {
     // The property .empty for arrays isn't
