@@ -72,7 +72,7 @@ which will throw catchable `Exceptions`.
 ```d
 import std.stdio: writeln;
 
-/*
+/**
 Simplified Date type
 Use std.datetime instead
 */
@@ -95,7 +95,7 @@ struct Date {
         assert(day >= 1 && day <= 31);
     }
 
-    /*
+    /**
     Serializes Date object from a
     YYYY-MM-DD string.
     
@@ -119,7 +119,7 @@ struct Date {
             &this.day);
     }
 
-    /*
+    /**
     Serializes Date object to YYYY-MM-DD
 
     Returns: String representation of the Date
