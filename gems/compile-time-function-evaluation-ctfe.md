@@ -52,7 +52,7 @@ with every release of the compiler.
 ```d
 import std.stdio: writeln;
 
-/*
+/**
 Calculate the square root of a number
 using Newton's approximation scheme.
 
