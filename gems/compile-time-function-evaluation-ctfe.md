@@ -52,8 +52,15 @@ with every release of the compiler.
 ```d
 import std.stdio: writeln;
 
-/* Returns: square root of x using
- Newton's approximation scheme. */
+/**
+Calculate the square root of a number
+using Newton's approximation scheme.
+
+Params:
+    x = number to be squared
+    
+Returns: square root of x 
+*/
 auto sqrt(T)(T x) {
     // our epsilon when to stop the
     // approximation because we think the change
