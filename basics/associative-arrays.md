@@ -16,8 +16,8 @@ To test whether a key is located in the associative array, the
     if ("key1" in arr)
         writeln("Yes");
 
-The `in` expression returns a pointer to the value
-which is not `null` when found. Thus existence check
+The `in` expression returns a pointer to the value if it
+can be found or a `null` pointer otherwise. Thus existence check
 and writes can be conveniently combined:
 
     if (auto val = "key1" in arr)
