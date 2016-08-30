@@ -47,7 +47,7 @@ import std.stdio;
 
 struct FibonacciRange
 {
-    @property empty() const
+    bool empty() const @property 
     {
         // So when does the Fibonacci sequence
         // end?!
@@ -57,7 +57,7 @@ struct FibonacciRange
     {
     }
 
-    int front()
+    int front() @property
     {
     }
 }
