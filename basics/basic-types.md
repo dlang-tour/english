@@ -64,6 +64,8 @@ In D indexes have usually the alias type `size_t` as it is a type that
 is large enough to represent an offset into all addressible memory - that is
 `uint` for 32-bit and `ulong` for 64-bit architectures.
 
+### Asserts
+
 `assert` is compiler built-in which verifies conditions in debug mode and aborts
 with an `AssertionError` if it fails.
 
