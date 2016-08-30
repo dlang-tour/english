@@ -29,7 +29,7 @@ the `to` method from `std.conv`:
 
 This means that a plain `string` is defined as an array of 8-bit Unicode [code
 units](http://unicode.org/glossary/#code_unit). All array operations can be
-used with it, but they will work on code unit level, not on character level. At
+used on strings, but they will work on code unit level, not on character level. At
 the same time standard library algorithms will interpret `string`s as sequences
 of [code points](http://unicode.org/glossary/#code_point) and there is also an
 option to treat them as sequence of
