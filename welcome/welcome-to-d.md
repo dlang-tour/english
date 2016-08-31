@@ -20,13 +20,13 @@ for many diverse languages and has a large number of
 - _high level_ constructs for great modeling power
 - _high performance_, compiled language
 - static typing
-- evolution of C++ (without the mistakes)
 - direct interface to the operating system API's and hardware
 - blazingly fast compile-times
 - allow memory-safe programming (SafeD)
 - _maintainable_, _easy to understand_ code
 - short learning curve (C-like syntax, similar to Java and others)
 - compatible with C application binary interface
+- limited compatibility with C++ application binary interface
 - multi-paradigm (imperative, structured, object oriented, generic, functional programming purity, and even assembly)
 - built-in error prevention (contracts, unittests)
 
