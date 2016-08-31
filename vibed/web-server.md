@@ -55,16 +55,17 @@ import vibe.d;
 class WebService
 {
     /*
-    session variable which will be available
-    for the current client's session
-    in other requests.
+    Using session variables such as this one, information
+    associated with individual users can be persisted
+    throughout all requests for the duration of
+    each user's session.
     */
     private SessionVar!(string, "username")
         username_;
 
     /*
-    Because of the function name the path
-    will be induced to /.
+    By default the requests to the root path ("/")
+    are routed to the index method
     */
     void index(HTTPServerResponse res)
     {
@@ -84,8 +85,9 @@ class WebService
     }
 
     /*
-    Display the current client's
-    session username.
+    The @path attribute can be use to customize
+    url routing. In this case requests to "/name"
+    will be mapped to the method below.
     */
     @path("/name")
     void getName(HTTPServerRequest req,
