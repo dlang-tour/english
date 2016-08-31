@@ -27,9 +27,9 @@ the `to` method from `std.conv`:
     dstring myDstring = to!dstring(myString);
     string myString   = to!string(myDstring);
 
-This means that plain `string` is defined as an array of 8-bit Unicode [code
+This means that a plain `string` is defined as an array of 8-bit Unicode [code
 units](http://unicode.org/glossary/#code_unit). All array operations can be
-used with it but they will work on code unit level, not on character level. At
+used on strings, but they will work on code unit level, not on character level. At
 the same time standard library algorithms will interpret `string`s as sequences
 of [code points](http://unicode.org/glossary/#code_point) and there is also an
 option to treat them as sequence of
@@ -48,7 +48,7 @@ This small example illustrates the difference in interpretation:
     import std.uni : byGrapheme;
     writeln(s.byGrapheme.walkLength); // 1
 
-Here actual array length of `s` is 3 because it contains 3 code units -
+Here the actual array length of `s` is 3 because it contains 3 code units:
 `0x41`, `0x03` and `0x08`. Of those latter two define single code point
 (combining diacritics character) and
 [`walkLength`](https://dlang.org/library/std/range/primitives/walk_length.html)
@@ -57,7 +57,7 @@ points total. Finally, `byGrapheme` performs rather expensive calculations
 to recognize that these two code points combine into single displayed
 character.
 
-Correct processing of Unicode can be very complicated but for most time D
+Correct processing of Unicode can be very complicated, but for most of the time D
 developers can simply consider `string` variables as magical byte arrays and
 rely on standard library algorithms to do the right job. Most of Unicode
 functionality is provided by
