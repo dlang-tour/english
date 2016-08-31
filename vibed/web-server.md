@@ -55,10 +55,10 @@ import vibe.d;
 class WebService
 {
     /*
-    Using session variables such as this one, information
-    associated with individual users can be persisted
-    throughout all requests for the duration of
-    each user's session.
+    Using session variables such as this one,
+    information associated with individual users
+    can be persisted throughout all requests
+    for the duration of each user's session.
     */
     private SessionVar!(string, "username")
         username_;
