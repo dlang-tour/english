@@ -64,8 +64,8 @@ class WebService
         username_;
 
     /*
-    By default the requests to the root path ("/")
-    are routed to the index method
+    By default requests to the root path ("/")
+    are routed to the index method.
     */
     void index(HTTPServerResponse res)
     {
@@ -86,8 +86,8 @@ class WebService
 
     /*
     The @path attribute can be use to customize
-    url routing. In this case requests to "/name"
-    will be mapped to the method below.
+    url routing. Here requests to "/name"
+    will be mapped to the getName method.
     */
     @path("/name")
     void getName(HTTPServerRequest req,
