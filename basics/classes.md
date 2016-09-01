@@ -19,7 +19,7 @@ copied by value.
 The garbage collector will make sure the memory is freed
 when no references to an object exist anymore.
 
-#### Inheritance
+### Inheritance
 
 If a member function of a base class is overridden, the keyword
 `override` must be used to indicate that. This prevents unintentional
@@ -31,13 +31,15 @@ overriding of functions.
 
 In D, classes can only inherit from one class.
 
-#### Final and abstract member functions
+### Final and abstract member functions
 
-A function can be marked `final` in a base class to disallow overriding
-it. A function can be declared as `abstract` to force base classes to override
-it. A whole class can be declared as `abstract` to make sure
-that it isn't instantiated. To access the base class,
-use the special keyword `super`.
+- A function can be marked `final` in a base class to disallow overriding
+it
+- A function can be declared as `abstract` to force base classes to override
+it
+- A whole class can be declared as `abstract` to make sure
+that it isn't instantiated
+- For access to the base class cosntructor, the special function `super(..)` is provided
 
 ### In-depth
 
