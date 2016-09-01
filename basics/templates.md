@@ -17,15 +17,18 @@ the function using the `!` operator:
     add!float(5.0f, 10.0f);
     add!Animal(dog, cat); // won't compile; Animal doesn't implement +
 
+### Automatic template inference
+
 If no template parameter is given for a templated function the compiler
 tries to deduce the type using the input parameters with which the function
 is called:
 
     int a = 5; int b = 10;
     add(a, b); // T is to deduced to `int`
-    float c = 5.0f;
-    add(a, c); // ERROR: conflict because compiler
-               // doesn't know what T should be
+    float c = 5.0;
+    add(a, c); // T is deduced to `float`
+
+### Template properties
 
 A function can have any number of template parameters which
 are specified during instantiation using the `func!(T1, T2 ..)`
