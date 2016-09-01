@@ -26,8 +26,10 @@ function in a base class.
 The number of `interface`s a `class` can implement isn't limited,
 but it can inherit from only *one* base class.
 
-The [**NVI (non virtual interface)**](https://en.wikipedia.org/wiki/Non-virtual_interface_pattern)
-pattern prevents the violation of a common execution pattern by allowing _non virtual_ methods
+### NVI (non virtual interface) pattern
+
+The [NVI pattern](https://en.wikipedia.org/wiki/Non-virtual_interface_pattern)
+prevents the violation of a common execution pattern by allowing _non virtual_ methods
 for a common interface.
 D easily enables the NVI pattern by
 allowing the definition of `final` functions in an `interface`
