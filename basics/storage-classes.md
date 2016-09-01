@@ -27,10 +27,10 @@ objects can be cached perfectly.
 
 `const` objects can't be modified either. This
 restriction is only valid for the current scope. A `const`
-pointer can be created from either a *mutable* or
+pointer can be created from either a *mutable* or an
 `immutable` object. This means that the object
-is `const` for your current scope, but someone
-else might modify it in the future. Only with an `immutable`
+is `const` for the current scope, but someone
+else might modify it in the future. Only with an `immutable` type qualifier
 can you be certain that an object's value will never
 change. It is common for APIs to accept `const` objects
 to ensure they don't modify the input.
@@ -41,7 +41,7 @@ to ensure they don't modify the input.
     const int* pb = &b;
     *pa = 7; // disallowed
 
-Both `immutable` and `const` are _transitive_ which ensures that once
+Both `immutable` and `const` are _transitive_ storage classes, which ensures that once
 `const` is applied to a type, it applies recursively to every sub-component of that type.
 
 ### In-depth
