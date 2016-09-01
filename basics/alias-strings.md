@@ -7,7 +7,7 @@ new constructs in one line:
     alias string = immutable(char)[];
 
 The term `string` is defined by an `alias` statement which defines it
-as a slice of `immutable(char)`'s. That is, once a `string` has been constructed
+as a slice of `immutable(char)`'s. This means, once a `string` has been constructed
 its content will never change again. And actually this is the second
 introduction: welcome UTF-8 `string`!
 
@@ -16,7 +16,7 @@ different threads. As `string` is a slice, parts can be taken out of it without
 allocating memory. The standard function `std.algorithm.splitter`
 for example splits a string by newline without any memory allocations.
 
-Beside the UTF-8 `string` there are two more types:
+Besides the UTF-8 `string` there are two more types:
 
     alias wstring = immutable(wchar)[]; // UTF-16
     alias dstring = immutable(dchar)[]; // UTF-32
@@ -26,6 +26,8 @@ the `to` method from `std.conv`:
 
     dstring myDstring = to!dstring(myString);
     string myString   = to!string(myDstring);
+
+### Unicode strings
 
 This means that a plain `string` is defined as an array of 8-bit Unicode [code
 units](http://unicode.org/glossary/#code_unit). All array operations can be
@@ -64,12 +66,16 @@ functionality is provided by
 [`std.uni`](https://dlang.org/library/std/uni.html) module with some more basic
 primitives available in [`std.utf`](https://dlang.org/library/std/utf.html).
 
+### Multi-line strings
+
 To create multi-line strings use the `string str = q{ ... }` syntax.
 
     string multiline = q{ This
         may be a
         long document
     };
+
+### Raw strings
 
 It is also possible to use raw strings to minimize amount of laborious escaping
 of reserved symbols. Raw strings can be declared using either backticks (`` `
@@ -80,6 +86,7 @@ of reserved symbols. Raw strings can be declared using either backticks (`` `
 
 ### In-depth
 
+- [Unicode gem](gems/unicode)
 - [Characters in _Programming in D_](http://ddili.org/ders/d.en/characters.html)
 - [Strings in _Programming in D_](http://ddili.org/ders/d.en/strings.html)
 - [std.utf](http://dlang.org/phobos/std_utf.html) - UTF en-/decoding algorithms
