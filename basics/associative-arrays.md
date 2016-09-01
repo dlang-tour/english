@@ -30,7 +30,7 @@ with a default value, `get(key, defaultValue)` can be used.
 AA's have the `.length` property like arrays and provide
 a `.remove(val)` member to remove entries by their key.
 It is left as an exercise to the reader to explore
-the special `.byKeys` and `.byValues` ranges.
+the special `.byKey` and `.byValue` ranges.
 
 ### In-depth
 
