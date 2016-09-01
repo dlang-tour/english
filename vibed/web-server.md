@@ -85,7 +85,7 @@ class WebService
     }
 
     /*
-    The @path attribute can be use to customize
+    The @path attribute can be used to customize
     url routing. Here requests to "/name"
     will be mapped to the getName method.
     */
