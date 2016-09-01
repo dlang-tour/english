@@ -26,9 +26,9 @@ in other languages. For example a `delegate`
 that points to a member function of a class also includes
 the pointer to the class object. A `delegate` created by
 a nested function includes a link to the enclosing context
-instead. However, D compiler may automatically make a copy of
+instead. However, the D compiler may automatically make a copy of
 the context on the heap if it is necessary for memory safety -
-in that case delegate will link the that heap area.
+then a delegate will link to this heap area.
 
     void foo() {
         void local() {
