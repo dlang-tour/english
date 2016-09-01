@@ -28,9 +28,9 @@ UTF-8 characters, `wchar` is used in UTF-16 strings and `dchar`
 in UTF-32 strings.
 
 A conversion between variables of different types is only
-allowed by the compiler if no precision is lost. A conversion
-between floating point types (e.g `double` to `float`)
-is allowed though.
+allowed by the compiler if no precision is lost. However
+a conversion between floating point types
+(e.g `double` to `float`) is allowed.
 
 A conversion to another type may be forced by using the
 `cast(TYPE) myVar` expression. It needs to be used with great care though,
