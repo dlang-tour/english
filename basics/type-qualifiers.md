@@ -6,39 +6,46 @@ the compiler to prevent bugs early and enforce restrictions
 at compile time. Good type-safety provides the support one needs
 to make large programs safer and more maintainable.
 
+There are several type qualifiers in D but most commonly used ones are
+`const` and `immutable`.
+
 ### `immutable`
 
-In addition to a static type system, D provides
-type qualifiers that enforce additional constraints on certain objects.
-For example, an`immutable` object can only
-be initialized once and then isn't
-allowed to change.
+In addition to a static type system, D provides type qualifiers (sometimes also
+called "type constructors") that enforce additional constraints on certain
+objects. For example an `immutable` object can only be initialized once and
+after that isn't allowed to change.
 
     immutable int err = 5;
     // or: immutable err = 5 and int is inferred.
     err = 5; // won't compile
 
-`immutable` objects can thus be safely shared among different threads
-because they never change by design. This implies that `immutable`
-objects can be cached perfectly.
+`immutable` objects can thus be safely shared among different threads with no
+synchronization because they never change by definition. This also implies that
+`immutable` objects can be cached perfectly.
 
 ### `const`
 
-`const` objects can't be modified either. This
-restriction is only valid for the current scope. A `const`
-pointer can be created from either a *mutable* or an
-`immutable` object. This means that the object
-is a `const` reference for the current scope, but someone
-else might modify it in the future. Only with an `immutable` type qualifier
-can you be certain that an object's value will never
-change. It is common for APIs to accept `const` objects
-to ensure they don't modify the input.
+`const` objects can't be modified, too. This restriction is just valid for the
+current scope. A `const` pointer can be created from either a *mutable* or
+`immutable` object. This means that the object is `const` for your current
+scope, but someone else might modify it from a different context. It is common
+for APIs to accept `const` arguments to ensure they don't modify the input as
+that allows same function to process both mutable and immutable data.
 
-    immutable a = 10;
-    int b = 5;
-    const int* pa = &a;
-    const int* pb = &b;
-    *pa = 7; // disallowed
+    void foo ( const char[] s )
+    {
+        // if not commented out, next line will
+        // result in error (can't modify const):
+        // s[0] = 'x';
+
+        import std.stdio;
+        writeln(s);
+    }
+
+    // thanks to `const`, both calls will compile:
+    foo("abcd");
+    foo("abcd".dup);
 
 Both `immutable` and `const` are _transitive_ type qualifiers, which ensures that once
 `const` is applied to a type, it applies recursively to every sub-component of that type.
