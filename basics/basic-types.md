@@ -48,11 +48,11 @@ All data types have a property `.init` to which they are initialized.
 For all integers this is `0` and for floating points it is `nan` (*not a number*).
 
 Integral and floating point types have a `.max` property for the highest value
-they can represent. Integral types also have `.min` property for lowest value
-they can represent but floating point ones instead have `.min_normal` which
-is defined to smallest representable normalized value that's not 0.
+they can represent. Integral types also have a `.min` property for lowest value
+they can represent whereas floating point types have a `.min_normal` property
+which is defined to smallest representable normalized value that's not 0.
 
-Floating point values also have properties `.nan` (NaN-value), `.infinity`
+Floating point types also have properties `.nan` (NaN-value), `.infinity`
 (infinity value), `.dig` (number of decimal digits of precisions), `.mant_dig`
 (number of bits in mantissa) and more.
 
