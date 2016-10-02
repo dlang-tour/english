@@ -16,7 +16,7 @@ as parameters to function calls.
     auto p = Person(30, 180, 3.1415);
     auto t = p; // copy
 
-When a new object of a `struct` type is created its members can be initialized
+When a new object of a `struct` type is created, its members can be initialized
 in the order they are defined in the `struct`. A custom constructor can be defined through
 a `this(...)` member function. If needed to avoid name conflicts, the current instance
 can be explicitly accessed with `this`:
@@ -32,10 +32,10 @@ can be explicitly accessed with `this`:
     Person p(30, 180); // initialization
     p = Person(30, 180);  // assignment to new instance
 
-A `struct` might contain any number of member functions. Those
-are per default `public` and accessible from the outside. They might
-as well be `private` and thus only be callable by other
-member functions of the same `struct` or other code in the same
+A `struct` might contain any number of member functions. These
+are by default `public` and accessible from the outside. They could
+also be `private` and thus only be callable by other
+member functions of the same `struct`, or other code in the same
 module.
 
     struct Person {
@@ -52,18 +52,18 @@ module.
 If a member function is declared with `const`, it won't be allowed
 to modify any of its members. This is enforced by the compiler.
 Making a member function `const` makes it callable on any `const`
-or `immutable` object, but also guarantee callers that
+or `immutable` object, but also guarantees to callers that
 the member function will never change the state of the object.
 
 ### Static member functions
 
 If a member function is declared as `static`, it will be callable
-without an instantiated object e.g. `Person.myStatic()` but
-isn't allowed to access any non-`static` members.  A `static`
-member function can be used you to work to give access to all instances of a
+without an instantiated object (e.g. `Person.myStatic()`) but
+won't be allowed to access any non-`static` members.  A `static`
+member function can be used to give access to all instances of a
 `struct`, rather than the current instance, or when the
 member function must be usable by callers that don't have an instance
-available.  For example, Singleton's (only one instance is allowed)
+available.  For example, Singletons (where only one instance is allowed)
 use `static`.
 
 ### Inheritance
@@ -71,7 +71,7 @@ use `static`.
 Note that a `struct` can't inherit from another `struct`.
 Hierachies of types can only be built using classes,
 which we will see in a future section.
-However with `alias this` or `mixins` one can easily achieve
+However, with `alias this` or `mixins` one can easily achieve
 polymorphic inheritance.
 
 ### In-depth
@@ -81,7 +81,7 @@ polymorphic inheritance.
 
 ### Exercise
 
-Given the `struct Vector3` implement the following functions and make
+Given the `struct Vector3`, implement the following functions and make
 the example application run successfully:
 
 * `length()` - returns the vector's length

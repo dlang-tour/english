@@ -17,8 +17,8 @@ allocated memory is returned:
     auto arr = new int[5];
     assert(arr.length == 5); // memory referenced in arr.ptr
 
-Using the `[start .. end]` syntax a sub-slice, which contains all elements
-from `start` to the element _before_ `end`, is constructed from an existing
+Using the `[start .. end]` syntax, a sub-slice (which contains all elements
+from `start` to the element _before_ `end`) is constructed from an existing
 slice:
 
     auto newArr = arr[1 .. 4]; // index 4 ist NOT included
@@ -29,12 +29,12 @@ Slices generate a new view on existing memory. They *don't* create
 a new copy. If no slice holds a reference to that memory anymore - or a *sliced*
 part of it - it will be freed by the garbage collector.
 
-Using slices it's possible to write very efficient code for e.g. parsers
-that just operate on one memory block and just slice the parts they really need
-to work on - no need allocating new memory blocks.
+Using slices, it's possible to write very efficient code for things (like parsers, for example)
+that only operate on one memory block, and slice only the parts they really need
+to work on. In this way, there's no need to allocate new memory blocks.
 
-As seen in the previous section the `[$]` expression is a shorthand form for
-`arr.length`. Hence `arr[$]` indexes the element one past the slice's end and
+As seen in the previous section, the `[$]` expression is a shorthand form for
+`arr.length`. Hence `arr[$]` indexes the element one past the slice's end, and
 thus would generate a `RangeError` (if bounds-checking hasn't been disabled).
 
 ### In-depth

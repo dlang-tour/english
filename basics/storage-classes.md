@@ -3,15 +3,15 @@
 D is a statically typed language: once a variable has been declared,
 its type can't be changed from that point onwards. This allows
 the compiler to prevent bugs early and enforce restrictions
-at compile time.  Good type-safety gives the support one needs
+at compile time.  Good type-safety provides the support one needs
 to make large programs safer and more maintainable.
 
 ### `immutable`
 
 In addition to a static type system, D provides
 storage classes that enforce additional
-constraints on certain objects. For example an
-`immutable` object can just
+constraints on certain objects. For example, an
+`immutable` object can only
 be initialized once and then isn't
 allowed to change.
 
@@ -19,19 +19,19 @@ allowed to change.
     // or: immutable err = 5 and int is inferred.
     err = 5; // won't compile
 
-`immutable` objects can thus safely be shared among different threads
+`immutable` objects can thus be safely shared among different threads
 because they never change by design. This implies that `immutable`
 objects can be cached perfectly.
 
 ### `const`
 
-`const` objects can't be modified, too. This
-restriction is just valid for the current scope. A `const`
+`const` objects can't be modified either. This
+restriction is only valid for the current scope. A `const`
 pointer can be created from either a *mutable* or
 `immutable` object. This means that the object
 is `const` for your current scope, but someone
-else might modify it in future. Just with an `immutable`
-you will be sure that an object's value will never
+else might modify it in the future. Only with an `immutable`
+can you be certain that an object's value will never
 change. It is common for APIs to accept `const` objects
 to ensure they don't modify the input.
 

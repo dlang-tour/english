@@ -1,8 +1,8 @@
 # Memory
 
 D is a system programming language and thus allows you to manually
-manage. However manual memory management is very error-prone and thus
-D uses a *garbage collector* per default to free unused memory.
+manage memory. However, manual memory management is very error-prone and thus
+D uses a *garbage collector* by default to free unused memory.
 
 D provides pointer types `T*` like in C:
 
@@ -24,7 +24,7 @@ D has three different security levels for functions: `@system`, `@trusted`, and 
 Unless specified otherwise, the default is `@system`.
 `@safe` is a subset of D that prevents memory bugs by design.
 `@safe` code can only call other `@safe` or `@trusted` functions.
-Moreover explicit pointer arithmetic is forbidden in `@safe` Code:
+Moreover, explicit pointer arithmetic is forbidden in `@safe` code:
 
     void main() @safe {
         int a = 5;
@@ -32,8 +32,7 @@ Moreover explicit pointer arithmetic is forbidden in `@safe` Code:
         int* c = p + 5; // error
     }
 
-`@trusted` functions are manually verified functions and allow to bridge the
-world between SafeD and the underlying dirty low-level world.
+`@trusted` functions are manually verified functions that allow a bridge between SafeD and the underlying dirty low-level world.
 
 ### In-depth
 
