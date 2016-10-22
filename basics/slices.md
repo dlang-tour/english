@@ -11,21 +11,31 @@ length of the slice:
     T* ptr;
     size_t length; // unsigned 32 bit on 32bit, unsigned 64 bit on 64bit
 
+### Getting a slice via new allocation
+
 If a new dynamic array is created, a slice to this freshly
 allocated memory is returned:
 
     auto arr = new int[5];
     assert(arr.length == 5); // memory referenced in arr.ptr
 
-Using the `[start .. end]` syntax a sub-slice, which contains all elements
-from `start` to the element _before_ `end`, is constructed from an existing
-slice:
+Actual allocated memory in this case is completely managed by garbage
+collector, returned slice acts as a "view" on underlying elements.
+
+### Getting a slice to existing memory
+
+Using a slicing operator one can also get a slice pointing to some already
+existing memory. Slicing operator can be applied to another slice, static
+arrays, structs/classes implementing `opSlice` and few other entities.
+
+In an example expression `origin[start .. end]` slicing operator is used to get
+a slice of all elements of `origin` from `start` to the element _before_ `end`:
 
     auto newArr = arr[1 .. 4]; // index 4 ist NOT included
     assert(newArr.length == 3);
     newArr[0] = 10; // changes newArr[0] aka arr[1]
 
-Slices generate a new view on existing memory. They *don't* create
+Such slices generate a new view on existing memory. They *don't* create
 a new copy. If no slice holds a reference to that memory anymore - or a *sliced*
 part of it - it will be freed by the garbage collector.
 
