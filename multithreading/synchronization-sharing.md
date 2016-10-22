@@ -61,10 +61,12 @@ helper:
 import std.concurrency;
 import core.atomic;
 
-/// Queue that can be used safely among
-/// different threads. All access to an
-/// instance is automatically locked thanks to
-/// synchronized keyword.
+/*
+Queue that can be used safely among
+different threads. All access to an
+instance is automatically locked thanks to
+synchronized keyword.
+*/
 synchronized class SafeQueue(T)
 {
     // Note: must be private in synchronized
@@ -87,11 +89,13 @@ synchronized class SafeQueue(T)
     }
 }
 
-/// Safely print messages independent of
-/// number of concurrent threads.
-/// Note that variadic parameters are used
-/// for args! That is args might be 0 .. N
-/// parameters.
+/*
+Safely print messages independent of
+number of concurrent threads.
+Note that variadic parameters are used
+for args! That is args might be 0 .. N
+parameters.
+*/
 void safePrint(T...)(T args)
 {
     // Just executed by one concurrently
