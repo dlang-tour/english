@@ -33,7 +33,7 @@ as such **all** strings in D are Unicode strings, whereas strings
 in languages such as C and C++ are just arrays of bytes.
 
 In D, `string`, `wstring`, and `dstring` are UTF-8, UTF-16, and
-UTF-32 encoded strings respectfully. Their character types are
+UTF-32 encoded strings respectively. Their character types are
 `char`, `wchar`, and `dchar`.
 
 According to the spec, it is an error to store non-Unicode
