@@ -13,11 +13,11 @@ import certain symbols of a module:
 
     import std.stdio: writeln, writefln;
 
-Selective imports can be used to improve the readability by making
-it obvious where a symbol comes from and also as a way to
+Selective imports can be used to improve readability by making
+it obvious where a symbol comes from, and also as a way to
 prevent clashing of symbols with the same name from different modules.
 
-An `import` statement does not need to appear at the top a source file.
+An `import` statement does not need to appear at the top of a source file.
 It can also be used locally within functions or any other scope.
 
 ## {SourceCode}
