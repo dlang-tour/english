@@ -1,4 +1,4 @@
-# Read in a your language
+# Read in your language
 
 The Dlang Tour is available in multiple languages:
 
@@ -15,6 +15,6 @@ For English, just click on "Next" or use the right arrow key.
 
 ## Your language isn't listed here?
 
-You can find in-work [translations here](https://github.com/dlang-tour),
+You can find translations in the works [here](https://github.com/dlang-tour),
 or ping us on [GitHub](https://github.com/stonemaster/dlang-tour/issues/new) to start
 a new translation repository.
