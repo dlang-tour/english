@@ -11,7 +11,7 @@ and its modules are referenced through `import std.MODULE`.
 The `import` statement can also be used to selectively
 import certain symbols of a module:
 
-    import std.stdio: writeln, writefln;
+    import std.stdio : writeln, writefln;
 
 Selective imports can be used to improve readability by making
 it obvious where a symbol comes from, and also as a way to
