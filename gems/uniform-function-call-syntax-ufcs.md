@@ -53,13 +53,13 @@ void main()
 {
     "Hello, %s".writefln("World");
 
-    iota(1,11) // returns numbers from 1 to 10
+    10.iota // returns numbers from 0 to 9
       // filter for even numbers
       .filter!(a => a % 2 == 0)
       .writeln(); // writes them to stdout
 
     // Traditional style:
     writeln(filter!(a => a % 2 == 0)
-    			   (iota(1,10)));
+    			   (iota(10)));
 }
 ```
