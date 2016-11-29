@@ -42,7 +42,7 @@ finally
 }
 ```
 
-Remember that the scope guard is usually a better solution to the `try-finally`
+Remember that the [scope guard](https://dlang.org/spec/statement.html#ScopeGuardStatement) is usually a better solution to the `try-finally`
 pattern.
 
 ### Custom exceptions
