@@ -11,7 +11,7 @@ Classes in D are generally instantiated on the heap using `new`:
 
     auto bar = new Bar;
 
-Class objects are always references types and unlike `struct` aren't
+Class objects are always reference types and unlike `struct` aren't
 copied by value.
 
     Bar bar = foo; // bar points to foo
