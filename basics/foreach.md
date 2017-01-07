@@ -10,13 +10,18 @@ less error-prone and better readable iterations.
 Given an array `arr` of type `int[]` it is possible to
 iterate through the elements using a `foreach` loop:
 
+    foreach (int e; arr) {
+        writeln(e);
+    }
+
+The first field in the `foreach` definition is the variable
+name used in the loop iteration. Its type is induced automatically:
+
     foreach (e; arr) {
         // typeof(e) is int
         writeln(e);
     }
 
-The first field in the `foreach` definition is the variable
-name used in the loop iteration. Its type is induced automatically.
 The second field must be an array - or a special iterable
 object called a **range** which will be introduced in the next section.
 
