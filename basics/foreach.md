@@ -58,10 +58,6 @@ For arrays, it's also possible to access a separate index variable.
     }
     // 0:4 1:5 2:6
 
-For [ranges](basics/ranges) which will be introduced in the next section
-`enumerate` from [`std.range`](https://dlang.org/phobos/std_range.html) can
-be used for a similar behavior.
-
 ### Reverse iteration with `foreach_reverse`
 
 A collection can be iterated in reverse order with
