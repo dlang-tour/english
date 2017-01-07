@@ -21,7 +21,7 @@ is compiled for 32-bit or 64-bit systems.
 |---------|--------------------------------------------------
 |`float`  | 32-bit
 |`double` | 64-bit
-|`real`   | depending on platform, 80-bit on Intel x86 32-bit
+|`real`   | >= 64-bit (depending on platform - generally 64-bit, but 80-bit on Intel x86 32-bit)
 
 The prefix `u` denotes *unsigned* types. `char` translates to
 UTF-8 characters, `wchar` is used in UTF-16 strings and `dchar`
