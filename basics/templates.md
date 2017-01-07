@@ -17,11 +17,13 @@ the function using the `!` operator:
     add!float(5.0f, 10.0f);
     add!Animal(dog, cat); // won't compile; Animal doesn't implement +
 
-### Automatic template inference
+### IFTI (Implicit Function Template Instantiation)
 
-If no template parameter is given for a templated function the compiler
-tries to deduce the type using the input parameters with which the function
-is called:
+Function templates have two parameter sets - the first is for
+compile-time arguments and the second is for run-time arguments.
+(Non-templated functions can accept only run-time arguments).
+If one ore more compile-time arguments are left unspecified when the function is called,
+the compiler tries to deduce them from the list of run-time arguments as the types of those arguments.
 
     int a = 5; int b = 10;
     add(a, b); // T is to deduced to `int`
