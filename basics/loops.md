@@ -33,9 +33,9 @@ evaluated for the first time.
 ### 4) `foreach`
 
 The [`foreach` loop](basics/foreach) which will be introduced in more details
-in the next section.
+in the next section:
 
-    for (el; arr) {
+    foreach (el; arr) {
         ...
     }
 
