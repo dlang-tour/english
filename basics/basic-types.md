@@ -28,7 +28,7 @@ UTF-8 characters, `wchar` is used in UTF-16 strings and `dchar`
 in UTF-32 strings.
 
 A conversion between variables of different types is only
-allowed by the compiler if no precision is lost. However
+allowed by the compiler if no precision is lost. However,
 a conversion between floating point types
 (e.g `double` to `float`) is allowed.
 
@@ -64,10 +64,11 @@ In D, indexes usually have the alias type `size_t`, as it is a type that
 is large enough to represent an offset into all addressible memory - this is
 `uint` for 32-bit and `ulong` for 64-bit architectures.
 
-### Asserts
+### Assert expression
 
-`assert` is a compiler built-in which verifies conditions in debug mode and aborts
+`assert` is an expression which verifies conditions in debug mode and aborts
 with an `AssertionError` if it fails.
+`assert(0)` is thus used to mark unreachable code.
 
 ### In-depth
 
@@ -84,6 +85,7 @@ with an `AssertionError` if it fails.
 - [Overview of all basic data types in D](https://dlang.org/spec/type.html)
 - [`auto` and `typeof` in _Programming in D_](http://ddili.org/ders/d.en/auto_and_typeof.html)
 - [Type properties](https://dlang.org/spec/property.html)
+- [Assert expression](https://dlang.org/spec/expression.html#AssertExpression)
 
 ## {SourceCode}
 
