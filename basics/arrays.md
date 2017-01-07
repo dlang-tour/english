@@ -1,8 +1,9 @@
 # Arrays
 
 There are two types of Arrays in D: **static** and **dynamic**.
-Access to arrays of any kind is always bounds checked -
-a failed range check yields a `RangeError` which aborts the application.
+Access to arrays of any kind is bounds-checked (except the compiler can prove
+that bound checks aren't necessary).
+A failed range check yields a `RangeError` which aborts the application.
 The brave can disable this safety feature with the
 compiler flag `-boundschecks=off`
 in order to squeeze the last cycles out of their binary.
