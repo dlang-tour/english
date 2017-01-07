@@ -39,7 +39,7 @@ it
 it
 - A whole class can be declared as `abstract` to make sure
 that it isn't instantiated
-- For access to the base class cosntructor, the special function `super(..)` is provided
+- `super(..)` can be used to explicitly call the base constructor
 
 ### In-depth
 
