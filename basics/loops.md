@@ -2,15 +2,7 @@
 
 D provides four loop constructs.
 
-### 1) Classical `for` loop
-
-The classical `for` loop known from C/C++ or Java
-with _initializer_, _loop condition_ and _loop statement_:
-
-    for (int i = 0; i < arr.length; ++i) {
-        ...
-
-### 2) `while`
+### 1) `while`
 
 `while`  loops execute the given code block
 while a certain condition is met:
@@ -19,7 +11,7 @@ while a certain condition is met:
         foo();
     }
 
-### 3) `do ... while`
+### 2) `do ... while`
 
 The `do .. while` loops execute the given code block
 while a certain condition is met, but in contrast to `while`
@@ -30,10 +22,22 @@ evaluated for the first time.
         foo();
     } while (condition);
 
-#### 4) `foreach`
+### 3) Classical `for` loop
 
-The [`foreach` loop](basics/foreach) which will be introduced in the
-next section.
+The classical `for` loop known from C/C++ or Java
+with _initializer_, _loop condition_ and _loop statement_:
+
+    for (int i = 0; i < arr.length; i++) {
+        ...
+
+### 4) `foreach`
+
+The [`foreach` loop](basics/foreach) which will be introduced in more details
+in the next section:
+
+    foreach (el; arr) {
+        ...
+    }
 
 #### Special keywords and labels
 
