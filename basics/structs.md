@@ -58,13 +58,12 @@ the member function will never change the state of the object.
 ### Static member functions
 
 If a member function is declared as `static`, it will be callable
-without an instantiated object (e.g. `Person.myStatic()`) but
-won't be allowed to access any non-`static` members.  A `static`
-member function can be used to give access to all instances of a
-`struct`, rather than the current instance, or when the
-member function must be usable by callers that don't have an instance
-available.  For example, Singletons (where only one instance is allowed)
-use `static`.
+without an instantiated object (e.g. `Person.myStatic()`) but it
+isn't allowed to access any non-`static` members.  It can be used if
+method doesn't need to access any of the object member fields but logically
+belongs to the same class. Also it can be used to provide some functionality
+without creating an explicit instance, for example, some Singleton
+design pattern implementations use `static`.
 
 ### Inheritance
 
