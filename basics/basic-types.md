@@ -7,21 +7,21 @@ precision. There is no difference
 between the size of an integer regardless whether the application
 is compiled for 32-bit or 64-bit systems.
 
-<table class="table table-hover">
-<tr><td width="250px"><code class="prettyprint">bool</code></td> <td>8-bit</td></tr>
-<tr><td><code class="prettyprint">byte, ubyte, char</code></td> <td>8-bit</td></tr>
-<tr><td><code class="prettyprint">short, ushort, wchar</code></td> <td>16-bit</td></tr>
-<tr><td><code class="prettyprint">int, uint, dchar</code></td> <td>32-bit</td></tr>
-<tr><td><code class="prettyprint">long, ulong</code></td> <td>64-bit</td></tr>
-</table>
+| type                          | size
+|-------------------------------|------------
+|`bool`                         | 8-bit
+|`bool`, `ubyte`, `char`        | 8-bit
+|`short`, `ushort`, `wchar`     | 16-bit
+|`int`, `uint`, `dchar`         | 32-bit
+|`long`, `ulong`                | 32-bit
 
 #### Floating point types:
 
-<table class="table table-hover">
-<tr><td width="250px"><code class="prettyprint">float</code></td> <td>32-bit</td></tr>
-<tr><td><code class="prettyprint">double</code></td> <td>64-bit</td></tr>
-<tr><td><code class="prettyprint">real</code></td> <td>depending on platform, 80-bit on Intel x86 32-bit</td></tr>
-</table>
+| type    | size
+|---------|--------------------------------------------------
+|`float`  | 32-bit
+|`double` | 64-bit
+|`real`   | >= 64-bit (generally 64-bit, but 80-bit on Intel x86 32-bit)
 
 The prefix `u` denotes *unsigned* types. `char` translates to
 UTF-8 characters, `wchar` is used in UTF-16 strings and `dchar`
