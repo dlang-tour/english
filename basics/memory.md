@@ -1,8 +1,8 @@
 # Memory
 
-D is a system programming language and thus allows you to manually
-manage memory. However, manual memory management is very error-prone and thus
-D uses a *garbage collector* by default to free unused memory.
+D is a system programming language and thus allows manual
+memory management. However, manual memory management is very error-prone
+and thus D uses a *garbage collector* by default to manage memory allocation.
 
 D provides pointer types `T*` like in C:
 
