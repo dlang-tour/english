@@ -1,17 +1,16 @@
-# Storage classes
+# Mutability
 
 D is a statically typed language: once a variable has been declared,
 its type can't be changed from that point onwards. This allows
 the compiler to prevent bugs early and enforce restrictions
-at compile time.  Good type-safety provides the support one needs
+at compile time. Good type-safety provides the support one needs
 to make large programs safer and more maintainable.
 
 ### `immutable`
 
 In addition to a static type system, D provides
-storage classes that enforce additional
-constraints on certain objects. For example, an
-`immutable` object can only
+type qualifiers that enforce additional constraints on certain objects.
+For example, an`immutable` object can only
 be initialized once and then isn't
 allowed to change.
 
@@ -27,10 +26,10 @@ objects can be cached perfectly.
 
 `const` objects can't be modified either. This
 restriction is only valid for the current scope. A `const`
-pointer can be created from either a *mutable* or
+pointer can be created from either a *mutable* or an
 `immutable` object. This means that the object
-is `const` for your current scope, but someone
-else might modify it in the future. Only with an `immutable`
+is a `const` reference for the current scope, but someone
+else might modify it in the future. Only with an `immutable` type qualifier
 can you be certain that an object's value will never
 change. It is common for APIs to accept `const` objects
 to ensure they don't modify the input.
@@ -41,7 +40,7 @@ to ensure they don't modify the input.
     const int* pb = &b;
     *pa = 7; // disallowed
 
-Both `immutable` and `const` are _transitive_ which ensures that once
+Both `immutable` and `const` are _transitive_ type qualifiers, which ensures that once
 `const` is applied to a type, it applies recursively to every sub-component of that type.
 
 ### In-depth
