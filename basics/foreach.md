@@ -36,6 +36,28 @@ large types. To prevent copying or to enable *in-place
         e = 10; // overwrite value
     }
 
+### Iterate `n` times
+
+D allows to write iterations which should be executed
+`n` times, more concisely with the `..` syntax:
+
+    foreach (i; 0..3) {
+        writeln(i);
+    }
+    // 0 1 2
+
+The last number in `a..b`` is excluded from the range,
+thus the loop body is executed `3` times.
+
+### Iteration with index counter
+
+For arrays, it's also possible to access a separate index variable.
+
+    foreach (i, e; [4, 5, 6]) {
+        writeln(i, ":", e);
+    }
+    // 0:4 1:5 2:6
+
 ### Reverse iteration with `foreach_reverse`
 
 A collection can be iterated in reverse order with
