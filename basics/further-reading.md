@@ -1,8 +1,10 @@
-# Further Reading
+Further Reading
+===============
 
 Now that you've finished the basics, you can move on to some more advanced sections of this tour. Or, you can check out some of the following resources:
 
-### Basic resources
+Basic resources
+---------------
 
 * [Learn D as a beginner](http://ddili.org/ders/d.en/index.html)
 * [Learn D as an experienced programmers](http://wiki.dlang.org/Coming_From) coming from other languages
@@ -12,7 +14,8 @@ Now that you've finished the basics, you can move on to some more advanced secti
 * Discover [books about D](https://wiki.dlang.org/Books), for an in-depth view
 * See [common questions about D](http://dlang.org/faq.html)
 
-### In-depth resources
+In-depth resources
+------------------
 
 * Get familiar with the API of the standard library [Phobos](https://dlang.org/phobos)
 * Read the [language reference](https://dlang.org/spec/)
@@ -24,3 +27,10 @@ Now that you've finished the basics, you can move on to some more advanced secti
 * See the D Language on [Rosetta code](http://rosettacode.org/wiki/Category:D)
 * Explore [awesome-d](https://github.com/zhaopuming/awesome-d/blob/master/README.md) - A curated list of awesome D frameworks, libraries and software
 * Get inspired by [Idioms for the D Programming Language](https://p0nce.github.io/d-idioms/)
+
+Help
+----
+
+* Ask questions in the [#d](irc://irc.freenode.net/d) IRC channel on freenode ([web interface](https://kiwiirc.com/client/irc.freenode.net/d))
+* Get help at [D.learn](http://forum.dlang.org/group/learn)
+* Open an issue [at the D bugtracker](https://issues.dlang.org)
