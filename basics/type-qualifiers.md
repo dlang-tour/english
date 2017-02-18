@@ -44,8 +44,8 @@ that allows same function to process both mutable and immutable data.
     }
 
     // thanks to `const`, both calls will compile:
-    foo("abcd");
-    foo("abcd".dup);
+    foo("abcd"); // string is an immutable array
+    foo("abcd".dup); // .dup returns a mutable copy
 
 Both `immutable` and `const` are _transitive_ type qualifiers, which ensures that once
 `const` is applied to a type, it applies recursively to every sub-component of that type.
