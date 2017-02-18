@@ -1,12 +1,12 @@
 # Arrays
 
 There are two types of Arrays in D: **static** and **dynamic**.
-Access to arrays of any kind is bounds-checked (except the compiler can prove
-that bound checks aren't necessary).
-A failed range check yields a `RangeError` which aborts the application.
+Access to arrays of any kind is bounds-checked (except when the compiler can prove
+that bounds checks aren't necessary).
+A failed bounds check yields a `RangeError` which aborts the application.
 The brave can disable this safety feature with the
 compiler flag `-boundschecks=off`
-in order to squeeze the last cycles out of their binary.
+in order to gain speed improvements at the cost of safety.
 
 #### Static arrays
 
@@ -53,7 +53,7 @@ by the compiler to use special processor instructions that
 do the operations in one go.
 
 Both static and dynamic arrays provide the property `.length`,
-which is read-only for static arrays, but can be used in the case of 
+which is read-only for static arrays, but can be used in the case of
 dynamic arrays to change its size dynamically. The
 property `.dup` creates a copy of the array.
 
