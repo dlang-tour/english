@@ -17,7 +17,7 @@ the function using the `!` operator:
     add!float(5.0f, 10.0f);
     add!Animal(dog, cat); // won't compile; Animal doesn't implement +
 
-### IFTI (Implicit Function Template Instantiation)
+### Implicit Template Parameters
 
 Function templates have two parameter sets - the first is for
 compile-time arguments and the second is for run-time arguments.
