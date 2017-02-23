@@ -48,10 +48,21 @@ and we welcome pull requests making this tour even better.
 
 ```d
 import std.stdio;
+import std.algorithm;
+import std.range;
 
-// Let's get going!
 void main()
 {
+    // Let's get going!
     writeln("Hello World!");
+    
+    // More advanced example for expirenced programmers
+    // Take three arrays, and without allocating any new memory
+    // sort across all of them inplace
+    int[] arr1 = [4, 9, 7];
+    int[] arr2 = [5, 2, 1];
+    int[] arr3 = [6, 8, 3];
+    sort(chain(arr1, arr2, arr3));
+    writeln(arr1); writeln(arr2); writeln(arr3);
 }
 ```
