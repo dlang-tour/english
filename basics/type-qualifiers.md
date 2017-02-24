@@ -69,29 +69,40 @@ import std.stdio;
 
 void main()
 {
-    immutable forever = 100;
-    // ERROR:
-    // forever = 5;
-    writeln("forever: ",
-        typeof(forever).stringof);
+    /**
+    * Variables are mutable by default and
+    * editing them is allowed:
+    */
+    int m = 100; // mutable
+    writeln("m: ", typeof(m).stringof);
+    m = 10; // fine
 
-    const int* cForever = &forever;
-    // ERROR:
-    // *cForever = 10;
-    writeln("const* forever: ",
-        typeof(cForever).stringof);
+    /**
+    * Pointing to mutable memory:
+    */
+    // A const pointer to mutable memory is
+    // allowed
+    const int* cm = &m;
+    writeln("cm: ", typeof(cm).stringof);
+    // By defintion `const` can't be modified:
+    // *cm = 100; // error!
 
-    int mutable = 100;
-    writeln("mutable: ",
-        typeof(mutable).stringof);
-    mutable = 10; // Fine
-    const int* cMutable = &mutable; // Fine
-    // ERROR:
-    // *cMutable = 100;
-    writeln("cMutable: ",
-        typeof(cMutable).stringof);
+    // As immutable` is guarenteed to stay
+    // unchanged, it can't point to
+    // mutable memory
+    // immutable int* im = &m; // error!
 
-    // ERROR:
-    // immutable int* imMutable = &mutable;
+    /**
+    * Pointing to readonly memory:
+    */
+    immutable v = 100;
+    writeln("v: ", typeof(v).stringof);
+    // v = 5; // error!
+
+    // `const` may point to readonly memory,
+    // but it is readonly as well
+    const int* cv = &v;
+    writeln("*cv: ", typeof(cv).stringof);
+    // *cv = 10; // error!
 }
 ```
