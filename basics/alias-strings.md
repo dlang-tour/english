@@ -61,10 +61,12 @@ character.
 
 Correct processing of Unicode can be very complicated, but most of the time, D
 developers can simply consider `string` variables as magical byte arrays and
-rely on standard library algorithms to do the right job. Most Unicode
-functionality is provided by the
-[`std.uni`](https://dlang.org/library/std/uni.html) module, with some more basic
-primitives available in [`std.utf`](https://dlang.org/library/std/utf.html).
+rely on standard library algorithms to do the right job.
+If by element (code unit) iteration is desired, one can use
+[`byCodeUnit`](http://dlang.org/phobos/std_utf.html#.byCodeUnit).
+
+Auto-decoding in D is explained in more details
+in the [Unicode gems chapter](gems/unicode).
 
 ### Multi-line strings
 
