@@ -41,47 +41,46 @@ the special `.byKey` and `.byValue` ranges.
 ## {SourceCode}
 
 ```d
-import std.stdio : writeln;
-
-/**
-Splits the given text into words and returns
-an associative array that maps words to their
-respective word counts.
-
-Params:
-    text = text to be splitted
-*/
-int[string] wordCount(string text)
-{
-    // The function splitter lazily splits the
-    // input into a range
-    import std.algorithm.iteration : splitter;
-    import std.string : toLower;
-
-    // Indexed by words and returning the count
-    int[string] words;
-
-    foreach(word; splitter(text.toLower(), " "))
-    {
-        // Increment word count if word
-        // has been found.
-        // Integers are by default 0.
-        words[word]++;
-    }
-
-    return words;
-}
+import std.array : assocArray;
+import std.algorithm.iteration: each, group,
+    splitter, sum;
+import std.string: toLower;
+import std.stdio : writefln, writeln;
 
 void main()
 {
-    string text = "D is a lot of fun";
+    string text = "Rock D with D";
 
-    auto wc = wordCount(text);
-    writeln("Word counts: ", wc);
+    // Iterate over all words and count
+    // each word once
+    int[string] words;
+    text.toLower()
+        .splitter(" ")
+        .each!(w => words[w]++);
 
-    // possible iterations:
-    // byKey, byValue, byKeyValue
-    foreach (word; wc.byValue)
-        writeln(word);
+    foreach (key, value; words)
+        writefln("key: %s, value: %d",
+                       key, value);
+
+    // `.keys` and .values` return arrays
+    writeln("Words:", words.keys);
+
+    // `.byKey`, `.byValue` and `.byKeyValue`
+    // return lazy, iteratable ranges
+    writeln("# Words: ", words.byValue.sum);
+
+    // A new associative array can be created
+    // with `assocArray` by passing a
+    // range of key/value tuples;
+    auto array = ['a', 'a', 'a', 'b', 'b',
+                  'c', 'd', 'e', 'e'];
+
+    // `.group` groups consecutively equivalent
+    // elements into a single tuple of the
+    // element and the number of its repetitions
+    auto keyValue = array.group;
+    writeln("Key/Value range: ", keyValue);
+    writeln("Associative array: ",
+             keyValue.assocArray);
 }
 ```
