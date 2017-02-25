@@ -6,13 +6,13 @@ Now that you've finished the basics, you can move on to some more advanced secti
 Basic resources
 ---------------
 
-* [Learn D as a beginner](http://ddili.org/ders/d.en/index.html)
-* [Learn D as an experienced programmers](http://wiki.dlang.org/Coming_From) coming from other languages
-* Quickstart with [D Tutorials](https://wiki.dlang.org/Tutorials)
+* New to programming? [This book](http://ddili.org/ders/d.en/index.html) is a great starting place for beginners
+* [Coming form another language?](http://wiki.dlang.org/Coming_From)
+* Looking for a book to read? [Discover books about D](https://wiki.dlang.org/Books)
+* Read [articles about D](http://dlang.org/articles.html)
+* Explore more [D Tutorials](https://wiki.dlang.org/Tutorials)
 * Browse the [D Wiki](https://wiki.dlang.org/), which contains a lot of information and links
-* Explore [articles about D](http://dlang.org/articles.html)
-* Discover [books about D](https://wiki.dlang.org/Books), for an in-depth view
-* See [common questions about D](http://dlang.org/faq.html)
+* See [frequently asked questions about D](http://dlang.org/faq.html)
 
 In-depth resources
 ------------------
