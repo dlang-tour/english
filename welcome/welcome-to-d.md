@@ -56,9 +56,10 @@ void main()
     // Let's get going!
     writeln("Hello World!");
     
-    // A cool example for expirenced programmers:
-    // Take three arrays, and without allocating any new memory,
-    // sort across all arrays inplace
+    // An example for expirenced programmers:
+    // Take three arrays, and without allocating
+    // any new memory, sort across all the
+    // arrays inplace
     int[] arr1 = [4, 9, 7];
     int[] arr2 = [5, 2, 1, 10];
     int[] arr3 = [6, 8, 3];
