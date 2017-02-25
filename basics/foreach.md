@@ -80,20 +80,20 @@ A collection can be iterated in reverse order with
 import std.stdio;
 
 void main() {
-    auto arr = [ [5, 15], // 20
-          [2, 3, 2, 3], // 10
-          [3, 6, 2, 9] ]; // 20
+    auto arr = [
+        [5, 15],      // 20
+        [2, 3, 2, 3], // 10
+        [3, 6, 2, 9], // 20
+    ];
 
-    // Iterate through array in reverse order
-    import std.range: retro;
-    foreach (row; retro(arr))
+    foreach (i, row; arr)
     {
-        double accumulator = 0.0;
-        foreach (c; row)
-            accumulator += c;
+        double total = 0.0;
+        foreach (e; row)
+            total += e;
 
-        writeln("The average of ", row,
-            " = ", accumulator / row.length);
+        auto avg = total / row.length;
+        writefln("AVG [row=%d]: %.2f", i, avg);
     }
 }
 ```
