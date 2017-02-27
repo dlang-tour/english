@@ -65,5 +65,7 @@ void main()
     int[] arr3 = [6, 8, 3];
     sort(chain(arr1, arr2, arr3));
     writefln("%s\n%s\n%s\n", arr1, arr2, arr3);
+    // To learn more about this example, see the
+    // "Range algorithms" page under "Gems"
 }
 ```
