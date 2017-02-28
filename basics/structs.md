@@ -100,7 +100,7 @@ struct Vector3 {
     double z;
 
     double length() const {
-        import std.math: sqrt;
+        import std.math : sqrt;
         return 0.0;
     }
 
@@ -116,7 +116,7 @@ struct Vector3 {
     "x: 0.0 y: 0.0 z: 0.0"
     */
     string toString() const {
-        import std.string: format;
+        import std.string : format;
         // Hint: refer to the documentation of
         // std.format to see how to influence
         // output for floating point numbers.
@@ -148,7 +148,7 @@ void main() {
 
     // Thanks to toString() we can now just
     // output our vector's with writeln
-    import std.stdio: writeln, writefln;
+    import std.stdio : writeln, writefln;
     writeln("vec1 = ", vec1);
     writefln("vec2 = %s", vec2);
 

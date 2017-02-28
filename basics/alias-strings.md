@@ -98,9 +98,9 @@ of reserved symbols. Raw strings can be declared using either backticks (`` `
 
 ```d
 import std.stdio writeln, writefln;
-import std.range: walkLength;
+import std.range : walkLength;
 import std.uni : byGrapheme;
-import std.string: format;
+import std.string : format;
 
 void main() {
     // format generates a string using a printf
@@ -120,13 +120,13 @@ void main() {
     // Strings are just normal arrays, so any
     // operation that works on arrays works here
     // too!
-    import std.array: replace;
+    import std.array : replace;
     writeln(replace(str, "lö", "lo"));
-    import std.algorithm: endsWith;
+    import std.algorithm : endsWith;
     writefln("Does %s end with 'rld'? %s",
         str, endsWith(str, "rld"));
 
-    import std.conv: to;
+    import std.conv : to;
     // Convert to UTF-32
     dstring dstr = to!dstring(str);
     // .. which of course looks the same!

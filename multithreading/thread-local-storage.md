@@ -53,7 +53,7 @@ import std.concurrency : spawn, thisTid;
 
 void worker(bool firstTime)
 {
-    import std.stdio: writeln;
+    import std.stdio : writeln;
     // theStatic is global to the current
     // thread only. No other thread will be
     // able to access it. Note that it

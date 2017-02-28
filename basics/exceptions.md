@@ -84,7 +84,7 @@ are removed when compiled in release mode. For convenience `std.exception` provi
 instead of an `AssertError`.
 
 ```d
-import std.exception: enforce;
+import std.exception : enforce;
 float magic = 1_000_000_000;
 enforce(magic + 42 - magic == 42, "Floating-point math is fun");
 
@@ -96,7 +96,7 @@ However there's more in `std.exception`. For example when the error might not be
 fatal, one can opt-in to `collect` it:
 
 ```d
-import std.exception: collectException;
+import std.exception : collectException;
 auto e = collectException(aDangerousOperation());
 if (e)
     writeln("The dangerous operation failed with ", e);

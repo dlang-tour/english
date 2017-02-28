@@ -47,7 +47,7 @@ to write clear and manageable code.
 ```d
 import std.stdio;
 import std.algorithm;
-import std.range: iota;
+import std.range : iota;
 
 void main()
 {

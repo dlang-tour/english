@@ -69,8 +69,8 @@ BigInt bigPow(uint base, uint power) pure
 
 void main()
 {
-    import std.datetime: benchmark, to;
-    import std.functional: memoize;
+    import std.datetime : benchmark, to;
+    import std.functional : memoize;
     import std.stdio;
 
     // memoize caches the result of the function

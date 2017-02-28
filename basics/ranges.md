@@ -63,8 +63,8 @@ struct FibonacciRange
 }
 
 void main() {
-    import std.range: take;
-    import std.array: array;
+    import std.range : take;
+    import std.array : array;
 
     FibonacciRange fib;
 

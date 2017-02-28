@@ -9,7 +9,7 @@ is located under the **package** `std`
 and its modules are referenced through `import std.MODULE`.
 
 The `import` statement can also be used to selectively
-import certain symbols of a module:
+import certain symbols of a module :
 
     import std.stdio : writeln, writefln;
 
@@ -26,7 +26,7 @@ It can also be used locally within functions or any other scope.
 void main()
 {
     import std.stdio;
-    // or import std.stdio: writeln;
+    // or import std.stdio : writeln;
     writeln("Hello World!");
 }
 ```
