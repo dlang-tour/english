@@ -70,7 +70,7 @@ which will throw catchable `Exceptions`.
 ## {SourceCode:incomplete}
 
 ```d
-import std.stdio: writeln;
+import std.stdio : writeln;
 
 /**
 Simplified Date type

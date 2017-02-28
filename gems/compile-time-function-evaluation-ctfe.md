@@ -50,7 +50,7 @@ with every release of the compiler.
 ## {SourceCode}
 
 ```d
-import std.stdio: writeln;
+import std.stdio : writeln;
 
 /**
 Calculate the square root of a number

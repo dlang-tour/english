@@ -97,7 +97,7 @@ of reserved symbols. Raw strings can be declared using either backticks (`` `
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio writeln, writefln;
 import std.range: walkLength;
 import std.uni : byGrapheme;
 import std.string: format;

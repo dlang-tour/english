@@ -49,7 +49,7 @@ Its ugly name is a friendly reminder to use it rarely.
 ## {SourceCode}
 
 ```d
-import std.concurrency;
+import std.concurrency : spawn, thisTid;
 
 void worker(bool firstTime)
 {

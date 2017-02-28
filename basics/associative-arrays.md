@@ -41,7 +41,7 @@ the special `.byKey` and `.byValue` ranges.
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 /**
 Splits the given text into words and returns

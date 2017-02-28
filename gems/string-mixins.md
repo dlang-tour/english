@@ -26,7 +26,7 @@ in the source code.
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 auto calculate(string op, T)(T lhs, T rhs)
 {

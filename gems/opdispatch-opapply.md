@@ -76,7 +76,7 @@ any other type:
 https://dlang.org/phobos/std_variant.html
 */
 
-import std.variant: Variant;
+import std.variant : Variant;
 
 /*
 Type that can be filled with opDispatch
@@ -98,7 +98,7 @@ struct var {
 }
 
 void main() {
-    import std.stdio: writeln;
+    import std.stdio : writeln;
 
     var test;
     test.foo = "test";

@@ -95,7 +95,7 @@ struct BitVector
 
 void main()
 {
-    import std.stdio;
+    import std.stdio : writefln, writeln;
 
     BitVector vec;
     vec.x = 2;

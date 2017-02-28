@@ -59,7 +59,7 @@ to ensure such attributes for the tested code:
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 struct Vector3 {
     double x;
