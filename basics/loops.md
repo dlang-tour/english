@@ -70,13 +70,13 @@ double average(int[] array) {
     // The property .empty for arrays isn't
     // native in D but has to be made accessible
     // by importing the function from std.array
-    import std.array: empty, front;
+    import std.array : empty, front;
 
     double accumulator = 0.0;
     auto length = array.length;
     while (!array.empty) {
         // this could be also done with .front
-        // with import std.array: front;
+        // with import std.array : front;
         accumulator += array[0];
         array = array[1 .. $];
     }

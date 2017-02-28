@@ -55,8 +55,8 @@ int[string] wordCount(string text)
 {
     // The function splitter lazily splits the
     // input into a range
-    import std.algorithm.iteration: splitter;
-    import std.string: toLower;
+    import std.algorithm.iteration : splitter;
+    import std.string : toLower;
 
     // Indexed by words and returning the count
     int[string] words;

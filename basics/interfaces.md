@@ -54,7 +54,7 @@ functions.
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 interface Animal {
     /*
