@@ -77,7 +77,7 @@ struct Vector3 {
     }
 
     string toString() const {
-        import std.string: format;
+        import std.string : format;
         return format("x:%.1f y:%.1f z:%.1f",
           x, y, z);
     }

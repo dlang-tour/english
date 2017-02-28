@@ -66,7 +66,7 @@ auto sqrt(T)(T x) {
     // approximation because we think the change
     // isn't worth another iteration.
     enum GoodEnough = 0.01;
-    import std.math: abs;
+    import std.math : abs;
     // choose a good starting value.
     T z = x*x, old = 0;
     int iter;

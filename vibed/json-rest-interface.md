@@ -122,7 +122,7 @@ class Rest: IRest
 
     int addChapter(string title)
     {
-        import std.algorithm: map, max, reduce;
+        import std.algorithm : map, max, reduce;
         // Generate the next highest ID
         auto newId = chapters_.map!(x => x.id)
                             .reduce!max + 1;

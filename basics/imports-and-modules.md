@@ -26,7 +26,7 @@ It can also be used locally within functions or any other scope.
 void main()
 {
     import std.stdio;
-    // or import std.stdio: writeln;
+    // or import std.stdio : writeln;
     writeln("Hello World!");
 }
 ```

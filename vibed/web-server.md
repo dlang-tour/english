@@ -93,7 +93,7 @@ class WebService
     void getName(HTTPServerRequest req,
             HTTPServerResponse res)
     {
-        import std.string: format;
+        import std.string : format;
 
         // Generate header info <li>
         // tags by inspecting the request's
