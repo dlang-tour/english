@@ -1,7 +1,7 @@
 # Exceptions
 
 This guide is only about User-`Exceptions` - System-`Errors` are usually fatal
-and should __never__ be catched.
+and should __never__ be caught.
 
 ### Catching Exception
 
