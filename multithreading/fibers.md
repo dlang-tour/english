@@ -44,9 +44,9 @@ code.
 ## {SourceCode}
 
 ```d
-import core.thread: Fiber;
-import std.stdio: write;
-import std.range: iota;
+import core.thread : Fiber;
+import std.stdio : write;
+import std.range : iota;
 
 /**
 Iterates over `range` and applies

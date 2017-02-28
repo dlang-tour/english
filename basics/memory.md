@@ -41,7 +41,7 @@ Moreover, explicit pointer arithmetic is forbidden in `@safe` code:
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 void safeFun() @safe
 {

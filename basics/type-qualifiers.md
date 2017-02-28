@@ -65,7 +65,7 @@ Both `immutable` and `const` are _transitive_ type qualifiers, which ensures tha
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 void main()
 {

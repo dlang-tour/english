@@ -74,7 +74,7 @@ as first and `b` as second argument.
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 enum IntOps {
     add = 0,

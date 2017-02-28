@@ -47,7 +47,7 @@ and `@nogc`).
 ## {SourceCode}
 
 ```d
-import std.bigint;
+import std.bigint : BigInt;
 
 /**
  * Computes the power of a base

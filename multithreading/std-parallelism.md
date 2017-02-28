@@ -77,14 +77,14 @@ on it. It will block until the result is available.
 ## {SourceCode}
 
 ```d
-import std.parallelism;
-import std.array: array;
-import std.stdio: writeln;
-import std.range: iota;
+import std.parallelism : TaskPool;
+import std.array : array;
+import std.stdio : writeln;
+import std.range : iota;
 
 string theTask()
 {
-    import core.thread;
+    import core.thread : dur, Thread;
     Thread.sleep( dur!("seconds")(1) );
     return "Hello World";
 }
@@ -109,7 +109,7 @@ void main()
 
     writeln(arr);
 
-    import std.algorithm: map;
+    import std.algorithm.iteration : map;
 
     // Use reduce to calculate the sum
     // of all squares in parallel.

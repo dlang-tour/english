@@ -68,7 +68,7 @@ for other operand types, identity is the same as equality.
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 /*
 Fancy type which can be used for

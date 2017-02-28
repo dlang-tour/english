@@ -58,8 +58,8 @@ helper:
 ## {SourceCode}
 
 ```d
-import std.concurrency;
-import core.atomic;
+import std.concurrency : receiveOnly, spawn, Tid, thisId;
+import core.atomic : atomicLoad;
 
 /*
 Queue that can be used safely among
@@ -79,7 +79,7 @@ synchronized class SafeQueue(T)
 
     /// Return T.init if queue empty
     T pop() {
-        import std.array: empty;
+        import std.array : empty;
         T value;
         if (elements.empty)
             return value;

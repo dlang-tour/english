@@ -65,12 +65,12 @@ forever.
 
 ```d
 // Hey come on, just get the whole army!
-import std.algorithm: canFind, map,
+import std.algorithm : canFind, map,
   filter, sort, uniq, joiner, chunkBy, splitter;
-import std.array: array, empty;
-import std.range: zip;
-import std.stdio: writeln;
-import std.string: format;
+import std.array : array, empty;
+import std.range : zip;
+import std.stdio : writeln;
+import std.string : format;
 
 void main()
 {

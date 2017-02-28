@@ -77,7 +77,7 @@ which should make things easier.
 ## {SourceCode:incomplete}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 /**
 Shifts every character in the

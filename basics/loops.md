@@ -60,7 +60,7 @@ The keyword `continue` starts with the next loop iteration.
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 /*
 Computes the average of

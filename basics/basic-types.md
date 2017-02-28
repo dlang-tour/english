@@ -90,7 +90,7 @@ with an `AssertionError` if it fails.
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 void main()
 {

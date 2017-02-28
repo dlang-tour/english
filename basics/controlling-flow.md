@@ -47,7 +47,7 @@ take a look at the source code example.
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 void main()
 {
