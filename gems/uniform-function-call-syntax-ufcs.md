@@ -45,8 +45,8 @@ to write clear and manageable code.
 ## {SourceCode}
 
 ```d
-import std.stdio;
-import std.algorithm;
+import std.stdio : writefln, writeln;
+import std.algorithm.iteration : filter;
 import std.range : iota;
 
 void main()

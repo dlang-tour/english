@@ -50,8 +50,8 @@ void main()
     // scope guards allow placing allocations
     // and their clean up code next to each
     // other
-    import core.stdc.stdlib;
-    int* p = cast(int*)malloc(int.sizeof);
+    import core.stdc.stdlib : free, malloc;
+    int* p = cast(int*) malloc(int.sizeof);
     scope(exit) free(p);
 }
 ```
