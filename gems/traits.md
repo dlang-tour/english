@@ -107,9 +107,15 @@ rdmd --force --eval='pragma(msg, __TIMESTAMP__);'
 
 ```d
 import std.functional : binaryFun;
-import std.range : isRandomAccessRange, hasSlicing, hasLength;
+import std.range.primitives : empty, front,
+						popFront,
+						isInputRange,
+				   		isForwardRange,
+				   		isRandomAccessRange,
+				   		hasSlicing,
+				   		hasLength;
 import std.stdio : writeln;
-import std.traits : isInputRange, isForwardRange, isNarrowString;
+import std.traits : isNarrowString;
 
 /**
 Returns the common prefix of two ranges

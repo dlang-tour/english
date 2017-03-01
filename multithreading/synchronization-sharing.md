@@ -58,8 +58,9 @@ helper:
 ## {SourceCode}
 
 ```d
-import std.concurrency : receiveOnly, spawn, Tid, thisId;
-import core.atomic : atomicLoad;
+import std.concurrency : receiveOnly, send,
+						 spawn, Tid, thisTid;
+import core.atomic : atomicOp, atomicLoad;
 
 /*
 Queue that can be used safely among

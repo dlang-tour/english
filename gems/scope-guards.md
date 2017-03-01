@@ -28,7 +28,7 @@ Scope guards are called in the reverse order they are defined.
 ## {SourceCode}
 
 ```d
-import std.stdio : writeln;
+import std.stdio : writefln, writeln;
 
 void main()
 {
