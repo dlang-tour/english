@@ -8,7 +8,7 @@ The basic idea is that when a fiber
 has nothing to do or waits for more input, it
 *actively* gives away its possibility to
 execute instructions by calling `Fiber.yield()`.
-The parent context gains now power again but the
+The parent context gains control again but the
 fiber's state - all variables on the stack - are
 saved. The fiber can then be resumed
 and will continue at the instruction right *after*
@@ -27,13 +27,13 @@ it called `Fiber.yield()`. Magic? Yes.
 This feature can be used to implement concurrency
 where multiple fibers cooperatively share a single
 core. The advantage of fibers compared to threads is
-that there resource usage is lower because
+that their resource usage is lower because
 no context switching is involved.
 
 A very good usage of this technique can be seen in
 the [vibe.d framework](http://vibed.org) which implements
 non-blocking (or asynchronous) I/O operations
-in terms of fibers leading to a much cleaner
+in terms of fibers leading to much cleaner
 code.
 
 ### In-depth
