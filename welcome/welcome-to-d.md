@@ -47,7 +47,7 @@ and we welcome pull requests making this tour even better.
 ## {SourceCode}
 
 ```d
-import std.stdio : writeln;
+import std.stdio;
 import std.algorithm;
 import std.range;
 
