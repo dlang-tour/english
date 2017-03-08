@@ -109,11 +109,11 @@ rdmd --force --eval='pragma(msg, __TIMESTAMP__);'
 import std.functional : binaryFun;
 import std.range.primitives : empty, front,
     popFront,
-    isInputRange,
-    isForwardRange,
-    isRandomAccessRange,
-    hasSlicing,
-    hasLength;
+    isInputRange,
+    isForwardRange,
+    isRandomAccessRange,
+    hasSlicing,
+    hasLength;
 import std.stdio : writeln;
 import std.traits : isNarrowString;
 
