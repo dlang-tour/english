@@ -63,7 +63,7 @@ has been sent to the thread's mailbox.
 ```d
 import std.stdio : writeln;
 import std.concurrency : receive, receiveOnly,
-    send, spawn, thisTid, Tid;
+    send, spawn, thisTid, Tid;
 
 /*
 A custom struct that is used as a message
