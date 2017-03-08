@@ -31,7 +31,7 @@ arrays, structs/classes implementing `opSlice` and few other entities.
 In an example expression `origin[start .. end]` slicing operator is used to get
 a slice of all elements of `origin` from `start` to the element _before_ `end`:
 
-    auto newArr = arr[1 .. 4]; // index 4 ist NOT included
+    auto newArr = arr[1 .. 4]; // index 4 is NOT included
     assert(newArr.length == 3);
     newArr[0] = 10; // changes newArr[0] aka arr[1]
 
