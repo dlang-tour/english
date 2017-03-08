@@ -59,7 +59,7 @@ helper:
 
 ```d
 import std.concurrency : receiveOnly, send,
-    spawn, Tid, thisTid;
+    spawn, Tid, thisTid;
 import core.atomic : atomicOp, atomicLoad;
 
 /*
