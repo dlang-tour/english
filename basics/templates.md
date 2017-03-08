@@ -62,7 +62,7 @@ types too.
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 /**
 Template class that allows

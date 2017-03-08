@@ -28,7 +28,7 @@ accessing the `alias this` member.
 ## {SourceCode}
 
 ```d
-import std.stdio: writeln;
+import std.stdio : writeln;
 
 struct Vector3 {
     private double[3] vec;

@@ -55,7 +55,7 @@ thus would generate a `RangeError` (if bounds-checking hasn't been disabled).
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writefln;
 
 /**
 Calculates the minimum of all values

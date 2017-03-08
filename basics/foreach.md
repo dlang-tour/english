@@ -77,7 +77,7 @@ A collection can be iterated in reverse order with
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writefln;
 
 void main() {
     auto arr = [

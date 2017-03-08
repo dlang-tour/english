@@ -47,7 +47,7 @@ and `@nogc`).
 ## {SourceCode}
 
 ```d
-import std.bigint;
+import std.bigint : BigInt;
 
 /**
  * Computes the power of a base
@@ -69,9 +69,9 @@ BigInt bigPow(uint base, uint power) pure
 
 void main()
 {
-    import std.datetime: benchmark, to;
-    import std.functional: memoize;
-    import std.stdio;
+    import std.datetime : benchmark, to;
+    import std.functional : memoize;
+    import std.stdio : writefln, writeln;
 
     // memoize caches the result of the function
     // call depending on the input parameters.
@@ -80,7 +80,7 @@ void main()
 
     void test()
     {
-        writef(".uintLength() = %s ",
+        writefln(".uintLength() = %s ",
         	   fastBigPow(5, 10000).uintLength);
     }
 

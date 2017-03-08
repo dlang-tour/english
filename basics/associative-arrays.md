@@ -41,7 +41,7 @@ the special `.byKey` and `.byValue` ranges.
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 /**
 Splits the given text into words and returns
@@ -55,8 +55,8 @@ int[string] wordCount(string text)
 {
     // The function splitter lazily splits the
     // input into a range
-    import std.algorithm.iteration: splitter;
-    import std.string: toLower;
+    import std.algorithm.iteration : splitter;
+    import std.string : toLower;
 
     // Indexed by words and returning the count
     int[string] words;

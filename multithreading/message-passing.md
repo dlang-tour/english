@@ -61,8 +61,9 @@ has been sent to the thread's mailbox.
 ## {SourceCode}
 
 ```d
-import std.stdio: writeln;
-import std.concurrency;
+import std.stdio : writeln;
+import std.concurrency : receive, receiveOnly,
+    send, spawn, thisTid, Tid;
 
 /*
 A custom struct that is used as a message
@@ -124,7 +125,7 @@ void main()
     // Odd threads get a number, even threads
     // a string!
     foreach(int idx, ref tid; threads) {
-        import std.string: format;
+        import std.string : format;
         if (idx  % 2)
             send(tid, NumberMessage(idx));
         else

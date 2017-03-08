@@ -68,7 +68,7 @@ for other operand types, identity is the same as equality.
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 /*
 Fancy type which can be used for
@@ -110,7 +110,7 @@ class Integer: Any {
     public:
 
     override string convertToString() {
-        import std.conv: to;
+        import std.conv : to;
         // The swiss army knife of conversion.
         return to!string(number);
     }
@@ -125,7 +125,7 @@ class Float: Any {
     }
 
     override string convertToString() {
-        import std.string: format;
+        import std.string : format;
         // We want to control precision
         return format("%.1f", number);
     }

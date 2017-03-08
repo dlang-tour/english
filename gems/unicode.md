@@ -85,8 +85,9 @@ and what it means for your program, check the links in the
 ## {SourceCode}
 
 ```d
-import std.range;
-import std.stdio;
+import std.range.primitives : empty,
+    front, popFront;
+import std.stdio : write, writeln;
 
 void main()
 {

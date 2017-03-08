@@ -84,10 +84,10 @@ the `[]` operator.
 ## {SourceCode}
 
 ```d
-import std.traits: isFloatingPoint;
-import std.uni: toUpper;
-import std.string: format;
-import std.stdio: writeln;
+import std.traits : isFloatingPoint;
+import std.uni : toUpper;
+import std.string : format;
+import std.stdio : writeln;
 
 /*
 A Vector that just works for

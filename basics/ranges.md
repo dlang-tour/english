@@ -43,11 +43,11 @@ Don't fool yourself into deleting the `assert`ions!
 ## {SourceCode:incomplete}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 struct FibonacciRange
 {
-    bool empty() const @property 
+    bool empty() const @property
     {
         // So when does the Fibonacci sequence
         // end?!
@@ -63,8 +63,8 @@ struct FibonacciRange
 }
 
 void main() {
-    import std.range: take;
-    import std.array: array;
+    import std.range : take;
+    import std.array : array;
 
     FibonacciRange fib;
 

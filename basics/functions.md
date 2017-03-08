@@ -66,8 +66,8 @@ Such nested functions are called delegates, and they will be explained in more d
 ## {SourceCode}
 
 ```d
-import std.stdio;
-import std.random;
+import std.stdio : writeln;
+import std.random : uniform;
 
 void randomCalculator()
 {

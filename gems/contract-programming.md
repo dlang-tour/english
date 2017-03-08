@@ -70,7 +70,7 @@ which will throw catchable `Exceptions`.
 ## {SourceCode:incomplete}
 
 ```d
-import std.stdio: writeln;
+import std.stdio : writeln;
 
 /**
 Simplified Date type
@@ -109,7 +109,7 @@ struct Date {
         assert(date.length == 10);
     }
     body {
-        import std.format: formattedRead;
+        import std.format : formattedRead;
         // formattedRead parses the format
         // given and writes the result to the
         // given variables
@@ -126,10 +126,10 @@ struct Date {
     /*
     string toString() const
     out (result) {
-        import std.algorithm: all, count,
+        import std.algorithm : all, count,
                               equal, map;
-        import std.string: isNumeric;
-        import std.array: split;
+        import std.string : isNumeric;
+        import std.array : split;
 
         // verify we return YYYY-MM-DD
         assert(result.count("-") == 2);

@@ -58,8 +58,9 @@ helper:
 ## {SourceCode}
 
 ```d
-import std.concurrency;
-import core.atomic;
+import std.concurrency : receiveOnly, send,
+    spawn, Tid, thisTid;
+import core.atomic : atomicOp, atomicLoad;
 
 /*
 Queue that can be used safely among
@@ -79,7 +80,7 @@ synchronized class SafeQueue(T)
 
     /// Return T.init if queue empty
     T pop() {
-        import std.array: empty;
+        import std.array : empty;
         T value;
         if (elements.empty)
             return value;
@@ -100,7 +101,7 @@ void safePrint(T...)(T args)
 {
     // Just executed by one concurrently
     synchronized {
-        import std.stdio: writeln;
+        import std.stdio : writeln;
         writeln(args);
     }
 }
@@ -108,7 +109,7 @@ void safePrint(T...)(T args)
 void threadProducer(shared(SafeQueue!int) queue,
     shared(int)* queueCounter)
 {
-    import std.range: iota;
+    import std.range : iota;
     // Push values 1 to 11
     foreach (i; iota(1,11)) {
         queue.push(i);

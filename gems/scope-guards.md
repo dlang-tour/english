@@ -28,7 +28,7 @@ Scope guards are called in the reverse order they are defined.
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writefln, writeln;
 
 void main()
 {
@@ -50,8 +50,8 @@ void main()
     // scope guards allow placing allocations
     // and their clean up code next to each
     // other
-    import core.stdc.stdlib;
-    int* p = cast(int*)malloc(int.sizeof);
+    import core.stdc.stdlib : free, malloc;
+    int* p = cast(int*) malloc(int.sizeof);
     scope(exit) free(p);
 }
 ```

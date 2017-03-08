@@ -39,7 +39,7 @@ that allows same function to process both mutable and immutable data.
         // result in error (can't modify const):
         // s[0] = 'x';
 
-        import std.stdio;
+        import std.stdio : writeln;
         writeln(s);
     }
 
@@ -65,7 +65,7 @@ Both `immutable` and `const` are _transitive_ type qualifiers, which ensures tha
 ## {SourceCode}
 
 ```d
-import std.stdio;
+import std.stdio : writeln;
 
 void main()
 {
