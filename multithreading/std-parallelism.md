@@ -78,7 +78,7 @@ on it. It will block until the result is available.
 
 ```d
 import std.parallelism : task,
-    taskPool, TaskPool;
+    taskPool, TaskPool;
 import std.array : array;
 import std.stdio : writeln;
 import std.range : iota;
