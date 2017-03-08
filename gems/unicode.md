@@ -86,7 +86,7 @@ and what it means for your program, check the links in the
 
 ```d
 import std.range.primitives : empty,
-    front, popFront;
+    front, popFront;
 import std.stdio : write, writeln;
 
 void main()
