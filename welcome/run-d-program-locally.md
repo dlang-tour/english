@@ -1,6 +1,6 @@
 # Run D program locally
 
-D comes with a compiler `dmd`, an script-like run tool `rdmd` and
+D comes with a compiler `dmd`, a script-like run tool `rdmd` and
 a package manager `dub`.
 
 ### DMD Compiler
@@ -10,7 +10,7 @@ On the command line *DMD* can be invoked with the filename:
 
     dmd hello.d
 
-There are many options that allow to modify the behavior of the *DMD* compiler.
+There are many options that allow you to modify the behavior of the *DMD* compiler.
 Browse the [online documentation](https://dlang.org/dmd.html#switches) or run `dmd --help` for an overview of available flags.
 
 ### On-the-fly compilation with `rdmd`
