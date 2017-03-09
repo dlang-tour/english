@@ -31,7 +31,7 @@ the `to` method from `std.conv`:
 
 This means that a plain `string` is defined as an array of 8-bit Unicode [code
 units](http://unicode.org/glossary/#code_unit). All array operations can be
-used on strings, but they will work on code unit level, and not character level. At
+used on strings, but they will work on a code unit level, and not a character level. At
 the same time, standard library algorithms will interpret `string`s as sequences
 of [code points](http://unicode.org/glossary/#code_point), and there is also an
 option to treat them as sequence of
@@ -51,7 +51,7 @@ This small example illustrates the difference in interpretation:
     writeln(s.byGrapheme.walkLength); // 1
 
 Here the actual array length of `s` is 3, because it contains 3 code units:
-`0x41`, `0x03` and `0x08`. Of those latter two define single code point
+`0x41`, `0x03` and `0x08`. Those latter two define a single code point
 (combining diacritics character) and
 [`walkLength`](https://dlang.org/library/std/range/primitives/walk_length.html)
 (standard library function to calculate arbitrary range length) counts two code
