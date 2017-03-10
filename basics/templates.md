@@ -1,7 +1,7 @@
 # Templates
 
 **D** allows defining templated functions similar to C++ and Java
-which is a mean to define **generic** functions or objects which work
+which is a means to define **generic** functions or objects which work
 for any type that compiles with the statements within the function's body:
 
     auto add(T)(T lhs, T rhs) {
@@ -22,7 +22,7 @@ the function using the `!` operator:
 Function templates have two parameter sets - the first is for
 compile-time arguments and the second is for run-time arguments.
 (Non-templated functions can accept only run-time arguments).
-If one ore more compile-time arguments are left unspecified when the function is called,
+If one or more compile-time arguments are left unspecified when the function is called,
 the compiler tries to deduce them from the list of run-time arguments as the types of those arguments.
 
     int a = 5; int b = 10;
