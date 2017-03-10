@@ -46,7 +46,7 @@ D allows to write iterations which should be executed
     }
     // 0 1 2
 
-The last number in `a..b`` is excluded from the range,
+The last number in `a..b` is excluded from the range,
 thus the loop body is executed `3` times.
 
 ### Iteration with index counter
