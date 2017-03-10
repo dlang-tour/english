@@ -3,7 +3,7 @@
 This guide is only about User-`Exceptions` - System-`Errors` are usually fatal
 and should __never__ be caught.
 
-### Catching Exception
+### Catching Exceptions
 
 A common case for exceptions is to validate potentially invalid user input.
 Once an exception is thrown, the stack will be unwound until the first matching exception
