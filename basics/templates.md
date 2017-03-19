@@ -22,7 +22,7 @@ the function using the `!` operator:
 Function templates have two parameter sets - the first is for
 compile-time arguments and the second is for run-time arguments.
 (Non-templated functions can accept only run-time arguments).
-If one ore more compile-time arguments are left unspecified when the function is called,
+If one or more compile-time arguments are left unspecified when the function is called,
 the compiler tries to deduce them from the list of run-time arguments as the types of those arguments.
 
     int a = 5; int b = 10;
