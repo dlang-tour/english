@@ -14,7 +14,7 @@ functionality of the source code.
         assert(myAbs(1)  == 1);
     }
 
-This allows straighforward [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
+This allows straightforward [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
 on demand.
 
 ### Run & execute `unittest` blocks
