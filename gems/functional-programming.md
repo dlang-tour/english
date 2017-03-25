@@ -40,7 +40,7 @@ by the compiler for templated functions and `auto` functions,
 where applicable (this is also true for `@safe`, `nothrow`,
 and `@nogc`).
 
-### In depth
+### In-depth
 
 - [Functional DLang Garden](https://garden.dlang.io/)
 
