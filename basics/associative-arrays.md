@@ -23,7 +23,7 @@ and writes can be conveniently combined:
     if (auto val = "key1" in arr)
         *val = 20;
 
-Access to a key which doesn't exist yields an `RangeError`
+Access to a key which doesn't exist yields a `RangeError`
 that immediately aborts the application. For a safe access
 with a default value, `get(key, defaultValue)` can be used.
 

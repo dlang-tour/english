@@ -56,7 +56,7 @@ void main()
     // Let's get going!
     writeln("Hello World!");
     
-    // An example for expirenced programmers:
+    // An example for experienced programmers:
     // Take three arrays, and without allocating
     // any new memory, sort across all the
     // arrays inplace

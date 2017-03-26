@@ -32,7 +32,7 @@ with _initializer_, _loop condition_ and _loop statement_:
 
 ### 4) `foreach`
 
-The [`foreach` loop](basics/foreach) which will be introduced in more details
+The [`foreach` loop](basics/foreach) which will be introduced in more detail
 in the next section:
 
     foreach (el; arr) {
@@ -42,7 +42,7 @@ in the next section:
 #### Special keywords and labels
 
 The special keyword `break` will immediately abort the current loop.
-In a nested loop a _label_ can be used to break of any outer loop:
+In a nested loop a _label_ can be used to break out of any outer loop:
 
     outer: for (int i = 0; i < 10; ++i) {
         for (int j = 0; j < 5; ++j) {

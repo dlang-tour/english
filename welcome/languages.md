@@ -1,4 +1,4 @@
-# Read in a your language
+# Read in your language
 
 The Dlang Tour is available in multiple languages:
 

@@ -1,7 +1,7 @@
 # Templates
 
 **D** allows defining templated functions similar to C++ and Java
-which is a mean to define **generic** functions or objects which work
+which is a means to define **generic** functions or objects which work
 for any type that compiles with the statements within the function's body:
 
     auto add(T)(T lhs, T rhs) {

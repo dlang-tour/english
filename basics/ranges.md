@@ -20,12 +20,12 @@ and is thus a type that can be iterated over:
     }
 
 The functions in `std.range` and `std.algorithm` provide
-building blocks that make use of this interface. Ranges allow
+building blocks that make use of this interface. Ranges allow us
 to compose complex algorithms behind an object that
-can be iterated with ease. Furthermore ranges allow to create **lazy**
+can be iterated with ease. Furthermore, ranges allow us to create **lazy**
 objects that only perform a calculation when it's really needed
 in an iteration e.g. when the next range's element is accessed.
-Special range algorithm will be presented later in the
+Special range algorithms will be presented later in the
 [D's Gems](gems/range-algorithms) section.
 
 ### Exercise

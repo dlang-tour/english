@@ -4,7 +4,7 @@ D provides a number of basic types which always have the same
 size **regardless** of the platform - the only exception
 is the `real` type which provides the highest possible floating point
 precision. There is no difference
-between the size of an integer regardless whether the application
+between the size of an integer regardless of whether the application
 is compiled for 32-bit or 64-bit systems.
 
 | type                          | size
@@ -13,7 +13,7 @@ is compiled for 32-bit or 64-bit systems.
 |`bool`, `ubyte`, `char`        | 8-bit
 |`short`, `ushort`, `wchar`     | 16-bit
 |`int`, `uint`, `dchar`         | 32-bit
-|`long`, `ulong`                | 32-bit
+|`long`, `ulong`                | 64-bit
 
 #### Floating point types:
 
@@ -61,7 +61,7 @@ Every type also has a `.stringof` property which yields its name as a string.
 ### Indexes in D
 
 In D, indexes usually have the alias type `size_t`, as it is a type that
-is large enough to represent an offset into all addressible memory - this is
+is large enough to represent an offset into all addressable memory - this is
 `uint` for 32-bit and `ulong` for 64-bit architectures.
 
 ### Assert expression

@@ -6,7 +6,7 @@ the compiler to prevent bugs early and enforce restrictions
 at compile time. Good type-safety provides the support one needs
 to make large programs safer and more maintainable.
 
-There are several type qualifiers in D but most commonly used ones are
+There are several type qualifiers in D but the most commonly used ones are
 `const` and `immutable`.
 
 ### `immutable`
@@ -31,7 +31,7 @@ current scope. A `const` pointer can be created from either a *mutable* or
 `immutable` object. This means that the object is `const` for your current
 scope, but someone else might modify it from a different context. It is common
 for APIs to accept `const` arguments to ensure they don't modify the input as
-that allows same function to process both mutable and immutable data.
+that allows the same function to process both mutable and immutable data.
 
     void foo ( const char[] s )
     {
@@ -60,7 +60,7 @@ Both `immutable` and `const` are _transitive_ type qualifiers, which ensures tha
 #### Advanced references
 
 - [const(FAQ)](https://dlang.org/const-faq.html)
-- [Type qualifiers D](https://dlang.org/spec/const3.html)
+- [Type qualifiers in D](https://dlang.org/spec/const3.html)
 
 ## {SourceCode}
 
@@ -87,7 +87,7 @@ void main()
     // By defintion `const` can't be modified:
     // *cm = 100; // error!
 
-    // As immutable` is guarenteed to stay
+    // As `immutable` is guaranteed to stay
     // unchanged, it can't point to
     // mutable memory
     // immutable int* im = &m; // error!

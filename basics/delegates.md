@@ -50,7 +50,7 @@ converts a `function` to a `delegate`.
 ### Anonymous functions & Lambdas
 
 As functions can be saved as variables and passed to other functions,
-it is laborious to give them an own name and to define them. Hence D allows
+it is laborious to give them their own name and to define them. Hence D allows
 nameless functions and one-line _lambdas_.
 
     auto f = (int lhs, int rhs) {
@@ -58,7 +58,7 @@ nameless functions and one-line _lambdas_.
     };
     auto f = (int lhs, int rhs) => lhs + rhs; // Lambda - internally converted to the above
 
-It is also possible to pass-in strings as template argument to functional parts
+It is also possible to pass-in strings as template arguments to functional parts
 of D's standard library. For example they offer a convenient way
 to define a folding (aka reducer):
 

@@ -59,7 +59,7 @@ the member function will never change the state of the object.
 
 If a member function is declared as `static`, it will be callable
 without an instantiated object (e.g. `Person.myStatic()`) but it
-isn't allowed to access any non-`static` members.  It can be used if
+isn't allowed to access any non-`static` members.  It can be used if a
 method doesn't need to access any of the object member fields but logically
 belongs to the same class. Also it can be used to provide some functionality
 without creating an explicit instance, for example, some Singleton
@@ -88,7 +88,7 @@ the example application run successfully:
 * `toString()` - returns a string representation of this vector.
   The function [`std.string.format`](https://dlang.org/phobos/std_format.html)
   returns a string using `printf`-like syntax:
-  `format("MyInt = %d", myInt)`. Strings will be explained in detailed in a later
+  `format("MyInt = %d", myInt)`. Strings will be explained in detail in a later
   section.
 
 ## {SourceCode:incomplete}
@@ -147,7 +147,7 @@ void main() {
     assert(vec3.dot(Vector3(3, 2, 1)) == 10);
 
     // Thanks to toString() we can now just
-    // output our vector's with writeln
+    // output our vectors with writeln
     import std.stdio : writeln, writefln;
     writeln("vec1 = ", vec1);
     writefln("vec2 = %s", vec2);

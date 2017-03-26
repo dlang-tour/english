@@ -19,16 +19,16 @@ allocated memory is returned:
     auto arr = new int[5];
     assert(arr.length == 5); // memory referenced in arr.ptr
 
-Actual allocated memory in this case is completely managed by garbage
-collector, returned slice acts as a "view" on underlying elements.
+Actual allocated memory in this case is completely managed by the garbage
+collector. The returned slice acts as a "view" on underlying elements.
 
 ### Getting a slice to existing memory
 
 Using a slicing operator one can also get a slice pointing to some already
-existing memory. Slicing operator can be applied to another slice, static
-arrays, structs/classes implementing `opSlice` and few other entities.
+existing memory. The slicing operator can be applied to another slice, static
+arrays, structs/classes implementing `opSlice` and a few other entities.
 
-In an example expression `origin[start .. end]` slicing operator is used to get
+In an example expression `origin[start .. end]` the slicing operator is used to get
 a slice of all elements of `origin` from `start` to the element _before_ `end`:
 
     auto newArr = arr[1 .. 4]; // index 4 is NOT included
