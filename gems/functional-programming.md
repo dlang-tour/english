@@ -15,7 +15,7 @@ functions which are `pure` themselves.
         return lhs + rhs;
     }
 
-This variant of `add` is called **strongely pure function**
+This variant of `add` is called **strongly pure function**
 because it returns a result dependent only on its input
 parameters without modifying them. D also allows the
 definition of **weakly pure functions** which might
