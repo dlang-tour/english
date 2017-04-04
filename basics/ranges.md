@@ -6,8 +6,9 @@ If a `foreach` is encountered by the compiler
 
 it's internally rewritten similar to the following:
 
-    for (; !range.empty; range.popFront()) {
-        auto element = range.front;
+    auto rangeCopy = range;
+    for (; !rangeCopy.empty; rangeCopy.popFront()) {
+        auto element = rangeCopy.front;
         ...
 
 Any object which fulfills the above interface is called a **range**
