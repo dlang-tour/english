@@ -76,7 +76,7 @@ class Animal(string noise) {
     }
 }
 
-class Dog: Animal!("Bark") {
+class Dog: Animal!("Woof") {
 }
 
 class Cat: Animal!("Meeoauw") {
