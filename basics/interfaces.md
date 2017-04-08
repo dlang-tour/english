@@ -80,7 +80,7 @@ interface Animal {
 
 class Dog: Animal {
     override void makeNoise() {
-        writeln("Bark!");
+        writeln("Woof!");
     }
 }
 
