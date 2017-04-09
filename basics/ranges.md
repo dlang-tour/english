@@ -2,23 +2,48 @@
 
 If a `foreach` is encountered by the compiler
 
-    foreach(element; range) {
+```
+foreach (element; range)
+{
+    // Loop body...
+}
+```
 
 it's internally rewritten similar to the following:
 
-    auto rangeCopy = range;
-    for (; !rangeCopy.empty; rangeCopy.popFront()) {
-        auto element = rangeCopy.front;
-        ...
+```
+for (auto __rangeCopy = range;
+     !__rangeCopy.empty;
+     __rangeCopy.popFront())
+ {
+    auto element = rangeCopy.front;
+    // Loop body...
+}
+```
+
+If the range object is a reference type (e.g. `class`), then the range will be
+consumed and won't available for subsequent iteration (that is unless the
+loop body breaks before the last loop iteration). If the range object is
+a value type, then a copy of the range will be made and depending on the
+way the range is defined the loop may or may not consume the original
+range. Most of the ranges in the standard library are structs and so `foreach`
+iteration is usually non-destructive, though not guaranteed. If this
+guarantee is important, require **forward** ranges.
 
 Any object which fulfills the above interface is called a **range**
 and is thus a type that can be iterated over:
 
-    struct Range {
-        @property empty() const;
+```
+    struct Range
+    {
+        @property bool empty() const;
         void popFront();
-        T front();
+        T front() const;
     }
+ ```
+Note that while it is customary for `empty` and `front` to be defined as `const`
+functions (implying that calling them won't modify the range), this is not
+required.
 
 The functions in `std.range` and `std.algorithm` provide
 building blocks that make use of this interface. Ranges allow us
@@ -63,7 +88,8 @@ struct FibonacciRange
     }
 }
 
-void main() {
+void main()
+{
     import std.range : take;
     import std.array : array;
 
