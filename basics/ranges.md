@@ -16,7 +16,7 @@ for (auto __rangeCopy = range;
      !__rangeCopy.empty;
      __rangeCopy.popFront())
  {
-    auto element = rangeCopy.front;
+    auto element = __rangeCopy.front;
     // Loop body...
 }
 ```
