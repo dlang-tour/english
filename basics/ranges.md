@@ -36,9 +36,9 @@ and is thus a type that can be iterated over:
 ```
     struct Range
     {
+        T front() const @property;
         bool empty() const @property;
         void popFront();
-        T front() const;
     }
  ```
 Note that while it is customary for `empty` and `front` to be defined as `const`
