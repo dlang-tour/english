@@ -10,7 +10,7 @@ and won't be able to read or modify another thread's
 `static` object - although the variable name
 stays the same. Thus `static` allows declaring an
 object that holds state that is
-is global for the *current* thread.
+global for the *current* thread.
 
 This is different to
 e.g. C/C++ and Java where `static` indeed means global
