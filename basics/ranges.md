@@ -30,15 +30,15 @@ range. Most of the ranges in the standard library are structs and so `foreach`
 iteration is usually non-destructive, though not guaranteed. If this
 guarantee is important, require **forward** ranges.
 
-Any object which fulfills the above interface is called a **range**
+Any object which fulfills the following interface is called a **range**
 and is thus a type that can be iterated over:
 
 ```
     struct Range
     {
-        @property bool empty() const;
+        T front() const @property;
+        bool empty() const @property;
         void popFront();
-        T front() const;
     }
  ```
 Note that while it is customary for `empty` and `front` to be defined as `const`
@@ -83,7 +83,7 @@ struct FibonacciRange
     {
     }
 
-    int front() @property
+    int front() const @property
     {
     }
 }
