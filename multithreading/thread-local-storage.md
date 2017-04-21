@@ -28,7 +28,7 @@ one-time constructor for structs, classes, and modules.
     // When run from different threads
     // each b will have see its
     // "own" b without interference from
-    // other threds.
+    // other threads.
 
 Moreover for declaration of a "classic" global variable that
 every thread can see and modify,
