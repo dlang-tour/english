@@ -33,7 +33,7 @@ scope, but someone else might modify it from a different context. It is common
 for APIs to accept `const` arguments to ensure they don't modify the input as
 that allows the same function to process both mutable and immutable data.
 
-    void foo ( const char[] s )
+    void foo(const char[] s)
     {
         // if not commented out, next line will
         // result in error (can't modify const):
