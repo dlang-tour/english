@@ -43,7 +43,7 @@ Using slices, it's possible to write very efficient code for things (like parser
 that only operate on one memory block, and slice only the parts they really need
 to work on. In this way, there's no need to allocate new memory blocks.
 
-As seen in the previous section, the `[$]` expression is a shorthand form for
+As seen in the [previous section](basics/arrays), the `[$]` expression is a shorthand form for
 `arr.length`. Hence `arr[$]` indexes the element one past the slice's end, and
 thus would generate a `RangeError` (if bounds-checking hasn't been disabled).
 
