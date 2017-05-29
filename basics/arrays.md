@@ -30,7 +30,7 @@ and its length:
     int[] arr = new int[size];
 
 The type of `arr` is `int[]`, which is a **slice**. Slices
-will be explained in more detail in the next section. Multi-dimensional
+will be explained in more detail in the [next section](basics/slices). Multi-dimensional
 arrays can be created easily using the `auto arr = new int[3][3]` syntax.
 
 #### Array operations and properties
