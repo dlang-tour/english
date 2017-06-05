@@ -29,13 +29,12 @@ but it can inherit from only *one* base class.
 ### NVI (non virtual interface) pattern
 
 The [NVI pattern](https://en.wikipedia.org/wiki/Non-virtual_interface_pattern)
-prevents the violation of a common execution pattern by allowing _non virtual_ methods
-for a common interface.
-D easily enables the NVI pattern by
-allowing the definition of `final` functions in an `interface`
-that aren't allowed to be overridden. This enforces specific
-behaviours customized by overriding the other `interface`
-functions.
+allows _non virtual_ methods for a common interface.
+Thus, this pattern prevents the violation of a common execution pattern.
+D enables the NVI pattern by
+allowing `final` (i.e. non-overridable) functions in an `interface`.
+This enforces specific behaviours customized by overriding
+other abstract `interface` functions.
 
     interface Animal {
         void makeNoise();
