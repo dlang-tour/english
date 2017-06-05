@@ -45,7 +45,8 @@ Note that while it is customary for `empty` and `front` to be defined as `const`
 functions (implying that calling them won't modify the range), this is not
 required.
 
-The functions in `std.range` and `std.algorithm` provide
+The functions in [`std.range`](http://dlang.org/phobos/std_range.html) and
+[`std.algorithm`](http://dlang.org/phobos/std_algorithm.html) provide
 building blocks that make use of this interface. Ranges allow us
 to compose complex algorithms behind an object that
 can be iterated with ease. Furthermore, ranges allow us to create **lazy**
