@@ -13,7 +13,8 @@ introduction: welcome UTF-8 `string`!
 
 Due to their immutablility, `string`s can be shared perfectly among
 different threads. As `string` is a slice, parts can be taken out of it without
-allocating memory. The standard function `std.algorithm.splitter`
+allocating memory. The standard function
+[`std.algorithm.splitter`](https://dlang.org/phobos/std_algorithm_iteration.html#.splitter)
 for example, splits a string by newline without any memory allocations.
 
 Besides the UTF-8 `string`, there are two more types:
