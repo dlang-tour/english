@@ -13,7 +13,7 @@ by `Dog` because it inherits from the `Animal` interface.
 Essentially `makeNoise` behaves like an `abstract` member
 function in a base class.
 
-    class Dog: Animal {
+    class Dog : Animal {
         override makeNoise() {
             ...
         }
