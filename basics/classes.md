@@ -5,7 +5,7 @@ D provides support for classes and interfaces like in Java or C++.
 Any `class` type inherits from [`Object`](https://dlang.org/phobos/object.html) implicitly.
 
     class Foo { } // inherits from Object
-    class Bar: Foo { } // Bar is a Foo too
+    class Bar : Foo { } // Bar is a Foo too
 
 Classes in D are generally instantiated on the heap using `new`:
 
@@ -25,7 +25,7 @@ If a member function of a base class is overridden, the keyword
 `override` must be used to indicate that. This prevents unintentional
 overriding of functions.
 
-    class Bar: Foo {
+    class Bar : Foo {
         override functionFromFoo() {}
     }
 
@@ -92,7 +92,7 @@ class Any {
     abstract string convertToString();
 }
 
-class Integer: Any {
+class Integer : Any {
     // just seen by Integer
     private {
         int number;
@@ -116,7 +116,7 @@ class Integer: Any {
     }
 }
 
-class Float: Any {
+class Float : Any {
     private float number;
 
     this(float number) {
@@ -136,7 +136,7 @@ void main()
     Any[] anys = [
         new Integer(10),
         new Float(3.1415f)
-        ];
+    ];
 
     foreach (any; anys) {
         writeln("any's type = ", any.getType());
