@@ -23,7 +23,7 @@ name used in the loop iteration. Its type is induced automatically:
     }
 
 The second field must be an array - or a special iterable
-object called a **range** which will be introduced in the next section.
+object called a **range** which will be introduced in the [next section](basics/ranges).
 
 ### Access by reference
 
