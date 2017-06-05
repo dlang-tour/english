@@ -7,7 +7,8 @@ D provides four loop constructs.
 `while`  loops execute the given code block
 while a certain condition is met:
 
-    while (condition) {
+    while (condition)
+    {
         foo();
     }
 
@@ -18,7 +19,8 @@ while a certain condition is met, but in contrast to `while`
 the _loop block_ is executed before the loop condition is
 evaluated for the first time.
 
-    do {
+    do
+    {
         foo();
     } while (condition);
 
@@ -27,7 +29,8 @@ evaluated for the first time.
 The classical `for` loop known from C/C++ or Java
 with _initializer_, _loop condition_ and _loop statement_:
 
-    for (int i = 0; i < arr.length; i++) {
+    for (int i = 0; i < arr.length; i++)
+    {
         ...
 
 ### 4) `foreach`
@@ -35,7 +38,8 @@ with _initializer_, _loop condition_ and _loop statement_:
 The [`foreach` loop](basics/foreach) which will be introduced in more detail
 in the next section:
 
-    foreach (el; arr) {
+    foreach (el; arr)
+    {
         ...
     }
 
@@ -44,8 +48,10 @@ in the next section:
 The special keyword `break` will immediately abort the current loop.
 In a nested loop a _label_ can be used to break out of any outer loop:
 
-    outer: for (int i = 0; i < 10; ++i) {
-        for (int j = 0; j < 5; ++j) {
+    outer: for (int i = 0; i < 10; ++i)
+    {
+        for (int j = 0; j < 5; ++j)
+        {
             ...
             break outer;
 
@@ -66,7 +72,8 @@ import std.stdio : writeln;
 Computes the average of
 the elements of an array.
 */
-double average(int[] array) {
+double average(int[] array)
+{
     // The property .empty for arrays isn't
     // native in D but has to be made accessible
     // by importing the function from std.array
@@ -74,7 +81,8 @@ double average(int[] array) {
 
     double accumulator = 0.0;
     auto length = array.length;
-    while (!array.empty) {
+    while (!array.empty)
+    {
         // this could be also done with .front
         // with import std.array : front;
         accumulator += array[0];
@@ -90,7 +98,8 @@ void main()
           [2, 3, 2, 3], // 10
           [3, 6, 2, 9] ]; // 20
 
-    for (auto i = 0; i < testers.length; ++i) {
+    for (auto i = 0; i < testers.length; ++i)
+    {
       writeln("The average of ", testers[i],
         " = ", average(testers[i]));
     }
