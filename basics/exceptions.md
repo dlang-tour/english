@@ -79,8 +79,10 @@ automatically.
 ### std.exception
 
 It is important to avoid contract programming for user-input as the contracts
-are removed when compiled in release mode. For convenience `std.exception` provides
-`enforce` that can be used like `assert`, but throws `Exceptions`
+are removed when compiled in release mode. For convenience
+[`std.exception`](https://dlang.org/phobos/std_exception.html) provides
+[`enforce`](https://dlang.org/phobos/std_exception.html#enforce)
+that can be used like `assert`, but throws `Exceptions`
 instead of an `AssertError`.
 
 ```d
@@ -93,7 +95,8 @@ enforce!StringException('a' != 'A', "Case-sensitive algorithm");
 ```
 
 However there's more in `std.exception`. For example when the error might not be
-fatal, one can opt-in to `collect` it:
+fatal, one can opt-in to
+[`collect`](https://dlang.org/phobos/std_exception.html#collectException) it:
 
 ```d
 import std.exception : collectException;
@@ -102,7 +105,7 @@ if (e)
     writeln("The dangerous operation failed with ", e);
 ```
 
-To test whether an exception is thrown in tests, use `assertThrown`.
+To test whether an exception is thrown in tests, use [`assertThrown`](https://dlang.org/phobos/std_exception.html#assertThrown).
 
 ### In-depth
 
