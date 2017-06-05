@@ -20,6 +20,16 @@ prevent clashing of symbols with the same name from different modules.
 An `import` statement does not need to appear at the top of a source file.
 It can also be used locally within functions or any other scope.
 
+### Imports match directories and files
+
+D's module is - in contrast to other module system - entirely based on files.
+For example, `my.cat` always refers to a file `cat.d` in the folder `my`.
+The folder `my` needs to be in the current working directory or
+in one of the explicitly specified directory imports (`-I`).
+Lastly, to ease splitting up modules, instead of `cat.d`,
+a folder `cat` could be used as well.
+The D compiler would then try to load `my/cat/package.d` instead of `my/cat.d`.
+
 ## {SourceCode}
 
 ```d
