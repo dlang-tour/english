@@ -38,7 +38,7 @@ Before going further login to the Heroku Command Line by using the [Heroku Toolb
 
 This provides access to the Heroku Command-Line Interface (CLI), which can be used for managing and scaling your applications and add-ons.
 
-After installing the toolbet run the following:
+After installing the toolbelt run the following:
 
 ```
 $ heroku login
