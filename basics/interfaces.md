@@ -21,7 +21,7 @@ function in a base class.
 
     auto dog = new Dog;
     Animal animal = dog; // implicit cast to interface
-    dog.makeNoise();
+    animal.makeNoise();
 
 The number of `interface`s a `class` can implement isn't limited,
 but it can inherit from only *one* base class.
