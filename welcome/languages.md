@@ -11,6 +11,7 @@ The Dlang Tour is available in multiple languages:
 - [Swedish - Svenska](https://tour.dlang.org/tour/sv/welcome/welcome-to-d) (partially, WIP)
 - [Turkish - Türkçe](https://tour.dlang.org/tour/tr/welcome/welcome-to-d) (partially, WIP)
 - [Ukrainian - Українська](https://tour.dlang.org/tour/uk/welcome/welcome-to-d)
+- [French - Français](https://tour.dlang.org/tour/tour/fr/welcome/welcome-to-d)
 
 For English, just click on "Next" or use the right arrow key.
 
