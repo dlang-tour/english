@@ -103,7 +103,7 @@ struct Date {
         date = string to be serialized
         
     Returns: Date object.
-    /*
+    */
     void fromString(string date)
     in {
         assert(date.length == 10);
@@ -123,7 +123,7 @@ struct Date {
     Serializes Date object to YYYY-MM-DD
 
     Returns: String representation of the Date
-    /*
+    */
     string toString() const
     out (result) {
         import std.algorithm : all, count,
