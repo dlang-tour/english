@@ -3,7 +3,7 @@
 The Dlang Tour is available in multiple languages:
 
 - [Brazilian Portuguese - Português Brasileiro](https://tour.dlang.org/tour/pt/welcome/welcome-to-d) (partially, WIP)
-- [French - Français](https://tour.dlang.org/tour/tour/fr/welcome/welcome-to-d)
+- [French - Français](https://tour.dlang.org/tour/fr/welcome/welcome-to-d)
 - [German - Deutsch](https://tour.dlang.org/tour/de/welcome/welcome-to-d) (partially, WIP)
 - [Italian - Italiano](https://tour.dlang.org/tour/it/welcome/welcome-to-d) (partially, WIP)
 - [Japanese - 日本語](https://tour.dlang.org/tour/ja/welcome/welcome-to-d)
