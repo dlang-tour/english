@@ -10,7 +10,7 @@ addons:
     packages:
     - libevent-dev
 script:
-  - git clone https://github.com/stonemaster/dlang-tour ../tour
+  - git clone https://github.com/dlang-tour/core ../tour
   - mkdir -p ../tour/public/content/lang
   - mv * ../tour/public/content/lang
   - wget https://raw.githubusercontent.com/dlang/tools/master/rdmd.d
