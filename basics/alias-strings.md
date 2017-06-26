@@ -85,7 +85,7 @@ of reserved symbols. Raw strings can be declared using either backticks (`` `
 ... ` ``) or the r(aw)-prefix (`r" ... "`).
 
     string raw  =  `raw "string"`; // raw "string"
-    string raw2 = r"raw "string""; // raw "string"
+    string raw2 = r"raw `string`"; // raw `string`
 
 ### In-depth
 
