@@ -52,7 +52,7 @@ sections.
 
   License: use freely for any purpose
   Throws: throws nothing.
-  Returns: the squrare root of the input.
+  Returns: the square root of the input.
 */
 T sqrt(T)(T number) {
 }
