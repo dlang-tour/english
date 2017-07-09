@@ -1,8 +1,8 @@
 # Unicode in D
 
-Unicode is a global standard for encoding and representing text
-in computers. D fully supports Unicode in both the language and
-the standard library.
+Unicode is a global standard for representing text in computers.
+D fully supports Unicode in both the language and the standard
+library.
 
 ## What and Why
 
