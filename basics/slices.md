@@ -55,30 +55,26 @@ thus would generate a `RangeError` (if bounds-checking hasn't been disabled).
 ## {SourceCode}
 
 ```d
-import std.stdio : writefln;
-
-/**
-Calculates the minimum of all values
-in a slice recursively. For every recursive
-call a sub-slice is taken thus we don't
-create a copy and don't do any allocations.
-*/
-int minimum(int[] slice)
-{
-    assert(slice.length > 0);
-    if (slice.length == 1)
-        return slice[0];
-    auto otherMin = minimum(slice[1 .. $]);
-    return slice[0] < otherMin ?
-        slice[0] : otherMin;
-}
+import std.stdio : writeln;
 
 void main()
 {
     int[] test = [ 3, 9, 11, 7, 2, 76, 90, 6 ];
-    auto min = minimum(test);
-    writefln("The minimum of %s is %d",
-        test, min);
-    assert(min == 2);
+    test.writeln;
+    writeln("First element: ", test[0]);
+    writeln("Last element: ", test[$ - 1]);
+    writeln("Exclude the first two elements: ",
+    	test[2 .. $]);
+
+    writeln("Slices are views on the memory:");
+    auto test2 = test;
+    auto subView = test[3 .. $];
+    test[] += 1; // increment each element by 1
+    test.writeln;
+    test2.writeln;
+    subView.writeln;
+
+    // Create an empty slice
+    assert(test[2 .. 2].length == 0);
 }
 ```
