@@ -73,7 +73,7 @@ struct Vector3 {
     // That's okay!
     unittest {
         assert(Vector3(1,0,0).dot(
-          Vector3(0,1,0) == 0);
+          Vector3(0,1,0)) == 0);
     }
 
     string toString() const {
