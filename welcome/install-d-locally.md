@@ -52,7 +52,7 @@ There are D plugins for at least the following editors:
 - [Atom](https://github.com/Pure-D/atomize-d)
 - [Eclipse](http://ddt-ide.github.io)
 - [Emacs](https://github.com/Emacs-D-Mode-Maintainers/Emacs-D-Mode)
-- [IntelliJ](https://github.com/kingsleyh/DLanguage)
+- [IntelliJ](https://github.com/intellij-dlanguage/intellij-dlanguage)
 - [Sublime Text](https://github.com/yazd/DKit)
 - [Vim](https://wiki.dlang.org/D_in_Vim)
 - [VS Code](https://marketplace.visualstudio.com/items/webfreak.code-d)
