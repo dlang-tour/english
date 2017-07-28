@@ -71,14 +71,18 @@ in the [Unicode gems chapter](gems/unicode).
 
 ### Multi-line strings
 
-To create multi-line strings, use the `string str = q{ ... }` syntax.
+Strings in D can always span over multiple lines:
 
-    string multiline = q{ This
-        may be a
-        long document
-    };
+    string multiline = "
+    This
+    may be a
+    long document
+    ";
 
-### Raw strings
+When quotes appear in the document, Wysiwyg strings (see below) or
+[heredoc strings](http://dlang.org/spec/lex.html#delimited_strings) can be used.
+
+### Wysiwyg strings
 
 It is also possible to use raw strings to minimize laborious escaping
 of reserved symbols. Raw strings can be declared using either backticks (`` `
@@ -87,6 +91,9 @@ of reserved symbols. Raw strings can be declared using either backticks (`` `
     string raw  =  `raw "string"`; // raw "string"
     string raw2 = r"raw `string`"; // raw `string`
 
+D provides even more ways to represent strings - don't hesitate
+to [explore](https://dlang.org/spec/lex.html#string_literals) them.
+
 ### In-depth
 
 - [Unicode gem](gems/unicode)
@@ -94,6 +101,7 @@ of reserved symbols. Raw strings can be declared using either backticks (`` `
 - [Strings in _Programming in D_](http://ddili.org/ders/d.en/strings.html)
 - [std.utf](http://dlang.org/phobos/std_utf.html) - UTF en-/decoding algorithms
 - [std.uni](http://dlang.org/phobos/std_uni.html) - Unicode algorithms
+- [String Literals in the D spec](http://dlang.org/spec/lex.html#string_literals)
 
 ## {SourceCode}
 
