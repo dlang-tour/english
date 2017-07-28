@@ -71,7 +71,7 @@ in the [Unicode gems chapter](gems/unicode).
 
 ### Multi-line strings
 
-Strings in D can always stretch over multiple lines:
+Strings in D can always span over multiple lines:
 
     string multiline = "
     This
