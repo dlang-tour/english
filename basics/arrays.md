@@ -94,7 +94,7 @@ Returns:
 char[] encrypt(char[] input, char shift)
 {
     auto result = input.dup;
-    // ...
+    // TODO: shift each character
     return result;
 }
 
