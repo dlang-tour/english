@@ -73,8 +73,8 @@ Notice the remote endpoint is added to the git config:
 
 ```
 $ git remote -v
-heroku	https://git.heroku.com/rocky-hamlet-67506.git (fetch)
-heroku	https://git.heroku.com/rocky-hamlet-67506.git (push)
+heroku    https://git.heroku.com/rocky-hamlet-67506.git (fetch)
+heroku    https://git.heroku.com/rocky-hamlet-67506.git (push)
 ```
 
 ### Adding the buildpack
