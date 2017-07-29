@@ -102,7 +102,7 @@ private:
     /*
     Generator for getter and setter because
     we really hate boiler plate!
-    
+
     var -> T getVAR() and void setVAR(T)
     */
     mixin template GetterSetter(string var) {
