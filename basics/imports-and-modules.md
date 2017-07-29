@@ -22,13 +22,16 @@ It can also be used locally within functions or any other scope.
 
 ### Imports match directories and files
 
-D's module is - in contrast to other module system - entirely based on files.
-For example, `my.cat` always refers to a file `cat.d` in the folder `my`.
+D's module system - in contrast to other systems - is entirely based on files.
+For example, `my.cat` always refers to a file `cat.d` in the folder `my/`.
 The folder `my` needs to be in the current working directory or
 in one of the explicitly specified directory imports (`-I`).
-Lastly, to ease splitting up modules, instead of `cat.d`,
-a folder `cat` could be used as well.
+Lastly, to ease splitting big modules up into multiple smaller files,
+instead of `cat.d`, a folder `cat/` could be used as well.
 The D compiler would then try to load `my/cat/package.d` instead of `my/cat.d`.
+
+The convention (but not a hard rule) for `package.d` files is to publicly import
+all other modules in the same folder.
 
 ## {SourceCode}
 
