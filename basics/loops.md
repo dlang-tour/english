@@ -74,14 +74,9 @@ the elements of an array.
 */
 double average(int[] array)
 {
-    // The property .empty for arrays isn't
-    // native in D but has to be made accessible
-    // by importing the function from std.array
-    import std.array : empty, front;
-
+    immutable initialLength = array.length;
     double accumulator = 0.0;
-    auto length = array.length;
-    while (!array.empty)
+    while (array.length)
     {
         // this could be also done with .front
         // with import std.array : front;
@@ -89,7 +84,7 @@ double average(int[] array)
         array = array[1 .. $];
     }
 
-    return accumulator / length;
+    return accumulator / initialLength;
 }
 
 void main()
