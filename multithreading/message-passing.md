@@ -24,7 +24,7 @@ additional parameters to that function as arguments.
         receive(
           (int i) { writeln("An ", i, " was sent!"); }
         );
-        
+
         send(parentTid, "Done");
     }
 

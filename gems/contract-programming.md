@@ -98,10 +98,10 @@ struct Date {
     /**
     Serializes Date object from a
     YYYY-MM-DD string.
-    
+
     Params:
         date = string to be serialized
-        
+
     Returns: Date object.
     */
     void fromString(string date)

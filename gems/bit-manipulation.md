@@ -110,14 +110,14 @@ void main()
     // 4 bytes (int) per variable
     writeln(Vector.sizeof);
 
-	struct BadVector
-	{
-		bool a;
-		int x, y, z;
-		bool b;
-	}
-	// due to padding,
-	// 4 bytes are used for each field
-	writeln(BadVector.sizeof);
+    struct BadVector
+    {
+        bool a;
+        int x, y, z;
+        bool b;
+    }
+    // due to padding,
+    // 4 bytes are used for each field
+    writeln(BadVector.sizeof);
 }
 ```

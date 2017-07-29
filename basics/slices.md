@@ -64,7 +64,7 @@ void main()
     writeln("First element: ", test[0]);
     writeln("Last element: ", test[$ - 1]);
     writeln("Exclude the first two elements: ",
-    	test[2 .. $]);
+        test[2 .. $]);
 
     writeln("Slices are views on the memory:");
     auto test2 = test;

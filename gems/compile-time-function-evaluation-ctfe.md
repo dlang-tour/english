@@ -58,8 +58,8 @@ using Newton's approximation scheme.
 
 Params:
     x = number to be squared
-    
-Returns: square root of x 
+
+Returns: square root of x
 */
 auto sqrt(T)(T x) {
     // our epsilon when to stop the

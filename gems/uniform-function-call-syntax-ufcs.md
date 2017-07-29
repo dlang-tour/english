@@ -60,6 +60,6 @@ void main()
 
     // Traditional style:
     writeln(filter!(a => a % 2 == 0)
-    			   (iota(10)));
+                   (iota(10)));
 }
 ```

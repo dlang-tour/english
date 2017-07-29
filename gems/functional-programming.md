@@ -82,13 +82,13 @@ void main()
     void test()
     {
         writefln(".uintLength() = %s ",
-        	   fastBigPow(5, 10000).uintLength);
+               fastBigPow(5, 10000).uintLength);
     }
 
     foreach (i; 0 .. 10)
         benchmark!test(1)[0]
-        	.to!("msecs", double)
-        	.reverseArgs!writefln
-        		(" took: %.2f miliseconds");
+            .to!("msecs", double)
+            .reverseArgs!writefln
+                (" took: %.2f miliseconds");
 }
 ```
