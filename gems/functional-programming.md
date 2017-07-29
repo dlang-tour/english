@@ -70,7 +70,8 @@ BigInt bigPow(uint base, uint power) pure
 void main()
 {
     import std.datetime : benchmark, to;
-    import std.functional : memoize;
+    import std.functional : memoize,
+        reverseArgs;
     import std.stdio : writefln, writeln;
 
     // memoize caches the result of the function
@@ -87,6 +88,7 @@ void main()
     foreach (i; 0 .. 10)
         benchmark!test(1)[0]
         	.to!("msecs", double)
-        	.writeln("took: miliseconds");
+        	.reverseArgs!writefln
+        		(" took: %.2f miliseconds");
 }
 ```
