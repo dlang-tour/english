@@ -74,7 +74,7 @@ the elements of an array.
 */
 double average(int[] array)
 {
-    immutable length = array.length;
+    immutable initialLength = array.length;
     double accumulator = 0.0;
     while (array.length)
     {
@@ -84,7 +84,7 @@ double average(int[] array)
         array = array[1 .. $];
     }
 
-    return accumulator / length;
+    return accumulator / initialLength;
 }
 
 void main()
