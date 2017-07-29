@@ -101,26 +101,14 @@ struct Vector3 {
 
     double length() const {
         import std.math : sqrt;
+        // TODO: implement the length of Vector3
         return 0.0;
     }
 
     // rhs will be copied
     double dot(Vector3 rhs) const {
+        // TODO: implement the dot product
         return 0.0;
-    }
-
-    /**
-    Returns: representation of the string in the
-    special format. The output is restricted to
-    a precision of one!
-    "x: 0.0 y: 0.0 z: 0.0"
-    */
-    string toString() const {
-        import std.string : format;
-        // Hint: refer to the documentation of
-        // std.format to see how to influence
-        // output for floating point numbers.
-        return format("");
     }
 }
 
@@ -145,17 +133,5 @@ void main() {
 
     // 1 * 3 + 2 * 2 + 3 * 1
     assert(vec3.dot(Vector3(3, 2, 1)) == 10);
-
-    // Thanks to toString() we can now just
-    // output our vectors with writeln
-    import std.stdio : writeln, writefln;
-    writeln("vec1 = ", vec1);
-    writefln("vec2 = %s", vec2);
-
-    // Check the string representation
-    assert(vec1.toString() ==
-        "x: 10.0 y: 0.0 z: 0.0");
-    assert(vec2.toString() ==
-        "x: 0.0 y: 20.0 z: 0.0");
 }
 ```
