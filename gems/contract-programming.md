@@ -3,8 +3,8 @@
 Contract programming in D includes a set of language constructs that allow increasing the code quality 
 by implementing sanity checks that make sure that the code base behaves as intended. 
 Contracts are compiled and exectued when the software is build for testing or debugging. 
-In release builds (**-release** for DMD) they are completly skipped by the compiler,
-therefore they shouldn't be used to validate user input or as an alternative exception system.
+In release builds (enabled by the **-release** switch for DMD) they are completly omitted by the compiler,
+therefore they shouldn't be used to validate user input or as an alternative to using exceptions.
 
 ### `assert`
 
