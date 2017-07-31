@@ -45,7 +45,7 @@ See the wiki for [more information](https://wiki.dlang.org/Compilers)
 
 ## Configure your editor
 
-The beauty about D is that you don't need a fancy IDE as boilerplate is very rare.
+The beauty about D is that you don't need a fancy IDE as boilerplate code is very rare.
 However, using D is nicer when you are in the comfortable zone of your favorite editor.
 There are D plugins for at least the following editors:
 
