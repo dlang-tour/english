@@ -35,7 +35,7 @@ In D, classes can only inherit from one class.
 
 - A function can be marked `final` in a base class to disallow overriding
 it
-- A function can be declared as `abstract` to force base classes to override
+- A function can be declared as `abstract` to force derived classes to override
 it
 - A whole class can be declared as `abstract` to make sure
 that it isn't instantiated
