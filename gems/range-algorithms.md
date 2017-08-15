@@ -44,7 +44,7 @@ ranges during iteration:
 `generate` - takes a function and creates a range
 which in turn calls it on each iteration, for example:
 
-    alias RandomRange = generate!(x => uniform(1, 1000));
+    alias RandomRange = generate!(() => uniform(1, 1000));
 
 `cycle` - returns a range that repeats the given input range
 forever.
