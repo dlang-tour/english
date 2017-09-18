@@ -95,6 +95,6 @@ void main()
     }
 
     // squareFiber could still be run because
-    // it has finished yet!
+    // it has not finished yet!
 }
 ```
