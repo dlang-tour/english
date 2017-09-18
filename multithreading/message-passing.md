@@ -116,7 +116,7 @@ void worker(Tid parentId)
 
 void main()
 {
-    Tid threads[];
+    Tid[] threads;
     // Spawn 10 little worker threads.
     for (size_t i = 0; i < 10; ++i) {
         threads ~= spawn(&worker, thisTid);
