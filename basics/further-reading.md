@@ -5,7 +5,7 @@ Now that you've finished the basics, you can move on to some more advanced secti
 ### Basic resources
 
 * New to programming? [This book](http://ddili.org/ders/d.en/index.html) is a great starting place for beginners
-* [Coming form another language?](http://wiki.dlang.org/Coming_From)
+* [Coming from another language?](http://wiki.dlang.org/Coming_From)
 * Looking for a book to read? [Discover books about D](https://wiki.dlang.org/Books)
 * Read [articles about D](http://dlang.org/articles.html)
 * Explore more [D Tutorials](https://wiki.dlang.org/Tutorials)
