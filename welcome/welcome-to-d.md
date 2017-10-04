@@ -39,6 +39,9 @@ Each section comes with a source code example that can be modified and used
 to experiment with D's language features.
 Click the run button (or `Ctrl-enter`) to compile and run it.
 
+To navigate this tour, either use the "`<` previous" and "next `>`" links at the
+bottom, or else go straight to particular sections using the menus at the top.
+
 ### Contributing
 
 This tour is [open source](https://github.com/dlang-tour)
