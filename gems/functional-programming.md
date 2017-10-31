@@ -11,7 +11,7 @@ any mutable global state and are thus just allowed to call other
 functions which are `pure` themselves.
 
     int add(int lhs, int rhs) pure {
-        // ERROR: impureFunction();
+        impureFunction(); // ERROR: unable to call impureFunction here
         return lhs + rhs;
     }
 
