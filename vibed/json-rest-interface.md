@@ -1,6 +1,6 @@
 # JSON REST Interface
 
-Vibe.d allows to quickly implement a JSON webservice.
+Vibe.d allows you to quickly implement a JSON webservice.
 If we want to implement the following JSON output for
 a HTTP request to `/api/v1/chapters`:
 
@@ -23,7 +23,7 @@ a HTTP request to `/api/v1/chapters`:
     ]
 
 First define an interface that implements the
-according functions and D `struct`s that are
+getChapters() function and D `struct`s that are
 serialized **1:1**:
 
     interface IRest
@@ -41,7 +41,7 @@ serialized **1:1**:
         Chapter[] getChapters();
     }
 
-To actual fill the data structures, we have to inherit
+To actually fill the data structures, we have to inherit
 from the interface and implement the business logic:
 
     class Rest: IRest {
@@ -50,14 +50,14 @@ from the interface and implement the business logic:
         }
     }
 
-Given an `URLRouter` instance we register
+Given an `URLRouter` instance, we register
 an instance of the `Rest` class and we're done!
 
     auto router = new URLRouter;
     router.registerRestInterface(new Rest);
 
 Vibe.d *REST interface generator* also supports
-POST request where the children of the posted
+POST requests where the children of the posted
 JSON object are mapped to the member function's
 parameters.
 
