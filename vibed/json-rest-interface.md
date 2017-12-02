@@ -23,7 +23,7 @@ a HTTP request to `/api/v1/chapters`:
     ]
 
 First define an interface that implements the
-getChapters() function and D `struct`s that are
+`getChapters()` function and D `struct`s that are
 serialized **1:1**:
 
     interface IRest
