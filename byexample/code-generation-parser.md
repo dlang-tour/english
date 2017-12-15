@@ -60,7 +60,7 @@ import std.algorithm, std.conv, std.range,
 struct Config
 {
     int runs, port;
-    string hello;
+    string name;
 }
 void main()
 {
