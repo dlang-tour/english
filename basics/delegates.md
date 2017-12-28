@@ -9,8 +9,8 @@ A function can also be a parameter to another function:
         doer(5,5);
     }
 
-    doSomething(add); // use global function `add` here
-                      // add must have 2 int parameters
+    doSomething(&add); // use global function `add` here
+                       // add must have 2 int parameters
 
 `doer` can then be called like any other normal function.
 
