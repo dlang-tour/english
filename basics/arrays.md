@@ -29,9 +29,11 @@ and its length:
     int size = 8; // run-time variable
     int[] arr = new int[size];
 
-The type of `arr` is `int[]`, which is a **slice**. Slices
-will be explained in more detail in the [next section](basics/slices). Multi-dimensional
-arrays can be created easily using the `auto arr = new int[3][3]` syntax.
+The type of `arr` is `int[]`, which is also called a **slice**. Slices
+are views on a contiguous block of memory and will be explained
+in more detail in the [next section](basics/slices).
+Multi-dimensional arrays can be created easily
+using the `auto arr = new int[3][3]` syntax.
 
 #### Array operations and properties
 
@@ -72,6 +74,7 @@ which should make things easier.
 ### In-depth
 
 - [Arrays in _Programming in D_](http://ddili.org/ders/d.en/arrays.html)
+- [D Slices](https://dlang.org/d-array-article.htm)
 - [Array specification](https://dlang.org/spec/arrays.html)
 
 ## {SourceCode:incomplete}
