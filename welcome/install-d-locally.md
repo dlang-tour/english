@@ -1,47 +1,26 @@
 # Install D locally
 
-On the D language's website [dlang.org](https://dlang.org) the most recent
-compiler version of the reference compiler **DMD** (Digital Mars D)
-can be [downloaded](http://dlang.org/download.html) and installed:
+The D language reference compiler is called DMD (Digital Mars D).
+Also available are [LDC](https://github.com/ldc-developers/ldc)
+(a [LLVM](http://llvm.org)-based D compiler).
+and [GDC](https://gdcproject.org) (a [GCC](https://gcc.gnu.org/)-based D
+compiler).
+See [the Compilers wiki page](https://wiki.dlang.org/Compilers) for
+more detailed information, but if you're new to D and aren't sure
+which to install, install DMD.
 
-### Windows
+## Download and Install
 
-* [Installer](http://downloads.dlang.org/releases/2.x/{{latest-release}}/dmd-{{latest-release}}.exe)
-* or: [Archive](http://downloads.dlang.org/releases/2.x/{{latest-release}}/dmd.{{latest-release}}.windows.7z)
-* using [chocolatey](https://chocolatey.org/packages/dmd): `choco install dmd`
+The [D downloads page](https://dlang.org/download.html) provides an
+overview of the various D implementations, and contains links to
+pre-built OS-specific DMD packages ready to download and install.
 
-### macOS
-
-* `.dmg` [package](http://downloads.dlang.org/releases/2.x/{{latest-release}}/dmd.{{latest-release}}.dmg)
-* or: [Archive](http://downloads.dlang.org/releases/2.x/{{latest-release}}/dmd.{{latest-release}}.osx.tar.xz)
-* using [Homebrew](http://brew.sh): `brew install dmd`
-
-### Linux / FreeBSD / macOS
-
-To quickly install dmd within your user directory, run: `curl -fsS https://dlang.org/install.sh | bash -s dmd`
-
-Packages for various distributions are provided:
-
-* [ArchLinux](https://wiki.archlinux.org/index.php/D_(programming_language))
-* [Debian/Ubuntu](http://d-apt.sourceforge.net).
-* [Fedora/CentOS](http://dlang.org/download.html#dmd)
-* [Gentoo](https://wiki.gentoo.org/wiki/Dlang)
-* [OpenSuse](http://dlang.org/download.html#dmd)
-
-## Other compilers
-
-Besides the DMD reference compiler which uses its own backend, there are
-two other compilers that can be fetched through the
-[dlang.org](https://dlang.org) download section:
-
-* [**GDC**](http://gdcproject.org/downloads) which uses the GCC backend
-* [**LDC**](https://github.com/ldc-developers/ldc#installation) based on the LLVM backend
-
-GDC and LDC aren't always at the most recent DMD frontend's versions,
-but provide better optimization levels as well as support
-for other platforms like e.g. ARM.
-
-See the wiki for [more information](https://wiki.dlang.org/Compilers)
+As an alternative to the OS-specific packages, there's also an
+[install script](https://dlang.org/install.html)
+for use with any Posix-like System (Linux, FreeBSD, MacOS)
+that can install the various implementations (including multiple versions of them)
+locally without requiring any administration rights.
+See the [install script documentation](https://dlang.org/install.html) for details.
 
 ## Configure your editor
 
@@ -56,7 +35,7 @@ There are D plugins for at least the following editors:
 - [Sublime Text](https://github.com/yazd/DKit)
 - [Vim](https://wiki.dlang.org/D_in_Vim)
 - [VS Code](https://marketplace.visualstudio.com/items/webfreak.code-d)
-- [Visual Studio](http://rainers.github.io/visuald/visuald/StartPage.html)
+- [__Visual Studio__](http://rainers.github.io/visuald/visuald/StartPage.html)
 
 You may also want to try an IDE dedicated to D:
 
