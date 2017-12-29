@@ -1,8 +1,10 @@
 # Install D locally
 
 The D language reference compiler is called DMD (Digital Mars D).
-Also available are "GCD" (a [GCC](https://gcc.gnu.org/)-based D
-compiler) and "LDC" (an [LLVM](http://llvm.org)-based D compiler).
+Also available are [LDC](https://github.com/ldc-developers/ldc)
+(a [LLVM](http://llvm.org)-based D compiler).
+and [GDC](https://gdcproject.org) (a [GCC](https://gcc.gnu.org/)-based D
+compiler).
 See [the Compilers wiki page](https://wiki.dlang.org/Compilers) for
 more detailed information, but if you're new to D and aren't sure
 which to install, install DMD.
@@ -13,13 +15,12 @@ The [D downloads page](https://dlang.org/download.html) provides an
 overview of the various D implementations, and contains links to
 pre-built OS-specific DMD packages ready to download and install.
 
-As an alternative to the OS-specific packages, there's also an install
-script there for use with GNU/Linux|FreeBSD|MacOS that can install the
-various implementations (including multiple versions of them) right
-into your home directory. Running the `curl` command as shown there
-will install DMD into ~/dlang. After successful completion of the
-command you'll be instructed to run the provided `activate` script to
-prepare your terminal and you'll be ready to roll.
+As an alternative to the OS-specific packages, there's also an
+[install script](https://dlang.org/install.html)
+for use with any Posix-like System (Linux, FreeBSD, MacOS)
+that can install the various implementations (including multiple versions of them)
+locally without requiring any administration rights.
+See the [install script documentation](https://dlang.org/install.html) for details.
 
 ## Configure your editor
 
@@ -34,7 +35,7 @@ There are D plugins for at least the following editors:
 - [Sublime Text](https://github.com/yazd/DKit)
 - [Vim](https://wiki.dlang.org/D_in_Vim)
 - [VS Code](https://marketplace.visualstudio.com/items/webfreak.code-d)
-- [Visual Studio](http://rainers.github.io/visuald/visuald/StartPage.html)
+- [__Visual Studio__](http://rainers.github.io/visuald/visuald/StartPage.html)
 
 You may also want to try an IDE dedicated to D:
 
