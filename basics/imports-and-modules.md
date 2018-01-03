@@ -1,8 +1,25 @@
-# Imports and modules
+# Turtles all the way down
+
+{{#img-right}}turtle.svg{{/img-right}}
+
+One of D's core design decision was to be consistent and avoid corner cases
+in the language.
+This is called [_turtles all the way down_](https://en.wikipedia.org/wiki/Turtles_all_the_way_down).
+One good example for this consistency are `import`s.
+
+## Imports
 
 For a simple hello world program in D, `import`s are needed.
 The `import` statement makes all public functions
 and types from the given **module** available.
+
+### The turtles start falling down
+
+An `import` statement __does not__ need to appear at the top of a source file.
+It can also be used locally within functions or any other scope.
+In the following chapters you will see that this applies to almost all concepts in D. The language doesn't expose arbitrary restrictions on you.
+
+### Selective imports
 
 The standard library, called [Phobos](https://dlang.org/phobos/),
 is located under the **package** `std`
@@ -16,9 +33,6 @@ import certain symbols of a module:
 Selective imports can be used to improve readability by making
 it obvious where a symbol comes from, and also as a way to
 prevent clashing of symbols with the same name from different modules.
-
-An `import` statement does not need to appear at the top of a source file.
-It can also be used locally within functions or any other scope.
 
 ### Imports match directories and files
 
