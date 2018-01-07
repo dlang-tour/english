@@ -74,7 +74,7 @@ which should make things easier.
 ### In-depth
 
 - [Arrays in _Programming in D_](http://ddili.org/ders/d.en/arrays.html)
-- [D Slices](https://dlang.org/d-array-article.htm)
+- [D Slices](https://dlang.org/d-array-article.html)
 - [Array specification](https://dlang.org/spec/arrays.html)
 
 ## {SourceCode:incomplete}
