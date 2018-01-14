@@ -5,7 +5,7 @@ Access to arrays of any kind is bounds-checked (except when the compiler can pro
 that bounds checks aren't necessary).
 A failed bounds check yields a `RangeError` which aborts the application.
 The brave can disable this safety feature with the
-compiler flag `-boundschecks=off`
+compiler flag `-boundscheck=off`
 in order to gain speed improvements at the cost of safety.
 
 #### Static arrays
