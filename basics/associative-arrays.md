@@ -63,7 +63,7 @@ void main()
                        key, value);
 
     // `.keys` and .values` return arrays
-    writeln("Words:", words.keys);
+    writeln("Words: ", words.keys);
 
     // `.byKey`, `.byValue` and `.byKeyValue`
     // return lazy, iteratable ranges
