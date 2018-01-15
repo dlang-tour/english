@@ -14,7 +14,7 @@ Essentially `makeNoise` behaves like an `abstract` member
 function in a base class.
 
     class Dog : Animal {
-        override makeNoise() {
+        override void makeNoise() {
             ...
         }
     }
