@@ -29,7 +29,7 @@ can be explicitly accessed with `this`:
         }
             ...
 
-    Person p(30, 180); // initialization
+    Person p = Person(30, 180); // initialization
     p = Person(30, 180);  // assignment to new instance
 
 A `struct` might contain any number of member functions. These
