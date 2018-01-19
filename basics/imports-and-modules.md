@@ -36,7 +36,7 @@ prevent clashing of symbols with the same name from different modules.
 
 ### Imports match directories and files
 
-D's module system - in contrast to other systems - is entirely based on files.
+D's module system — in contrast to other systems — is entirely based on files.
 For example, `my.cat` always refers to a file `cat.d` in the folder `my/`.
 The folder `my` needs to be in the current working directory or
 in one of the explicitly specified directory imports (`-I`).
