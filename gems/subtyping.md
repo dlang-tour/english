@@ -30,28 +30,27 @@ accessing the `alias this` member.
 ```d
 import std.stdio : writeln;
 
-struct Vector3 {
-    private double[3] vec;
-    alias vec this;
+struct Point
+{
+    private double[2] p;
+    // p is used by the compiler
+    // to lookup unknown symbols
+    alias p this;
 
-    double dot(Vector3 rhs) {
-        return vec[0]*rhs.vec[0] +
-          vec[1]*rhs.vec[1] + vec[2]*rhs.vec[2];
+    double dot(Point rhs)
+    {
+        return p[0] * rhs.p[0]
+             + p[1] * rhs.p[1];
     }
 }
-
 void main()
 {
-    Vector3 vec;
-    // we're basically talking with
-    // double[] here.
-    vec = [ 0.0, 1.0, 0.0 ];
-    assert(vec.length == 3);
-    assert(vec[$ - 1] == 0.0);
+    Point p1, p2;
+    // We're basically accessing a double[2]
+    p1 = [2, 1], p2 = [1, 1];
+    assert(p1[$ - 1] == 1);
 
-    auto vec2 = Vector3([1.0,0.0,0.0]);
-    // but this functionality has been
-    // extended!
-    writeln("vec dot vec2 = ", vec.dot(vec2));
+    // but with extended functionality
+    writeln("p1 dot p2 = ", p1.dot(p2));
 }
 ```
