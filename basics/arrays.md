@@ -65,7 +65,7 @@ the last element and is a short form for `arr[arr.length - 1]`.
 
 ### Exercise
 
-Complete the function `encrypt` to decrypt the secret message.
+Complete the function `encrypt` to encrypt the secret message.
 The text should be encrypted using *Caesar encryption*,
 which shifts the characters in the alphabet using a certain index.
 The to-be-encrypted text only contains characters in the range `a-z`,
