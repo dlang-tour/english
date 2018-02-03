@@ -6,7 +6,7 @@ Play with [mir-algorithm](http://docs.algorithm.dlang.io/latest/index.html).
 
 ```d
 /+dub.sdl:
-dependency "mir-algorithm" version="~>0.6.14"
+dependency "mir-algorithm" version="~>0.7"
 +/
 import std.stdio;
 void main(string[] args)

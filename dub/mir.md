@@ -6,7 +6,7 @@ Play with [mir](http://docs.mir.dlang.io/latest/index.html)
 
 ```d
 /+dub.sdl:
-dependency "mir" version="~>1.1.1"
+dependency "mir" version="~>1.1"
 +/
 import std.stdio;
 import mir.combinatorics;
