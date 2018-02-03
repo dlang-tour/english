@@ -6,7 +6,7 @@ Play with [vibe.d](http://vibed.org).
 
 ```d
 /+ dub.sdl:
-dependency "vibe-d" version="~>0.8.2"
+dependency "vibe-d" version="~>0.8"
 +/
 import vibe.d;
 import std.stdio;

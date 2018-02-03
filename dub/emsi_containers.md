@@ -6,7 +6,7 @@ Play with [emsi_containers](https://github.com/dlang-community/containers)
 
 ```d
 /+dub.sdl:
-dependency "emsi_containers" version="~>0.6.0"
+dependency "emsi_containers" version="~>0.6"
 +/
 import std.stdio;
 void main(string[] args)
