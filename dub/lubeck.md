@@ -29,8 +29,10 @@ import lubeck: mtimes;
 void main()
 {
     auto n = 5;
-    auto matrix = n.magic.as!double.slice;  // Magic Square
-    auto vec = 1.repeat(n).as!double.slice; // [1 1 1 1 1]
+    // Magic Square
+    auto matrix = n.magic.as!double.slice;
+    // [1 1 1 1 1]
+    auto vec = 1.repeat(n).as!double.slice;
     // Uses CBLAS for multiplication
     matrix.mtimes(vec).writeln;
     matrix.mtimes(matrix).writeln;
