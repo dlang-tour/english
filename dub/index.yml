@@ -6,4 +6,4 @@ ordering:
 - emsi_containers
 - vibe-d
 - libdparse
-# - lubeck
+- lubeck
