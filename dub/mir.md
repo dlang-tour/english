@@ -2,8 +2,8 @@
 
 The package includes:
 
- - [mir-algorithm package](http://docs.algorithm.dlang.io). Dlang core library for math, finance and a home for Dlang multidimensional array package - ndslice.
- - [mir-random package](http://docs.random.dlang.io). Advanced random number generators.
+ - [mir-algorithm package](dub/mir-algorithm). Dlang core library for math, finance and a home for Dlang multidimensional array package - ndslice.
+ - [mir-random package](dub/mir-random). Advanced random number generators.
  - Sparse tensors
  - Combinatorics
  - Hoffman

@@ -19,7 +19,7 @@ backends are recommeded for Linux and Windows.
 
 ```d
 /+dub.sdl:
-dependency "lubeck" version="~>0.0.4"
+dependency "lubeck" version="~>0.0"
 libs "lapack" "blas" "cblas"
 +/
 import std.stdio;

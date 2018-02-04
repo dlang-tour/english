@@ -8,11 +8,16 @@ Dlang core library for math, finance and a home for Dlang multidimensional array
  - [GitHub](https://github.com/libmir/mir-algorithm)
  - [Lubeck](https://github.com/kaleidicassociates/lubeck) - Linear Algebra Library based on NDSlice API.
 
+
+## See Also
+
+[Magic Square on Wikipedia](https://en.wikipedia.org/wiki/Magic_square).
+
 ## {SourceCode}
 
 ```d
 /+dub.sdl:
-dependency "mir-algorithm" version="~>0.8.0-alpha5"
+dependency "mir-algorithm" version="~>0.7"
 +/
 import mir.math.sum;
 // Most of the API works for n-dimensional case too.
@@ -26,7 +31,6 @@ void main()
 
     auto matrix = n
         // creates lazy Magic Square,
-        // https://en.wikipedia.org/wiki/Magic_square
         .magic
         // Converts elements type to double precision FP numbers
         .as!double
@@ -35,11 +39,11 @@ void main()
 
     assert (matrix.isMagic);
     "Magic Square is here".writeln;
-    "%(%s\n%)\n".writeln(matrix);
+    "%(%s\n%)\n".writefln(matrix);
 
     // negate diagonal elements
     matrix.diagonal.each!"a = -a";
-    "%(%s\n%)\n".writeln(matrix);
+    "%(%s\n%)\n".writefln(matrix);
 }
 
 // Checks if the matrix is Magic Square.
