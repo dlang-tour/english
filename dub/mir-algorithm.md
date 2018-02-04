@@ -24,7 +24,7 @@ import mir.math.sum;
 import mir.ndslice: magic, byDim, map, each,
     repeat, diagonal, reversed;
 
-import std.stdio: writeln;
+import std.stdio: writefln;
 
 void main()
 {
