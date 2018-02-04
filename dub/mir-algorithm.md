@@ -40,7 +40,6 @@ void main()
         .slice;
 
     assert (matrix.isMagic);
-    "Magic Square is here".writeln;
     "%(%s\n%)\n".writefln(matrix);
 
     // negate diagonal elements
