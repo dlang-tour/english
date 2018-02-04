@@ -8,7 +8,6 @@ Dlang core library for math, finance and a home for Dlang multidimensional array
  - [GitHub](https://github.com/libmir/mir-algorithm)
  - [Lubeck](https://github.com/kaleidicassociates/lubeck) - Linear Algebra Library based on NDSlice API.
 
-
 ## See Also
 
 [Magic Square on Wikipedia](https://en.wikipedia.org/wiki/Magic_square).
@@ -23,7 +22,7 @@ import mir.math.sum;
 // Most of the API works for n-dimensional
 // case too.
 import mir.ndslice: magic, byDim, map, each,
-    repeat, diagonal, antidiagonal;
+    repeat, diagonal, reversed;
 
 import std.stdio: writeln;
 
