@@ -56,13 +56,13 @@ bool isMagic(S)(S matrix)
     auto c = n * (n * n + 1) / 2;// magic number
     return matrix.length!0 > 0   // check shape
         && matrix.length!0 == matrix.length!1
-   // each row sum should equal magic number
+        //each row sum
         && matrix.byDim!0.map!sum == c.repeat(n)
-   // each columns sum should equal magic number
+        //each columns sum
         && matrix.byDim!1.map!sum == c.repeat(n)
-   // diagonal sum should equal magic number
+        //diagonal sum
         && matrix.diagonal.sum == c
-   // antodiagonal sum should equal magic number
-        && matrix.antidiagonal.sum == c;
+        //antidiagonal sum
+        && matrix.reversed!1.diagonal.sum == c;
 }
 ```
