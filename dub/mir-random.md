@@ -14,22 +14,19 @@ Advanced random number generators.
 /+dub.sdl:
 dependency "mir-random" version="~>0.3"
 +/
-import mir.random: rne;
+import std.range, std.stdio;
+
 import mir.random.variable: NormalVariable;
 import mir.random.algorithm: range;
 
-import std.range: array, take;
-import std.stdio;
-
 void main()
 {
-    auto sample_size = 10;
-    // Random Variable: ~N(0, 1)
-    auto rvar = NormalVariable!double(0, 1);
-    auto sample = range!rne(rvar)
-        .take(sample_size)
+    auto sample = NormalVariable!double(0, 1)
+        .range
+        .take(10)
         .array;
 
-    writeln(sample);
+    // prints random element from the sample
+    sample[$.randIndex].writeln;
 }
 ```

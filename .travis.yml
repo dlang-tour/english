@@ -9,6 +9,9 @@ addons:
   apt:
     packages:
     - libevent-dev
+    - libopenblas-dev
+    - liblapack-dev
+
 script:
   - echo "Check for trailing whitespace"
   - grep -nr --include \*.md '\s$' . ; test $? -eq 1
