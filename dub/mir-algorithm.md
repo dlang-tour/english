@@ -21,7 +21,7 @@ dependency "mir-algorithm" version="~>0.7"
 import mir.math.sum;
 // Most of the API works for n-dimensional
 // case too.
-import mir.ndslice: magic, byDim, map, each,
+import mir.ndslice: magic, byDim, map, as, each,
     repeat, diagonal, reversed;
 
 import std.stdio: writefln;
