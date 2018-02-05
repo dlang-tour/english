@@ -22,7 +22,7 @@ import mir.math.sum;
 // Most of the API works for n-dimensional
 // case too.
 import mir.ndslice: magic, byDim, map, as, each,
-    repeat, diagonal, reversed;
+    repeat, diagonal, reversed, slice;
 
 import std.stdio: writefln;
 
