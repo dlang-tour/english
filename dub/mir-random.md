@@ -16,6 +16,7 @@ dependency "mir-random" version="~>0.3"
 +/
 import std.range, std.stdio;
 
+import mir.random;
 import mir.random.variable: NormalVariable;
 import mir.random.algorithm: range;
 
