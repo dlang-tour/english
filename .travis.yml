@@ -10,7 +10,7 @@ addons:
   apt:
     packages:
     - libevent-dev
-    - libatlas-dev
+    - libblas-dev
     - liblapack-dev
 
 script:
