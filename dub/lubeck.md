@@ -21,7 +21,8 @@ backends are recommeded for Linux and Windows.
 /+dub.sdl:
 dependency "lubeck" version="~>0.0"
 dependency "mir-algorithm" version="~>0.7"
-libs "lapack" "blas" "cblas"
+libs "lapack" "blas"
+
 +/
 import std.stdio;
 import mir.ndslice: magic, repeat, as, slice;
