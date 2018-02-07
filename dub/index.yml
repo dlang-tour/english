@@ -1,7 +1,9 @@
 title: DUB packages
 ordering:
-- mir
 - mir-algorithm
+- mir-random
+- mir
 - emsi_containers
 - vibe-d
 - libdparse
+- lubeck

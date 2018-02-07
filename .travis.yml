@@ -1,3 +1,4 @@
+dist: trusty
 language: d
 d:
   - dmd
@@ -9,6 +10,9 @@ addons:
   apt:
     packages:
     - libevent-dev
+    - libblas-dev
+    - liblapack-dev
+
 script:
   - echo "Check for trailing whitespace"
   - grep -nr --include \*.md '\s$' . ; test $? -eq 1
