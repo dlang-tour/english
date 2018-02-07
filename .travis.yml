@@ -10,8 +10,7 @@ addons:
   apt:
     packages:
     - libevent-dev
-    - libblas-dev
-    - liblapack-dev
+    - libatlas-base-dev
 
 script:
   - echo "Check for trailing whitespace"
