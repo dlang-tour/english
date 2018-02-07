@@ -2,7 +2,7 @@
 
 Play with [vibe.d](http://vibed.org).
 
-## {SourceCode:fullWidth}
+## {SourceCode:fullWidth:incomplete}
 
 ```d
 /+ dub.sdl:
