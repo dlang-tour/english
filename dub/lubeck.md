@@ -21,7 +21,7 @@ backends are recommeded for Linux and Windows.
 /+dub.sdl:
 dependency "lubeck" version="~>0.0"
 dependency "mir-algorithm" version="~>0.7"
-libs "lapack" "blas"
+libs "lapack" "blas" "cblas"
 
 +/
 import std.stdio;
