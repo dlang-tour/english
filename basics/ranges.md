@@ -51,7 +51,7 @@ If the range object is a value type, then range will be copied and only the copy
 will be consumed:
 
 ```d
-auto r = 10.iota;
+auto r = 5.iota;
 r.drop(5).writeln; // []
 r.writeln; // [0, 1, 2, 3, 4]
 ```
@@ -60,7 +60,7 @@ If the range object is a reference type (e.g. `class` or [`std.range.refRange`](
 then the range will be consumed and won't be reset:
 
 ```d
-auto r = 10.iota;
+auto r = 5.iota;
 auto r2 = refRange(&r);
 r2.drop(5).writeln; // []
 r2.writeln; // []
@@ -85,7 +85,7 @@ interface ForwardRange(E) : InputRange!E
 auto r = 5.iota;
 auto r2 = refRange(&r);
 r2.save.drop(5).writeln; // []
-r2.drop(5).writeln; // [0, 1, 2, 4]
+r2.writeln; // [0, 1, 2, 3, 4]
 ```
 
 ### `ForwardRanges` can be extended to Bidirectional ranges + random access ranges
@@ -120,7 +120,7 @@ The best known random access range is D's array:
 
 ```d
 auto r = [4, 5, 6];
-r[1].writeln; // 4
+r[1].writeln; // 5
 ```
 
 ### Lazy range algorithms
