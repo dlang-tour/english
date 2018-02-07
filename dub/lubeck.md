@@ -11,7 +11,7 @@ backends are recommeded for Linux and Windows.
 ## Links
 
  - [GitHub](https://github.com/kaleidicassociates/lubeck)
- - [Mir Algorithm API](http://docs.algorithm.dlang.io) 
+ - [Mir Algorithm API](http://docs.algorithm.dlang.io)
  - [Mir Random API](http://docs.algorithm.dlang.io)
  - [Mir API](http://docs.mir.dlang.io)
 

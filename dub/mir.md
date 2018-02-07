@@ -10,7 +10,7 @@ The package includes:
 
 ## Links
 
- - [Mir Algorithm API](http://docs.algorithm.dlang.io) 
+ - [Mir Algorithm API](http://docs.algorithm.dlang.io)
  - [Mir Random API](http://docs.random.dlang.io)
  - [Mir API](http://docs.mir.dlang.io)
  - [GitHub](https://github.com/libmir/mir)
