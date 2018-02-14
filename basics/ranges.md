@@ -151,7 +151,7 @@ struct FibonacciRange
     int a = 1, b = 1;
 
     // The fibonacci range never ends
-    const empty = false;
+    enum empty = false;
 
     // Peak at the first element
     int front() const @property
