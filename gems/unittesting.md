@@ -46,7 +46,7 @@ As the compiler is able to infer attributes for templated code
 automatically, it is a common pattern to add annotated unittests
 to ensure such attributes for the tested code:
 
-    unittest @safe @nogc nothrow pure
+    @safe @nogc nothrow pure unittest
     {
         assert(myAbs() == 1);
     }
