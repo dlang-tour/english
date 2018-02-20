@@ -78,7 +78,9 @@ automatically.
 
 ### std.exception
 
-It is important to avoid contract programming for user-input as the contracts
+It is important to avoid `assert` and the soon to be introduced
+[contract programming](gems/contract-programming)
+for user-input as `assert` and contracts
 are removed when compiled in release mode. For convenience
 [`std.exception`](https://dlang.org/phobos/std_exception.html) provides
 [`enforce`](https://dlang.org/phobos/std_exception.html#enforce)
