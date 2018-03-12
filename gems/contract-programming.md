@@ -28,7 +28,7 @@ parameters and return values of functions.
     } out (result) {
         assert((result * result) <= x
             && (result+1) * (result+1) > x);
-    } body {
+    } do {
         return cast(long)std.math.sqrt(cast(real)x);
     }
 
