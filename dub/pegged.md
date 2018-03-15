@@ -11,7 +11,7 @@ to be used at runtime or compile time.
 - [Pegged on GitHub](https://github.com/PhilippeSigaud/Pegged)
 - [Reference article for Pegged's syntax](http://bford.info/pub/lang/peg)
 
-## {SourceCode:fullWidth}
+## {SourceCode:fullWidth:incomplete}
 
 ```d
 /+dub.sdl:
