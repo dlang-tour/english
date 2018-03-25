@@ -28,7 +28,7 @@ will be analyzed:
 
 ```d
 auto commonPrefix(alias pred = "a == b", R1, R2)(R1 r1, R2 r2)
-if (isForwardRange!R1
+if (isForwardRange!R1 &&
     isInputRange!R2 &&
     is(typeof(binaryFun!pred(r1.front, r2.front)))) &&
     !isNarrowString!R1)
