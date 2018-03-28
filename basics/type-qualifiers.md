@@ -102,7 +102,7 @@ void main()
     // `const` may point to readonly memory,
     // but it is readonly as well
     const int* cv = &v;
-    writeln("*cv: ", typeof(cv).stringof);
+    writeln("cv: ", typeof(cv).stringof);
     // *cv = 10; // error!
 }
 ```
