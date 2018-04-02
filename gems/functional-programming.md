@@ -89,6 +89,6 @@ void main()
         ( benchmark!test(1)[0]
             .total!"usecs"/1000.0 )
             .reverseArgs!writefln
-                (" took: %.2f miliseconds" );                
+                (" took: %.2f miliseconds");
 }
 ```
