@@ -69,7 +69,7 @@ BigInt bigPow(uint base, uint power) pure
 
 void main()
 {
-    import std.datetime : benchmark, to;
+    import std.datetime.stopwatch : benchmark;
     import std.functional : memoize,
         reverseArgs;
     import std.stdio : writefln, writeln;
@@ -85,9 +85,9 @@ void main()
                fastBigPow(5, 10000).uintLength);
     }
 
-    foreach (i; 0 .. 10)
-        benchmark!test(1)[0]
-            .to!("msecs", double)
+    foreach (_; 0 .. 10)
+        ( benchmark!test(1)[0]
+            .total!"usecs"/1000.0 )
             .reverseArgs!writefln
                 (" took: %.2f miliseconds");
 }
