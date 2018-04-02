@@ -2,7 +2,7 @@
 
 Play with [libdparse](https://github.com/dlang-community/libdparse)
 
-## {SourceCode:fullWidth}
+## {SourceCode:fullWidth:incomplete}
 
 ```d
 /+dub.sdl:
