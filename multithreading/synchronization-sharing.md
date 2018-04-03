@@ -112,9 +112,9 @@ void threadProducer(shared(SafeQueue!int) queue,
     import std.range : iota;
     // Push values 1 to 11
     foreach (i; iota(1,11)) {
+        atomicOp!"+="(*queueCounter, 1);
         queue.push(i);
         safePrint("Pushed ", i);
-        atomicOp!"+="(*queueCounter, 1);
     }
 }
 
@@ -131,7 +131,7 @@ void threadConsumer(Tid owner,
         // safely fetch current value of
         // queueCounter using atomicLoad
         safePrint("Popped ", i,
-            " (Consumer pushed ",
+            " (Producer pushed ",
             atomicLoad(*queueCounter), ")");
     }
 
@@ -144,8 +144,8 @@ void main()
     auto queue = new shared(SafeQueue!int);
     shared int counter = 0;
     spawn(&threadProducer, queue, &counter);
-    auto consumer = spawn(&threadConsumer,
-                    thisTid, queue, &counter);
+    spawn(&threadConsumer, thisTid, queue,
+        &counter);
     auto stopped = receiveOnly!bool;
     assert(stopped);
 }
