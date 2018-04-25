@@ -28,6 +28,8 @@ The easiest way to create a vibe.d project is to install
 as template:
 
     dub init <project-name> -t vibe.d
+    cd <project-name>
+    dub
 
 `dub` will make sure that vibe.d is downloaded and
 available for building your vibe.d based project.
