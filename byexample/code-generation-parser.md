@@ -76,15 +76,15 @@ void parse(Conf)(ref Conf c, string entry)
     auto r = entry.splitter("=");
     Switch: switch (r.front)
     {
-        foreach (idx, _; c.tupleof)
-        {
-            alias T = typeof(Conf.tupleof[idx]);
+        static foreach (idx, _; Conf.tupleof)
+        {{
+            alias T = typeof(Conf.tupleof[idx]);
             case Conf.tupleof[idx].stringof:
                 c.tupleof[idx] = r.dropOne
                                   .front.to!T;
                 break Switch;
-        }
-        default:
+        }}
+        default:
         assert (0, "Unknown member name.");
     }
 }
