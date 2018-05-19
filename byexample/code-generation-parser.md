@@ -78,7 +78,7 @@ void parse(Conf)(ref Conf c, string entry)
     Switch: switch (key)
     {
         static foreach (idx, field; Conf.tupleof)
-        { 
+        {
             case field.stringof:
                 c.tupleof[idx] =value.to!(typeof(field));
                 break Switch;
