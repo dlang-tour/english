@@ -80,7 +80,7 @@ void parse(Conf)(ref Conf c, string entry)
         static foreach(idx, field; Conf.tupleof)
         {
             case field.stringof:
-                c.tupleof[idx] = 
+                c.tupleof[idx] =
                     value.to!(typeof(field));
                 break Switch;
         }
