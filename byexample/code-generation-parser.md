@@ -77,10 +77,11 @@ void parse(Conf)(ref Conf c, string entry)
     auto key = r.front, value = r.dropOne.front;
     Switch: switch (key)
     {
-        static foreach (idx, field; Conf.tupleof)
+        static foreach(idx, field; Conf.tupleof)
         {
             case field.stringof:
-                c.tupleof[idx] =value.to!(typeof(field));
+                c.tupleof[idx] = 
+                    value.to!(typeof(field));
                 break Switch;
         }
         default:
