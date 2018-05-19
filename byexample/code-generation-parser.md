@@ -44,7 +44,7 @@ Equally, while being in the static loop, the individual members can be accessed 
 `c.tupleof[idx]` and thus we can assign the respective member the parsed value from the given
 configuration string. Moreover, `dropOne` is necessary, because the splitted range still
 points at the key and thus `droOne.front` will return the second element.
-Furthermore, `to!T` will do the actual parsing of the input string
+Furthermore, `to!(typeof(field))` will do the actual parsing of the input string
 to the respective type of the member of the configuration struct.
 Finally, as the foreach loop is unrolled at compile-time a `break` would stop this loop.
 However, after a configuration option has been successfully parsed, we don't want to jump
@@ -74,17 +74,16 @@ void main()
 void parse(Conf)(ref Conf c, string entry)
 {
     auto r = entry.splitter("=");
-    Switch: switch (r.front)
+    auto key = r.front, value = r.dropOne.front;
+    Switch: switch (key)
     {
-        static foreach (idx, _; Conf.tupleof)
-        {{
-            alias T = typeof(Conf.tupleof[idx]);
-            case Conf.tupleof[idx].stringof:
-                c.tupleof[idx] = r.dropOne
-                                  .front.to!T;
+        static foreach (idx, field; Conf.tupleof)
+        { 
+            case field.stringof:
+                c.tupleof[idx] =value.to!(typeof(field));
                 break Switch;
-        }}
-        default:
+        }
+        default:
         assert (0, "Unknown member name.");
     }
 }
