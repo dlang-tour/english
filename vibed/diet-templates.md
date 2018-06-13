@@ -40,14 +40,17 @@ output final HTML.
 DIET templates are compiled using **CTFE**
 and have to reside in the `views` folder
 in a standard vibe.d project. To actually render
-a DIET template use the `render` function within
-an URL handler:
+a DIET template use the `render` function on a
+`HTTPServerResponse` object:
 
     void foo(HTTPServerResponse res) {
         string pageTitle = "Hello";
         int test = 10;
         res.render!("my-template.dt", pageTitle, test);
     }
+
+In a web interface you would use the global `render`
+method instead.
 
 All D variables available to a DIET template
 are passed as template parameters to `render`.
