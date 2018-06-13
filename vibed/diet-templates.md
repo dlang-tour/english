@@ -4,7 +4,7 @@ To make writing web pages easier vibe.d supports
 [DIET templates](https://vibed.org/templates/diet)
 which is a simplified syntax to write HTML pages.
 DIET is based on
-[Jade templates](http://jade-lang.com/).
+[Pug/Jade templates](https://pugjs.org/).
 
     doctype html
     html(lang="en")
@@ -15,7 +15,7 @@ DIET is based on
         script(type='text/javascript')
           if (foo) bar(1 + 5)
         // ID = body-id
-        // style = the-style
+        // class = the-style
         body#body-id.the-style
           h1 DIET template
 
