@@ -19,8 +19,7 @@ backends are recommeded for Linux and Windows.
 
 ```d
 /+dub.sdl:
-dependency "lubeck" version="~>0.0"
-dependency "mir-algorithm" version="~>0.7"
+dependency "lubeck" version="~>0.1"
 libs "lapack" "blas"
 
 +/
