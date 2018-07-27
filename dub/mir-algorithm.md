@@ -16,51 +16,23 @@ Dlang core library for math, finance and a home for Dlang multidimensional array
 
 ```d
 /+dub.sdl:
-dependency "mir-algorithm" version="~>0.7"
+dependency "mir-algorithm" version="~>1.1"
 +/
-import mir.math.sum;
-// Most of the API works for n-dimensional
-// case too.
-import mir.ndslice: magic, byDim, map, as, each,
-    repeat, diagonal, reversed, slice;
-
-import std.stdio: writefln;
 
 void main()
 {
-    auto n = 3;
+    import mir.ndslice;
 
-    auto matrix = n
-        // creates lazy Magic Square,
-        .magic
-        // Converts elements type to double
-        // precision FP numbers
-        .as!double
-        // allocates data to a mutable ndslice
-        .slice;
+    auto matrix = slice!double(3, 4);
+    matrix[] = 0;
+    matrix.diagonal[] = 1;
 
-    assert (matrix.isMagic);
-    "%(%s\n%)\n".writefln(matrix);
+    auto row = matrix[2];
+    row[3] = 6;
+    // D & C index order
+    assert(matrix[2, 3] == 6);
 
-    // negate diagonal elements
-    matrix.diagonal.each!"a = -a";
-    "%(%s\n%)\n".writefln(matrix);
-}
-
-// Checks if the matrix is Magic Square.
-bool isMagic(S)(S matrix)
-{
-    auto n = matrix.length;
-    auto c = n * (n * n + 1) / 2;// magic number
-    return matrix.length!0 > 0   // check shape
-        && matrix.length!0 == matrix.length!1
-        //each row sum
-        && matrix.byDim!0.map!sum == c.repeat(n)
-        //each columns sum
-        && matrix.byDim!1.map!sum == c.repeat(n)
-        //diagonal sum
-        && matrix.diagonal.sum == c
-        //antidiagonal sum
-        && matrix.reversed!1.diagonal.sum == c;
+    import std.stdio;
+    matrix.writeln;
 }
 ```
