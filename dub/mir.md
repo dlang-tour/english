@@ -20,7 +20,7 @@ The package includes:
 
 ```d
 /+dub.sdl:
-dependency "mir" version="~>1.1"
+dependency "mir" version="~>2.0"
 +/
 import std.stdio;
 import mir.combinatorics;

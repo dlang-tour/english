@@ -12,17 +12,17 @@ Advanced random number generators.
 
 ```d
 /+dub.sdl:
-dependency "mir-random" version="~>0.3"
+dependency "mir-random" version="~>1.0"
 +/
 import std.range, std.stdio;
 
 import mir.random;
-import mir.random.variable: NormalVariable;
+import mir.random.variable: normalVar;
 import mir.random.algorithm: range;
 
 void main()
 {
-    auto sample = NormalVariable!double(0, 1)
+    auto sample = normalVar
         .range
         .take(10)
         .array;
