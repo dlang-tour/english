@@ -6,7 +6,7 @@ is purely a **compile-time** mechanism and can only work
 on strings available during compilation - a comparison
 with the evil JavaScript `eval` would be highly unfair.
 
-    mixin("int b = 5");
+    mixin("int b = 5;");
     assert(b == 5); // compiles just fine
 
 `mixin` also works with strings that are constructed
