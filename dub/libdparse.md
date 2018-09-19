@@ -6,7 +6,7 @@ Play with [libdparse](https://github.com/dlang-community/libdparse)
 
 ```d
 /+dub.sdl:
-dependency "libdparse" version="~>0.7"
+dependency "libdparse" version="~>0.9"
 +/
 import dparse.ast;
 import std.stdio;
