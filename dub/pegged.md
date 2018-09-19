@@ -15,7 +15,7 @@ to be used at runtime or compile time.
 
 ```d
 /+dub.sdl:
-dependency "pegged" version="~>0.4.2"
+dependency "pegged" version="~>0.4"
 +/
 import pegged.grammar;
 import std.stdio;
