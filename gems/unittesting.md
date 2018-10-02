@@ -104,9 +104,11 @@ locally or compile with dmd -unittest
 to actually test your modules.
 */
 unittest {
+    import std.math : isNaN;
     Vector3 vec;
     // .init a special built-in property that
-    // returns the initial value of type.
-    assert(vec.x == double.init);
+    // returns the initial value of type,
+    // a NaN for floating points values.
+    assert(vec.x.init.isNaN);
 }
 ```
