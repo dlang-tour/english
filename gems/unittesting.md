@@ -107,7 +107,7 @@ unittest {
     import std.math : isNaN;
     Vector3 vec;
     // .init a special built-in property that
-    // returns the initial value of type, 
+    // returns the initial value of type,
     // a NaN for floating points values.
     assert(vec.x.init.isNaN);
 }
