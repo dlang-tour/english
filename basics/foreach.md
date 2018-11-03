@@ -2,20 +2,20 @@
 
 {{#img-right}}dman-teacher-foreach.jpg{{/img-right}}
 
-D features a `foreach` loop which allows
-less error-prone and better readable iterations.
+D features a `foreach` loop which allows for
+less error-prone and more readable iteration.
 
 ### Element iteration
 
 Given an array `arr` of type `int[]` it is possible to
-iterate through the elements using a `foreach` loop:
+iterate over the elements using a `foreach` loop:
 
     foreach (int e; arr) {
         writeln(e);
     }
 
-The first field in the `foreach` definition is the variable
-name used in the loop iteration. Its type is induced automatically:
+The first parameter in a `foreach` loop is the variable
+name used for each iteration. Its type can be inferred automatically like so:
 
     foreach (e; arr) {
         // typeof(e) is int
@@ -38,7 +38,7 @@ large types. To prevent copying or to enable *in-place
 
 ### Iterate `n` times
 
-D allows to write iterations which should be executed
+D allows us to write iterations which should be executed
 `n` times, more concisely with the `..` syntax:
 
     foreach (i; 0 .. 3) {
