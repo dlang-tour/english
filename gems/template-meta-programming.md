@@ -16,7 +16,7 @@ be evaluated at compile time:
     static if(is(T == int))
         writeln("T is an int");
     static if (is(typeof(x) :  int))
-        writeln("Variable x implicitely converts to int");
+        writeln("Variable x implicitly converts to int");
 
 The [`is` expression](http://wiki.dlang.org/Is_expression) is
 a generic helper that evaluates conditions at compile time.
