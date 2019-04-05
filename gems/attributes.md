@@ -8,6 +8,10 @@ which have been mentioned in the first chapter.
 
 ### `@property`
 
+Properties are functions that can be syntactically treated as if they were fields or variables.
+Properties can be read from or written to.
+A property is read by calling a method or function with no arguments; a property is written by calling a method or function with its argument being the value it is set to.
+
 A function marked as `@property` looks like
 a normal member to the outside world:
 
