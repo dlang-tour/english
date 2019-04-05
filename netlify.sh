@@ -15,6 +15,7 @@ cd "${DIR}"
 . "$(curl "${CURL_FLAGS[@]}" https://dlang.org/install.sh | bash -s install "dmd-${DMD_VERSION}" --activate)"
 
 # Build and start the doc server
+rm -rf core
 git clone --depth 1 https://github.com/dlang-tour/core
 pushd core
 dub build --override-config vibe-d:core/vibe-core --override-config="vibe-d:tls/openssl-1.1"
