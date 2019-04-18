@@ -47,7 +47,7 @@ This adds all elements of `a` and `b` so that
 to perform operations on a whole array with a single
 value:
 
-    a[] *= 2; // multiple all elements by 2
+    a[] *= 2; // multiply all elements by 2
     a[] %= 26; // calculate the modulo by 26 for all a's
 
 These operations might be optimized
