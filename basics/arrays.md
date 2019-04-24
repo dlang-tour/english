@@ -117,7 +117,7 @@ void main()
     auto encrypted = encrypt(toBeEncrypted, 16);
     writeln("After: ", encrypted);
 
-    // Make sure we the algorithm works
+    // Make sure the algorithm works
     // as expected
     assert(encrypted == [ 'm','u','b','s','e',
             'c','u','j','e','t' ]);
