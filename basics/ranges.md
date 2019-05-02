@@ -153,7 +153,7 @@ struct FibonacciRange
     // The fibonacci range never ends
     enum empty = false;
 
-    // Peak at the first element
+    // Peek at the first element
     int front() const @property
     {
         return a;
