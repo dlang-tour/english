@@ -93,14 +93,14 @@ void main()
     // immutable int* im = &m; // error!
 
     /**
-    * Pointing to readonly memory:
+    * Pointing to read-only memory:
     */
     immutable v = 100;
     writeln("v: ", typeof(v).stringof);
     // v = 5; // error!
 
-    // `const` may point to readonly memory,
-    // but it is readonly as well
+    // `const` may point to read-only memory,
+    // but it is read-only as well
     const int* cv = &v;
     writeln("cv: ", typeof(cv).stringof);
     // *cv = 10; // error!
