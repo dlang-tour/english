@@ -9,8 +9,7 @@ is compiled for 32-bit or 64-bit systems.
 
 | type                          | size
 |-------------------------------|------------
-|`bool`                         | 8-bit
-|`byte`, `ubyte`, `char`        | 8-bit
+|`bool`, `byte`, `ubyte`, `char`| 8-bit
 |`short`, `ushort`, `wchar`     | 16-bit
 |`int`, `uint`, `dchar`         | 32-bit
 |`long`, `ulong`                | 64-bit
