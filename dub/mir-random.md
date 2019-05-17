@@ -12,19 +12,18 @@ Advanced random number generators.
 
 ```d
 /+dub.sdl:
-dependency "mir-random" version="~>1.0"
+dependency "mir-random" version="~>2.0"
 +/
 import std.range, std.stdio;
 
 import mir.random;
 import mir.random.variable: normalVar;
-import mir.random.algorithm: range;
+import mir.random.algorithm: randomSlice;
 
 void main()
 {
     auto sample = normalVar
-        .range
-        .take(10)
+        .randomSlice(10)
         .array;
 
     // prints random element from the sample
