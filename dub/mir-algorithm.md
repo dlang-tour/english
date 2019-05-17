@@ -16,7 +16,7 @@ Dlang core library for math, finance and a home for Dlang multidimensional array
 
 ```d
 /+dub.sdl:
-dependency "mir-algorithm" version="~>2.0"
+dependency "mir-algorithm" version="~>3.0"
 +/
 
 void main()
