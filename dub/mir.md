@@ -5,14 +5,13 @@ The package includes:
  - [mir-algorithm package](dub/mir-algorithm). Dlang core library for math, finance and a home for Dlang multidimensional array package - ndslice.
  - [mir-random package](dub/mir-random). Advanced random number generators.
  - Sparse tensors
- - Combinatorics
  - Hoffman
 
 ## Links
 
- - [Mir Algorithm API](http://docs.algorithm.dlang.io)
- - [Mir Random API](http://docs.random.dlang.io)
- - [Mir API](http://docs.mir.dlang.io)
+ - [Mir Algorithm API](http://mir-algorithm.libmir.org)
+ - [Mir Random API](http://mir-random.libmir.org)
+ - [Mir API](http://mir.libmir.org)
  - [GitHub](https://github.com/libmir/mir)
  - [Lubeck](https://github.com/kaleidicassociates/lubeck) - Linear Algebra Library based on NDSlice API.
 
@@ -20,12 +19,24 @@ The package includes:
 
 ```d
 /+dub.sdl:
-dependency "mir" version="~>3.0"
+dependency "mir" version="*"
 +/
-import std.stdio;
-import mir.combinatorics;
-void main(string[] args)
+import mir.sparse;
+import std.stdio: writeln;
+
+void main()
 {
-    writeln([1, 2, 3].combinations(2));
+    // DOK format
+    auto sl = sparse!double(5, 8);
+    sl[] =
+        [[0, 2, 0, 0, 0, 0, 0, 1],
+         [0, 0, 0, 0, 0, 0, 0, 4],
+         [0, 0, 0, 0, 0, 0, 0, 0],
+         [6, 0, 0, 0, 0, 0, 0, 9],
+         [0, 0, 0, 0, 0, 0, 0, 5]];
+
+    // CRS/CSR format
+    auto crs = sl.compress;
+    writeln(crs);
 }
 ```
