@@ -43,7 +43,7 @@ and generate a case statement for each member.
 Equally, while being in the static loop, the individual members can be accessed by their index:
 `c.tupleof[idx]` and thus we can assign the respective member the parsed value from the given
 configuration string. Moreover, `dropOne` is necessary, because the splitted range still
-points at the key and thus `droOne.front` will return the second element.
+points at the key and thus `dropOne.front` will return the second element.
 Furthermore, `to!(typeof(field))` will do the actual parsing of the input string
 to the respective type of the member of the configuration struct.
 Finally, as the foreach loop is unrolled at compile-time a `break` would stop this loop.
