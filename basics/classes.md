@@ -76,7 +76,8 @@ anything...
 */
 class Any {
     // protected is just seen by inheriting
-    // classes
+    // classes (and everything in the same 
+    // module as Any)
     protected string type;
 
     this(string type) {
@@ -94,6 +95,7 @@ class Any {
 
 class Integer : Any {
     // just seen by Integer
+    // (and everything in the same module as Integer)
     private {
         int number;
     }
