@@ -11,20 +11,20 @@ backends are recommeded for Linux and Windows.
 ## Links
 
  - [GitHub](https://github.com/kaleidicassociates/lubeck)
- - [Mir Algorithm API](http://docs.algorithm.dlang.io)
- - [Mir Random API](http://docs.algorithm.dlang.io)
- - [Mir API](http://docs.mir.dlang.io)
+ - [Mir Algorithm API](http://mir-algorithm.libmir.org)
+ - [Mir Random API](http://mir-random.libmir.org)
+ - [Mir API](http://mir.libmir.org)
 
 ## {SourceCode:incomplete}
 
 ```d
 /+dub.sdl:
-dependency "lubeck" version="~>1.0"
-subConfiguration "lubeck" "blas"
+dependency "lubeck" version="*"
 +/
-import std.stdio;
-import mir.ndslice: magic, repeat, as, slice;
 import lubeck: mtimes;
+import mir.algorithm.iteration: each;
+import mir.ndslice;
+import std.stdio: writeln;
 
 void main()
 {
@@ -35,6 +35,7 @@ void main()
     auto vec = 1.repeat(n).as!double.slice;
     // Uses CBLAS for multiplication
     matrix.mtimes(vec).writeln;
-    matrix.mtimes(matrix).writeln;
+    "-----".writeln;
+    matrix.mtimes(matrix).byDim!0.each!writeln;
 }
 ```

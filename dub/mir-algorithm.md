@@ -1,10 +1,10 @@
 # Mir Algorithm
 
-Dlang core library for math, finance and a home for Dlang multidimensional array package - ndslice.
+Dlang Core Library and a home for multidimensional array package - ndslice.
 
 ## Links
 
- - [API Documentation](http://docs.algorithm.dlang.io)
+ - [API Documentation](http://mir-algorithm.libmir.org)
  - [GitHub](https://github.com/libmir/mir-algorithm)
  - [Lubeck](https://github.com/kaleidicassociates/lubeck) - Linear Algebra Library based on NDSlice API.
 
@@ -16,13 +16,14 @@ Dlang core library for math, finance and a home for Dlang multidimensional array
 
 ```d
 /+dub.sdl:
-dependency "mir-algorithm" version="~>3.0"
+dependency "mir-algorithm" version="*"
 +/
+import mir.algorithm.iteration: each;
+import mir.ndslice;
+import std.stdio: writeln;
 
 void main()
 {
-    import mir.ndslice;
-
     auto matrix = slice!double(3, 4);
     matrix[] = 0;
     matrix.diagonal[] = 1;
@@ -32,7 +33,6 @@ void main()
     // D & C index order
     assert(matrix[2, 3] == 6);
 
-    import std.stdio;
-    matrix.writeln;
+    matrix.byDim!0.each!writeln;
 }
 ```
