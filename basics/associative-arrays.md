@@ -62,7 +62,7 @@ void main()
         writefln("key: %s, value: %d",
                        key, value);
 
-    // `.keys` and .values` return arrays
+    // `.keys` and `.values` return arrays
     writeln("Words: ", words.keys);
 
     // `.byKey`, `.byValue` and `.byKeyValue`
