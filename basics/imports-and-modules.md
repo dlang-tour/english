@@ -17,7 +17,7 @@ and types from the given **module** available.
 
 An `import` statement __does not__ need to appear at the top of a source file.
 It can also be used locally within functions or any other scope.
-In the following chapters you will see that this applies to almost all concepts in D. The language doesn't expose arbitrary restrictions on you.
+In the following chapters you will see that this applies to almost all concepts in D. The language doesn't impose arbitrary restrictions on you.
 
 ### Selective imports
 
