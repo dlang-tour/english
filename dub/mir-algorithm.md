@@ -16,7 +16,7 @@ Dlang Core Library and a home for multidimensional array package - ndslice.
 
 ```d
 /+dub.sdl:
-dependency "mir-algorithm" version="*"
+dependency "mir-algorithm" version="~>3.6"
 +/
 import mir.algorithm.iteration: each;
 import mir.ndslice;

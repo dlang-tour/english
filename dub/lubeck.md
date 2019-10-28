@@ -19,7 +19,7 @@ backends are recommeded for Linux and Windows.
 
 ```d
 /+dub.sdl:
-dependency "lubeck" version="*"
+dependency "lubeck" version="~>1.1"
 +/
 import lubeck: mtimes;
 import mir.algorithm.iteration: each;

@@ -12,7 +12,7 @@ Advanced random number generators.
 
 ```d
 /+dub.sdl:
-dependency "mir-random" version="*"
+dependency "mir-random" version="~>2.2"
 +/
 import mir.random;
 import mir.random.algorithm: randomSlice;

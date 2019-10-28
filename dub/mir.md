@@ -19,7 +19,7 @@ The package includes:
 
 ```d
 /+dub.sdl:
-dependency "mir" version="*"
+dependency "mir" version="~>3.2"
 +/
 import mir.sparse;
 import std.stdio: writeln;
