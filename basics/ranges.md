@@ -185,11 +185,11 @@ void main()
     writeln("Fib 5: ", fib5);
 
     // Select the even subset
-    auto fibEven = fib5.filter!(x => x % 2 == 0);
-    writeln("FibEven : ", fibEven);
+    auto even = fib5.filter!(x => x % 2 == 0);
+    writeln("FibEven : ", even);
 
     // Sum of all elements
-    writeln("Sum of FibEven: ", fibEven.sum);
+    writeln("Sum of FibEven: ", even.sum);
 
     // Usually this is summarized as:
     fib.take(10)
