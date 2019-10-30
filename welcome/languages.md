@@ -8,6 +8,7 @@ The Dlang Tour is available in multiple languages:
 - [German - Deutsch](https://tour.dlang.org/tour/de/welcome/welcome-to-d)
 - [Italian - Italiano](https://tour.dlang.org/tour/it/welcome/welcome-to-d) (partially, WIP)
 - [Japanese - 日本語](https://tour.dlang.org/tour/ja/welcome/welcome-to-d)
+- [Korean - 한국어](https://tour.dlang.org/tour/kr/welcome/welcome-to-d)
 - [Russian - Pусский](https://tour.dlang.org/tour/ru/welcome/welcome-to-d)
 - [Slovak - Slovensky](https://tour.dlang.org/tour/sk/welcome/welcome-to-d) (partially, WIP)
 - [Spanish - Español](https://tour.dlang.org/tour/es/welcome/welcome-to-d)
