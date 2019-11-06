@@ -39,7 +39,6 @@ There are D plugins for at least the following editors:
 
 You may also want to try an IDE dedicated to D:
 
-- [Coedit](https://github.com/BBasile/Coedit)
 - [Dlang IDE](https://github.com/buggins/dlangide)
 
 The D wiki contains a more detailed overview of available [editors](https://wiki.dlang.org/Editors) and [IDEs](https://wiki.dlang.org/IDEs).
