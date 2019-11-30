@@ -66,7 +66,7 @@ rely on standard library algorithms to do the right job.
 If by element (code unit) iteration is desired, one can use
 [`byCodeUnit`](http://dlang.org/phobos/std_utf.html#.byCodeUnit).
 
-Auto-decoding in D is explained in more details
+Auto-decoding in D is explained in more detail
 in the [Unicode gems chapter](gems/unicode).
 
 ### Multi-line strings
