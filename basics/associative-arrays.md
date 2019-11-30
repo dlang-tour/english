@@ -24,7 +24,7 @@ and writes can be conveniently combined:
         *val = 20;
 
 Access to a key which doesn't exist yields a `RangeError`
-that immediately aborts the application. For a safe access
+that immediately aborts the application. For safe access
 with a default value, `get(key, defaultValue)` can be used.
 
 AA's have the `.length` property like arrays and provide
