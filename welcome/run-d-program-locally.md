@@ -25,7 +25,7 @@ On UNIX systems the shebang line `#!/usr/bin/env rdmd` can be put
 on the first line of an executable D file to allow a script-like
 usage.
 
-Browse the [online documentation](https://dlang.org/rdmd.html) or run `rdmd --help` for for an overview of available flags.
+Browse the [online documentation](https://dlang.org/rdmd.html) or run `rdmd --help` for an overview of available flags.
 
 ### Package manager `dub`
 
