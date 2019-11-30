@@ -35,7 +35,7 @@ units](http://unicode.org/glossary/#code_unit). All array operations can be
 used on strings, but they will work on a code unit level, and not a character level. At
 the same time, standard library algorithms will interpret `string`s as sequences
 of [code points](http://unicode.org/glossary/#code_point), and there is also an
-option to treat them as sequence of
+option to treat them as sequences of
 [graphemes](http://unicode.org/glossary/#grapheme) by explicit usage of
 [`std.uni.byGrapheme`](https://dlang.org/library/std/uni/by_grapheme.html).
 
