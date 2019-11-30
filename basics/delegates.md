@@ -64,7 +64,7 @@ to define a folding (aka reducer):
 
     [1, 2, 3].reduce!`a + b`; // 6
 
-String functions are only possible for _one or two_ arguments and then use `a`
+String functions are only possible for _one or two_ arguments and use `a`
 as first and `b` as second argument.
 
 ### In-depth
