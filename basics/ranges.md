@@ -70,7 +70,7 @@ r2.writeln; // []
 
 Most of the ranges in the standard library are structs and so `foreach`
 iteration is usually non-destructive, though not guaranteed. If this
-guarantee is important, an specialization of an `InputRange` can be used—
+guarantee is important, a specialization of an `InputRange` can be used—
 **forward** ranges with a `.save` method:
 
 ```
