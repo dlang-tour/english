@@ -2,7 +2,7 @@
 
 D tries to integrate important parts of modern
 software engineering directly into the language.
-Besides *contract programming* and *unittesting*
+Besides *contract programming* and *unit testing*
 D allows to natively generate [documentation](https://dlang.org/phobos/std_variant.html)
 out of your source code.
 
