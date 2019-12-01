@@ -16,7 +16,7 @@ certain cleanup code is *always* called independent of which paths
 are actually taken at runtime.
 
 The D `scope` feature effectively replaces the RAII idiom
-used in C++ which often leads to special scope guards objects
+used in C++ which often leads to special scope guard objects
 for special resources.
 
 Scope guards are called in the reverse order they are defined.
