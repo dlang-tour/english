@@ -19,7 +19,7 @@ an `AssertionError` otherwise.
 
 ### Function contracts
 
-`in` and `out` allow to formalize contracts for input
+`in` and `out` allow contracts to be formalized for input
 parameters and the return values of functions.
 
     long square_root(long x)
