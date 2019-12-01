@@ -19,7 +19,7 @@ It is possible to write
 
     a.bar().foo()
 
-Moreover in D it is not necessary to use parenthesis for functions
+Moreover in D it is not necessary to use parentheses for functions
 without arguments, which means that _any_ function can be used
 like a property:
 
