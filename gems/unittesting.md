@@ -1,4 +1,4 @@
-# Unittesting
+# Unit Testing
 
 Tests are an excellent way to ensure stable, bug-free applications.
 They serve as an interactive documentation and allow the modification
@@ -34,7 +34,7 @@ within classes or structs.
 
 ### Increasing code coverage
 
-Unittest are a powerful weapon to ensure bullet-proof applications.
+Unit tests are a powerful weapon to ensure bullet-proof applications.
 A common measurement to check how much of a program
 is being covered by tests, is the _code coverage_.
 It is the ratio of executed versus existing lines of code.
