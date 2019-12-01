@@ -28,8 +28,8 @@ like a property:
 
 UFCS is especially important when dealing with
 *ranges* where several algorithms can be put
-together to perform complex operations, still allowing
-to write clear and manageable code.
+together to perform complex operations, making it
+easier to write clear and manageable code.
 
     import std.algorithm : group;
     import std.range : chain, retro, front, dropOne;
