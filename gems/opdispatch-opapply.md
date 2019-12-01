@@ -54,7 +54,7 @@ delegate as a parameter:
         ...
     }
 
-The compiler transform the `foreach` body to a special
+The compiler transforms the `foreach` body to a special
 delegate that is passed to the object. Its one and only
 parameter will contain the current
 iteration's value. The magic `int` return value
