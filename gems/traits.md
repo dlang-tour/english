@@ -6,7 +6,7 @@ heavy optimizations can be achieved.
 
 ## Explicit contracts
 
-Traits allow to specify explicitly what input is accepted.
+Traits allow the accepted input to be explicitly specified.
 For example `splitIntoWords` can operate on any arbitrary string type:
 
 ```d
