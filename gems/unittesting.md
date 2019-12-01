@@ -38,7 +38,7 @@ Unit tests are a powerful weapon to ensure bullet-proof applications.
 A common measurement to check how much of a program
 is being covered by tests, is the _code coverage_.
 It is the ratio of executed versus existing lines of code.
-The DMD compiler allows to easily generate code coverage reports
+The DMD compiler makes generating code coverage reports easy
 by adding `-cov`. For every module a `.lst` file, which contains
 detailed statistics, will be generated.
 
