@@ -2,14 +2,14 @@
 
 D tries to integrate important parts of modern
 software engineering directly into the language.
-Besides *contract programming* and *unittesting*
-D allows to natively generate [documentation](https://dlang.org/phobos/std_variant.html)
-out of your source code.
+Besides *contract programming* and *unit testing*
+D allows [documentation](https://dlang.org/phobos/std_variant.html)
+to be natively generated from your source code.
 
 Using a standard schema for documenting types
 and functions the command `dmd -D` conveniently
 generates HTML documentation based on the source
-files passed on command line.
+files passed on the command line.
 In fact the whole [Phobos library documentation](https://dlang.org/phobos)
 has been generated with *DDoc*.
 

@@ -13,14 +13,14 @@ library.
 
 ### std.algorithm
 
-`filter` - Given a lambda as template parameter,
+`filter` - Given a lambda as the template parameter,
  generate a new range that filters elements:
 
     filter!"a > 20"(range);
     filter!(a => a > 20)(range);
 
 `map` - Generate a new range using the predicate
- defined as template parameter:
+ defined as a template parameter:
 
     [1, 2, 3].map!(x => to!string(x));
 

@@ -25,12 +25,12 @@ it, and the same code can perfectly be shared:
     auto val = sqrt(n);
 
 One prominent example in D is the [std.regex](https://dlang.org/phobos/std_regex.html)
-library. It provides at type `ctRegex` type which uses
+library. It provides the `ctRegex` type which uses
 *string mixins* and CTFE to generate a highly optimized
 regular expression automaton that is generated during
 compilation. The same code base is re-used for
-the run-time version `regex` that allows to compile
-regular expressions only available at run-time.
+the run-time version `regex` that allows regular
+expressions only available at run-time to be compiled.
 
     auto ctr = ctRegex!(`^.*/([^/]+)/?$`);
     auto tr = regex(`^.*/([^/]+)/?$`);

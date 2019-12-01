@@ -45,7 +45,7 @@ behavior, you can use `ubyte[]` or `char*`.
 
 ## Strings in Range Algorithms
 
-*Reading the [gem on range algorithms](gems/range-algorithms) is
+*Reading the* [*gem on range algorithms*](gems/range-algorithms) *is
 suggested for this section.*
 
 There are some important caveats to keep in mind with Unicode
@@ -53,7 +53,7 @@ in D.
 
 First, as a convenience feature, when iterating over a string
 using the range functions, Phobos will encode the elements of
-`string`s and `wstrings` into UTF-32 code-points as each item.
+`string`s and `wstring`s into UTF-32 code-points as each item.
 This practice, known as **auto decoding**, means that
 
 ```

@@ -4,7 +4,7 @@ If you ever got in touch with *template meta programming*
 in C++ you will be relieved what tools D offers to make
 your life easier. Template meta programming is a technique
 that enables decision-making depending on template type properties
-and thus allows to make generic types even more flexible
+and thus allows generic types to be made even more flexible
 based on the type they are going to be instantiated with.
 
 ### `static if` & `is`

@@ -6,7 +6,7 @@ heavy optimizations can be achieved.
 
 ## Explicit contracts
 
-Traits allow to specify explicitly what input is accepted.
+Traits allow the accepted input to be explicitly specified.
 For example `splitIntoWords` can operate on any arbitrary string type:
 
 ```d
@@ -51,7 +51,7 @@ on compile-time to achieve the best performance given the input types.
 A common problem is that in contrast to arrays you might not know the exact length
 of a stream or list before walking through it.
 Hence a simple implementation of the `std.range` method `walkLength`
-which generalizes for any iterable type would be:
+which can be substituted for any iterable type would be:
 
 ```d
 static if (hasMember!(r, "length"))

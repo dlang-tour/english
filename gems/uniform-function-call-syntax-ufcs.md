@@ -3,12 +3,12 @@
 **UFCS** is a key feature of D and enables code reusability
 and scalability through well-defined encapsulation.
 
-UFCS allows that any call to a free function
-`fun(a)` can be written as member function call `a.fun()`.
+UFCS allows any call to a free function
+`fun(a)` to be written as a member function call `a.fun()`.
 
 If `a.fun()` is seen by the compiler and the type doesn't
 have a member function called `fun()`, it tries to find a
-global functions whose first parameter matches that of `a`.
+global function whose first parameter matches that of `a`.
 
 This feature is especially useful when chaining complex
 function calls. Instead of writing
@@ -19,7 +19,7 @@ It is possible to write
 
     a.bar().foo()
 
-Moreover in D it is not necessary to use parenthesis for functions
+Moreover in D it is not necessary to use parentheses for functions
 without arguments, which means that _any_ function can be used
 like a property:
 
@@ -28,8 +28,8 @@ like a property:
 
 UFCS is especially important when dealing with
 *ranges* where several algorithms can be put
-together to perform complex operations, still allowing
-to write clear and manageable code.
+together to perform complex operations, making it
+easier to write clear and manageable code.
 
     import std.algorithm : group;
     import std.range : chain, retro, front, dropOne;

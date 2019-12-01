@@ -11,10 +11,10 @@ operator overloads `opDispatch` and `opApply`.
 `opDispatch` can be defined as a member function of either
 `struct` or `class` types. Any unknown member function call
 to that type is passed to `opDispatch`,
-passing the unknown member function's name as `string`
+passing the unknown member function's name as a `string`
 template parameter. `opDispatch` is a *catch-all*
 member function and allows another level of generic
-programming - completely in **compile time**!
+programming - completely at **compile time**!
 
     struct C {
         void callA(int i, int j) { ... }
@@ -54,7 +54,7 @@ delegate as a parameter:
         ...
     }
 
-The compiler transform the `foreach` body to a special
+The compiler transforms the `foreach` body to a special
 delegate that is passed to the object. Its one and only
 parameter will contain the current
 iteration's value. The magic `int` return value
