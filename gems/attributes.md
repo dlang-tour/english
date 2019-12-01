@@ -60,7 +60,7 @@ and `Bar` (type `Bar` with value `10`). To get
 the attributes of a function (or type) use
 the built-in compiler *traits*
 `__traits(getAttributes, Foo)` which returns
-a [`AliasSeq`](https://dlang.org/phobos/std_meta.html#AliasSeq).
+an [`AliasSeq`](https://dlang.org/phobos/std_meta.html#AliasSeq).
 
 UDAs allow to enhance generic code by giving user-defined
 types another dimension that helps compile time
