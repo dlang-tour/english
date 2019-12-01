@@ -20,7 +20,7 @@ library.
     filter!(a => a > 20)(range);
 
 `map` - Generate a new range using the predicate
- defined as template parameter:
+ defined as a template parameter:
 
     [1, 2, 3].map!(x => to!string(x));
 
