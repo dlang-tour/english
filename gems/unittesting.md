@@ -2,7 +2,7 @@
 
 Tests are an excellent way to ensure stable, bug-free applications.
 They serve as an interactive documentation and allow the modification
-of code without fear to break functionality. D provides a convenient
+of code without fear of breaking functionality. D provides a convenient
 and native syntax for `unittest` block as part of the D language.
 Anywhere in a D module `unittest` blocks can be used to test
 functionality of the source code.
