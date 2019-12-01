@@ -9,8 +9,8 @@ if the current block is left:
 * `scope(failure)` denotes statements that will be called when
   an exception has been thrown before the block's end
 
-Using scope guards makes code much cleaner and allows to place
-resource allocation and clean up code next to each other.
+Using scope guards makes code much cleaner and allows resource
+allocation and clean up code to be placed next to each other.
 These little helpers also improve safety because they make sure
 certain cleanup code is *always* called independent of which paths
 are actually taken at runtime.
