@@ -45,7 +45,7 @@ behavior, you can use `ubyte[]` or `char*`.
 
 ## Strings in Range Algorithms
 
-*Reading the [gem on range algorithms](gems/range-algorithms) is
+*Reading the* [*gem on range algorithms*](gems/range-algorithms) *is
 suggested for this section.*
 
 There are some important caveats to keep in mind with Unicode
