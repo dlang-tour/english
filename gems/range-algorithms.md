@@ -13,7 +13,7 @@ library.
 
 ### std.algorithm
 
-`filter` - Given a lambda as template parameter,
+`filter` - Given a lambda as the template parameter,
  generate a new range that filters elements:
 
     filter!"a > 20"(range);
