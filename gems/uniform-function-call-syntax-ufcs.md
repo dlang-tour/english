@@ -8,7 +8,7 @@ UFCS allows any call to a free function
 
 If `a.fun()` is seen by the compiler and the type doesn't
 have a member function called `fun()`, it tries to find a
-global functions whose first parameter matches that of `a`.
+global function whose first parameter matches that of `a`.
 
 This feature is especially useful when chaining complex
 function calls. Instead of writing
