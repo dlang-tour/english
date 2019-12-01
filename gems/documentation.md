@@ -3,8 +3,8 @@
 D tries to integrate important parts of modern
 software engineering directly into the language.
 Besides *contract programming* and *unit testing*
-D allows to natively generate [documentation](https://dlang.org/phobos/std_variant.html)
-out of your source code.
+D allows [documentation](https://dlang.org/phobos/std_variant.html)
+to be natively generated from your source code.
 
 Using a standard schema for documenting types
 and functions the command `dmd -D` conveniently
