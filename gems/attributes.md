@@ -4,7 +4,7 @@ Functions can be attributed in various ways in D.
 Let's have a look at two built-in attributes
 as well as *user-defined attributes*. There
 are also the built-ins `@safe`, `@system` and `@trusted`
-which have been mentioned in the first chapter.
+mentioned in the first chapter.
 
 ### `@property`
 
