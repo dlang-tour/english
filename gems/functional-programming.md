@@ -5,8 +5,8 @@ first-class support for development
 in a functional style.
 
 In D a function can be declared as `pure` which implies
-that given the same input parameters, always the **same**
-output is generated. `pure` functions cannot access or change
+that given the same input parameters, the **same** output
+is always generated. `pure` functions cannot access or change
 any mutable global state and are thus just allowed to call other
 functions which are `pure` themselves.
 
