@@ -29,8 +29,8 @@ library. It provides the `ctRegex` type which uses
 *string mixins* and CTFE to generate a highly optimized
 regular expression automaton that is generated during
 compilation. The same code base is re-used for
-the run-time version `regex` that allows to compile
-regular expressions only available at run-time.
+the run-time version `regex` that allows regular
+expressions only available at run-time to be compiled.
 
     auto ctr = ctRegex!(`^.*/([^/]+)/?$`);
     auto tr = regex(`^.*/([^/]+)/?$`);
