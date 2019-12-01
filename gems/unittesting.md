@@ -43,7 +43,7 @@ by adding `-cov`. For every module a `.lst` file, which contains
 detailed statistics, will be generated.
 
 As the compiler is able to infer attributes for templated code
-automatically, it is a common pattern to add annotated unittests
+automatically, it is a common pattern to add annotated `unittest`s
 to ensure such attributes for the tested code:
 
     @safe @nogc nothrow pure unittest
