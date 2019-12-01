@@ -14,7 +14,7 @@ to that type is passed to `opDispatch`,
 passing the unknown member function's name as a `string`
 template parameter. `opDispatch` is a *catch-all*
 member function and allows another level of generic
-programming - completely in **compile time**!
+programming - completely at **compile time**!
 
     struct C {
         void callA(int i, int j) { ... }
