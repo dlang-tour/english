@@ -62,7 +62,7 @@ the built-in compiler *traits*
 `__traits(getAttributes, Foo)` which returns
 an [`AliasSeq`](https://dlang.org/phobos/std_meta.html#AliasSeq).
 
-UDAs allow to enhance generic code by giving user-defined
+UDAs allow generic code to be enhanced by giving user-defined
 types another dimension that helps compile time
 generators to adapt to that specific type.
 
