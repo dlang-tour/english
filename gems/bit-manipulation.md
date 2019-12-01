@@ -1,6 +1,6 @@
 # Bit manipulation
 
-An excellent example of D's ability to generate code on compile-time with mixins,
+An excellent example of D's ability to generate code at compile-time with mixins,
 is bit manipulation.
 
 ### Simple bit manipulation
