@@ -172,7 +172,7 @@ void main()
 {
     FibonacciRange fib;
 
-    import std.range : drop, generate, take;
+    import std.range : drop, take;
     import std.algorithm.iteration :
         filter, sum;
 
