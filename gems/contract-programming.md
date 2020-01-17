@@ -53,7 +53,7 @@ state during its whole lifetime:
 ### Validating user input
 
 As all contracts will be removed in the release build, user input should not
-be checked using contracts. Moreover `assert`s can still be used be in
+be checked using contracts. Moreover `assert`s can still be used in
 `nothrow` functions, because they throw fatal `Errors`.
 The runtime analog to `assert` is [`std.exception.enforce`](https://dlang.org/phobos/std_exception.html#.enforce),
 which will throw catchable `Exceptions`.
