@@ -16,7 +16,6 @@ library.
 `filter` - Given a lambda as the template parameter,
  generate a new range that filters elements:
 
-    filter!"a > 20"(range);
     filter!(a => a > 20)(range);
 
 `map` - Generate a new range using the predicate
@@ -65,7 +64,7 @@ forever.
 
 ```d
 // Hey come on, just get the whole army!
-import std.algorithm : canFind, map,
+import std.algorithm : canFind, count, map,
   filter, sort, uniq, joiner, chunkBy, splitter;
 import std.array : array, empty;
 import std.range : zip;
@@ -87,7 +86,7 @@ to efficient, *native* machine code.};
       .filter!(a => !a.empty);
 
     auto wordCharCounts = words
-      .map!"a.count";
+      .map!(a => a.count);
 
     // Output the character count
     // per word in a nice way
