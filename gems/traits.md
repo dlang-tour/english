@@ -43,10 +43,10 @@ This means that the function is only callable and thus compiles if:
 
 ### Specialization
 
-Many APIs aim to be general-purpose, however they don't want to pay with extra
-runtime for this generalization.
+Many APIs aim to be general-purpose, however we want to avoid any extra
+runtime cost for the convenience of this generalization.
 With the power of introspection and CTFE, it is possible to specialize a method
-on compile-time to achieve the best performance given the input types.
+at compile-time to achieve the best performance given the input types.
 
 A common problem is that in contrast to arrays you might not know the exact length
 of a stream or list before walking through it.
