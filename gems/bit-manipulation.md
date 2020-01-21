@@ -56,7 +56,7 @@ void setFieldA(bool b);
 ## `std.bitmanip` to the rescue
 
 It's a lot of fun to write custom bit manipulation code and
-D provides all the tools needed to do so. However in most cases you don't want to
+D provides all the tools needed to do so. However, in most cases you don't want to
 copy and paste code like this, especially since it is very error-prone and hard to maintain.
 Hence in D `std.bitmanip` helps you to write maintainable, easy-to-read bit manipulations
 with `std.bitmanip` and the power of mixins - without sacrificing performance.
