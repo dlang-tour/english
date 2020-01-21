@@ -22,38 +22,38 @@ different areas had a hard time communicating, and in some cases
 an encoding scheme wasn't supported at all, making viewing the text
 on that computer impossible.
 
-For more info on Unicode and the technical details, check the
+For more information on Unicode and the technical details, see the
 Wikipedia article on Unicode in the "In-Depth" section.
 
 ## How
 
-Unicode has fixed most of those problems and is supported on every
-modern machine. D learns from the mistakes of older languages,
-as such **all** strings in D are Unicode strings, whereas strings
+Unicode has solved most of those problems and is supported on every
+modern machine. In D,
+**all** strings are Unicode strings, whereas strings
 in languages such as C and C++ are just arrays of bytes.
 
-In D, `string`, `wstring`, and `dstring` are UTF-8, UTF-16, and
+The types `string`, `wstring`, and `dstring` are UTF-8, UTF-16, and
 UTF-32 encoded strings respectively. Their character types are
 `char`, `wchar`, and `dchar`.
 
-According to the spec, it is an error to store non-Unicode
+According to the specification, it is an error to store non-Unicode
 data in the D string types; expect your program to fail in
-different ways if your string is encoded improperly.
+different ways if your string is improperly encoded.
 
 In order to store other string encodings, or to obtain C/C++
-behavior, you can use `ubyte[]` or `char*`.
+behavior, you can use raw bytes with types `ubyte[]` or `char*`.
 
 ## Strings in Range Algorithms
 
 *Reading the* [*gem on range algorithms*](gems/range-algorithms) *is
 suggested for this section.*
 
-There are some important caveats to keep in mind with Unicode
+There are some important caveats to keep in mind when working with Unicode
 in D.
 
-First, as a convenience feature, when iterating over a string
-using the range functions, Phobos will encode the elements of
-`string`s and `wstring`s into UTF-32 code-points as each item.
+First, as a convenience, when iterating over a string
+using the range functions, each element of
+`string`s and `wstring`s is converted into a UTF-32 code-point as each item.
 This practice, known as **auto decoding**, means that
 
 ```
@@ -67,7 +67,7 @@ equals `False`. Why? Because, in terms of the range API,
 rather than the number of elements the *range function will iterate over*.
 
 From the example, you can see why these two things might not always
-be equal. As such, range algorithms in Phobos act as if `string`s
+be equal. As such, the range algorithms act as if `string`s
 do not have length information.
 
 For more information on the technical details of auto decoding,
