@@ -53,7 +53,7 @@ state during its whole lifetime:
 ### Validating user input
 
 As all contracts will be removed in the release build, user input should not
-be checked using contracts. Moreover `assert`s can still be used be in
+be checked using contracts. Moreover `assert`s can still be used in
 `nothrow` functions, because they throw fatal `Errors`.
 The runtime analog to `assert` is [`std.exception.enforce`](https://dlang.org/phobos/std_exception.html#.enforce),
 which will throw catchable `Exceptions`.
@@ -107,7 +107,7 @@ struct Date {
     in {
         assert(date.length == 10);
     }
-    body {
+    do {
         import std.format : formattedRead;
         // formattedRead parses the format
         // given and writes the result to the
@@ -137,7 +137,7 @@ struct Date {
                     .equal([4, 2, 2]));
         assert(parts.all!isNumeric);
     }
-    body {
+    do {
         import std.format : format;
         return format("%.4d-%.2d-%.2d",
                       year, month, day);
