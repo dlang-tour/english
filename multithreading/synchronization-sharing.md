@@ -1,19 +1,19 @@
 # Synchronization & Sharing
 
-Although the preferred way in D to do multi-threading
+In D, the preferred way to do multi-threading
 is to rely on `immutable` data and synchronize threads
-using message passing, the language has built-in
+using message passing. However, the language has built-in
 support for *synchronization* primitives as well as
 type system support with `shared` to mark objects
 that are accessed from multiple threads.
 
-The `shared` type identifier allows to mark variables
+Use the `shared` type identifier to mark variables
 that are shared among different threads:
 
     shared(int)* p = new int;
     int* t = p; // ERROR
 
-For example `std.concurrency.send` just allows to send either
+For example `std.concurrency.send` only allows sending either
 `immutable` or `shared` data and copying the message
 to be sent. `shared` is transitive so if a `class` or `struct`
 is marked `shared` all its members will be too.
@@ -22,7 +22,7 @@ default because they are implemented using
 *thread local storage* (TLS) and each thread gets
 its own variable.
 
-`synchronized` blocks allow to instruct the compiler
+`synchronized` blocks are used to tell the compiler
 to create  a critical section that can only be entered
 by one thread at a time.
 
@@ -35,7 +35,7 @@ limited to different member objects *mutexes*
 with `synchronized(member1, member2)` to reduce
 contention. The D compiler inserts *critical
 sections* automatically. A whole class can be marked
-as `synchronized` as well and the compiler will
+as `synchronized` as well in which case the compiler will
 make sure that just one thread accesses a concrete
 instance of it at a time.
 
@@ -110,8 +110,8 @@ void threadProducer(shared(SafeQueue!int) queue,
     shared(int)* queueCounter)
 {
     import std.range : iota;
-    // Push values 1 to 11
-    foreach (i; iota(1,11)) {
+    // Push values 1 to 10
+    foreach (i; 1..11) {
         queue.push(i);
         safePrint("Pushed ", i);
         atomicOp!"+="(*queueCounter, 1);
