@@ -107,7 +107,7 @@ struct Date {
     in {
         assert(date.length == 10);
     }
-    body {
+    do {
         import std.format : formattedRead;
         // formattedRead parses the format
         // given and writes the result to the
@@ -137,7 +137,7 @@ struct Date {
                     .equal([4, 2, 2]));
         assert(parts.all!isNumeric);
     }
-    body {
+    do {
         import std.format : format;
         return format("%.4d-%.2d-%.2d",
                       year, month, day);
