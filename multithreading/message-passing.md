@@ -1,14 +1,14 @@
 # Message Passing
 
 Instead of dealing with threads and doing synchronization
-yourself D allows to use *message passing* as a means
-to leverage the power of multiple cores. Threads communicate
+yourself, D allows you to use *message passing* to take
+advantage of multiple cores. Threads communicate
 with *messages* - which are arbitrary values - to distribute
 work and synchronize themselves. They don't share data
 by design which avoids the common problems of
 multi-threading.
 
-All functions that implement message passing in D
+All D's message passing functions
 can be found in the [`std.concurrency`](https://dlang.org/phobos/std_concurrency.html)
 module. `spawn` creates a new *thread* based on a
 user-defined function:
@@ -33,13 +33,13 @@ and dispatches the values it receives from other threads
 to the passed `delegates` - depending on the received
 value's type.
 
-To send a message to a specific thread use the function `send`
-and its id:
+You can send a message to a specific thread using the `send` function and the target
+thread's id:
 
     send(threadId, 42);
 
-`receiveOnly` can be used to just receive a specified
-type:
+`receiveOnly` can be used to ensure that only a specified
+type is received:
 
     string text = receiveOnly!string();
     assert(text == "Done");
