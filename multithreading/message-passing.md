@@ -70,8 +70,8 @@ A custom struct that is used as a message
 for a little thread army.
 */
 struct NumberMessage {
-    int number;
-    this(int i) {
+    size_t number;
+    this(size_t i) {
         this.number = i;
     }
 }
@@ -124,7 +124,7 @@ void main()
 
     // Odd threads get a number, even threads
     // a string!
-    foreach(int idx, ref tid; threads) {
+    foreach(idx, ref tid; threads) {
         import std.string : format;
         if (idx  % 2)
             send(tid, NumberMessage(idx));
