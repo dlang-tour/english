@@ -12,7 +12,7 @@ Here are some of vibe.d's highlights:
   See the next section for a complete example.
 * Provides an easy to use JSON and web interface generator.
 * Has out-of-the-box
-  support for Redis and MongoDB make it easy to
+  support for Redis and MongoDB that makes it easy to
   write backend systems that have good performance.
 * Can be used to create generic TCP or UDP clients and servers.
 
