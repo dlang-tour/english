@@ -1,22 +1,20 @@
 # Vibe.d web framework
 
 [Vibe.d](http://vibed.org) is a very powerful web
-framework which this tour for example has been written
-with. Here are some highlights of vibe.d:
+framework which, for example, underlies this D language tour website.
+Here are some of vibe.d's highlights:
 
 * Based on a fiber based approach for *asynchronous I/O*
-  vibe.d allows to write high-performance HTTP(S) web servers
-  and web services. Write code which looks synchronous
-  but actually does the ugly asynchronous handling
-  of thousands of connections in the background
-  for you! See the next section for a thorough
-  example.
-* An easy to use JSON and web interface generator
-* Out-of-the-box
-  support for Redis and MongoDB make it easy to
-  write backend systems that have a good performance
-* Generic TCP or UDP clients and servers can be
-  written as well using this framework
+  vibe.d allows you to write high-performance HTTP(S) web servers
+  and web services. You can write code that looks synchronous
+  but which can actually handle
+  thousands of connections asynchronously in the background!
+  See the next section for a complete example.
+* Provides an easy to use JSON and web interface generator.
+* Has out-of-the-box
+  support for Redis and MongoDB that makes it easy to
+  write backend systems that have good performance.
+* Can be used to create generic TCP or UDP clients and servers.
 
 Note that the examples in this chapter
 can't be run online because they
@@ -35,6 +33,4 @@ as template:
 available for building your vibe.d based project.
 
 The book [D Web development](https://www.packtpub.com/web-development/d-web-development)
-gives a thorough introduction into this great
-framework.
-
+gives a thorough introduction into this excellent framework.
