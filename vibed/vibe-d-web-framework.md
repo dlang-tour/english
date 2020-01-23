@@ -33,6 +33,4 @@ as template:
 available for building your vibe.d based project.
 
 The book [D Web development](https://www.packtpub.com/web-development/d-web-development)
-gives a thorough introduction into this excellent
-framework.
-
+gives a thorough introduction into this excellent framework.
