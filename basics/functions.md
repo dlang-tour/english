@@ -1,6 +1,7 @@
 # Functions
 
-One function has already been introduced: `main()` - the starting point of every
+One function has already been introduced: `main()` - the starting point
+(also called the _entry_ point), of every
 D program. A function may return a value (or be declared with
 `void` if nothing is returned) and accept an arbitrary number of arguments:
 
@@ -37,8 +38,8 @@ overloads.
     plot("D rocks");
     plot("D rocks", "blue");
 
-Once a default argument has been specified, all following arguments
-must be default arguments too.
+Once a default argument has been specified, any following arguments
+must also have defaults.
 
 ### Local functions
 
@@ -50,7 +51,7 @@ the parent's scope:
     void fun() {
         int local = 10;
         int fun_secret() {
-            local++; // that's legal
+            local++; // this is legal
         }
         ...
 
@@ -89,8 +90,8 @@ void randomCalculator()
     int a = 10;
     int b = 5;
 
-    // uniform generates a number between START
-    // and END, whereas END is NOT inclusive.
+    // uniform generates a random number between
+    // START and one less than END.
     // Depending on the result we call one of
     // the math operations.
     switch (uniform(0, 4)) {
