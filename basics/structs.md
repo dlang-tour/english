@@ -60,7 +60,7 @@ the member function will never change the state of the object.
 
 If a member function is declared as `static`, it will be callable
 without an instantiated object (e.g. `Person.myStatic()`) but it
-cannot be called by non-`static` members.  It can be used if a
+isn't allowed to access any non-`static` members.  It can be used if a
 method doesn't need to access any of the object member fields but logically
 belongs to the same class. Also it can be used to provide some functionality
 without creating an explicit instance, for example, some Singleton
