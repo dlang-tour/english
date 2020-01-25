@@ -1,7 +1,7 @@
 # Structs
 
 One way to define compound or custom types in D is to
-define them through a `struct`:
+use a `struct`:
 
     struct Person {
         int age;
@@ -9,7 +9,7 @@ define them through a `struct`:
         float ageXHeight;
     }
 
-`struct`s are always constructed on the stack (unless created
+By default `struct`s are constructed on the stack (unless created
 with `new`) and are copied **by value** in assignments or
 as parameters to function calls.
 
@@ -32,8 +32,8 @@ can be explicitly accessed with `this`:
     Person p = Person(30, 180); // initialization
     p = Person(30, 180);  // assignment to new instance
 
-A `struct` might contain any number of member functions. These
-are by default `public` and accessible from the outside. They could
+A `struct` may contain any number of member functions. By default
+they are `public` and accessible from the outside. They could
 also be `private` and thus only be callable by other
 member functions of the same `struct`, or other code in the same
 module.
@@ -44,6 +44,7 @@ module.
         private void privateStuff() {
             ...
 
+    // In another module:
     p.doStuff(); // call method doStuff
     p.privateStuff(); // forbidden
 
@@ -69,7 +70,7 @@ design pattern implementations use `static`.
 
 Note that a `struct` can't inherit from another `struct`.
 Hierachies of types can only be built using classes,
-which we will see in a future section.
+which we will see in a later section.
 However, with `alias this` or `mixins` one can easily achieve
 polymorphic inheritance.
 
