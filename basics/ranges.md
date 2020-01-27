@@ -9,7 +9,7 @@ foreach (element; range)
 }
 ```
 
-it's internally rewritten similar to the following:
+it's internally rewritten to something like the following:
 
 ```
 for (auto __rangeCopy = range;
@@ -22,7 +22,7 @@ for (auto __rangeCopy = range;
 ```
 
 Any object which fulfills the following interface is called a **range**
-(or more specific `InputRange`) and is thus a type that can be iterated over:
+(or more specifically, an `InputRange`) and is thus a type that can be iterated over:
 
 ```
     interface InputRange(E)
@@ -33,12 +33,12 @@ Any object which fulfills the following interface is called a **range**
     }
 ```
 
-Have a look at the example on the right to inspect the implementation and usage
-of an input range closer.
+Have a look at the code on the right to see an example implementation and usage
+of a simple input range.
 
 ## Laziness
 
-Ranges are __lazy__. They won't be evaluated until requested.
+Ranges are __lazy__. They aren't evaluated until requested.
 Hence, a range from an infinite range can be taken:
 
 ```d
@@ -47,7 +47,7 @@ Hence, a range from an infinite range can be taken:
 
 ## Value vs. Reference types
 
-If the range object is a value type, then range will be copied and only the copy
+If the range object is a value type, then the range will be copied and only the copy
 will be consumed:
 
 ```d
@@ -56,7 +56,7 @@ r.drop(5).writeln; // []
 r.writeln; // [0, 1, 2, 3, 4]
 ```
 
-If the range object is a reference type (e.g. `class` or [`std.range.refRange`](https://dlang.org/phobos/std_range.html#refRange)),
+If the range object is a reference type (e.g. a `class` or a [`std.range.refRange`](https://dlang.org/phobos/std_range.html#refRange)),
 then the range will be consumed and won't be reset:
 
 ```d
@@ -69,8 +69,8 @@ r2.writeln; // []
 ### Copyable `InputRanges` are `ForwardRanges`
 
 Most of the ranges in the standard library are structs and so `foreach`
-iteration is usually non-destructive, though not guaranteed. If this
-guarantee is important, a specialization of an `InputRange` can be used—
+iteration is usually non-destructive, although this is not guaranteed. If the
+guarantee is required, a specialization of an `InputRange` can be used—
 **forward** ranges with a `.save` method:
 
 ```
@@ -88,7 +88,7 @@ r2.save.drop(5).writeln; // []
 r2.writeln; // [0, 1, 2, 3, 4]
 ```
 
-### `ForwardRanges` can be extended to Bidirectional ranges + random access ranges
+### `ForwardRanges` can be extended to Bidirectional ranges and to random access ranges
 
 There are two extensions of the copyable `ForwardRange`: (1) a bidirectional range
 and (2) a random access range.
@@ -106,12 +106,13 @@ interface BidirectionalRange(E) : ForwardRange!E
 5.iota.retro.writeln; // [4, 3, 2, 1, 0]
 ```
 
-A random access range has a known `length` and each element can be directly accessed.
+A random access range has a known `length` and each element can be directly accessed
+by index position.
 
 ```d
 interface RandomAccessRange(E) : ForwardRange!E
 {
-     E opIndex(size_t i);
+     E opIndex(size_t i); // used for [] access, e.g., r[i]
      size_t length();
 }
 ```
@@ -128,10 +129,10 @@ r[1].writeln; // 5
 The functions in [`std.range`](http://dlang.org/phobos/std_range.html) and
 [`std.algorithm`](http://dlang.org/phobos/std_algorithm.html) provide
 building blocks that make use of this interface. Ranges enable the
-composition of complex algorithms behind an object that
-can be iterated with ease. Furthermore, ranges enable the creation of **lazy**
+composition of complex algorithms that go well beyond simply providing
+easy to iterate objects. Furthermore, ranges enable the creation of **lazy**
 objects that only perform a calculation when it's really needed
-in an iteration e.g. when the next range's element is accessed.
+in an iteration e.g., when the next range's element is accessed.
 Special range algorithms will be presented later in the
 [D's Gems](gems/range-algorithms) section.
 
