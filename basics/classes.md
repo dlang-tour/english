@@ -2,7 +2,7 @@
 
 D provides support for classes and interfaces like in Java or C++.
 
-Any `class` type inherits from [`Object`](https://dlang.org/phobos/object.html) implicitly.
+All `class` types implicitly inherit from [`Object`](https://dlang.org/phobos/object.html).
 
     class Foo { } // inherits from Object
     class Bar : Foo { } // Bar is a Foo too
@@ -22,28 +22,30 @@ when no references to an object exist anymore.
 ### Inheritance
 
 If a member function of a base class is overridden, the keyword
-`override` must be used to indicate that. This prevents unintentional
+`override` must be used. This prevents unintentional
 overriding of functions.
 
     class Bar : Foo {
         override functionFromFoo() {}
     }
 
-In D, classes can only inherit from one class.
+In D, each class may only directly inherit from one other class.
+This prevents the diamond inheritance problem, and isn't a limitation
+in practice because D (like Java), supports interfaces.
 
 ### Final and abstract member functions
 
 - A function can be marked `final` in a base class to disallow overriding
-it
+it.
 - A function can be declared as `abstract` to force derived classes to override
-it
+it.
 - A whole class can be declared as `abstract` to make sure
-that it isn't instantiated
-- `super(..)` can be used to explicitly call the base constructor
+that it isn't instantiated.
+- `super(..)` can be used to explicitly call the base constructor.
 
 ### Checking for identity
 
-For class objects, the `==` and `!=` operators compare the contents of the objects.
+For class objects, the `==` and `!=` operators compare the _contents_ of the objects.
 Therefore, comparing against `null` is invalid, as `null` has no contents.
 The `is` compares for identity. To compare for nonidentity, use `e1 !is e2`.
 
