@@ -27,8 +27,8 @@ like a property:
     "D rocks".toLower; // "d rocks"
 
 UFCS is especially important when dealing with
-*ranges* where several algorithms can be put
-together to perform complex operations, making it
+*ranges* where several algorithms can be combined
+to perform complex operations, making it
 easier to write clear and manageable code.
 
     import std.algorithm : group;
