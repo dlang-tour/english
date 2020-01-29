@@ -8,7 +8,7 @@ by any class inheriting from the `interface`.
         void makeNoise();
     }
 
-The `makeNoise` member function has to be implemented
+The `makeNoise` member function must be implemented
 by `Dog` because it inherits from the `Animal` interface.
 Essentially `makeNoise` behaves like an `abstract` member
 function in a base class.
@@ -23,8 +23,8 @@ function in a base class.
     Animal animal = dog; // implicit cast to interface
     animal.makeNoise();
 
-The number of `interface`s a `class` can implement isn't limited,
-but it can inherit from only *one* base class.
+Although a class may only directly inherit from *one* base class,
+it may implement *any number* of interfaces.
 
 ### NVI (non virtual interface) pattern
 
@@ -58,7 +58,7 @@ import std.stdio : writeln;
 interface Animal {
     /*
     Virtual function
-    which needs to be overridden!
+    which must be overridden!
     */
     void makeNoise();
 
