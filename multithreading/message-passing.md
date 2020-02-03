@@ -69,23 +69,18 @@ import std.concurrency : receive, receiveOnly,
 A custom struct that is used as a message
 for a little thread army.
 */
-struct NumberMessage {
+struct NumberMsg {
     int number;
-    this(int i) {
-        this.number = i;
-    }
 }
 
 /*
 Message is used as a stop sign for other
 threads
 */
-struct CancelMessage {
-}
+struct CancelMsg { }
 
-/// Acknowledge a CancelMessage
-struct CancelAckMessage {
-}
+/// Acknowledge a CancelMsg
+struct CancelAckMsg { }
 
 /*
 The thread worker main
@@ -99,15 +94,15 @@ void worker(Tid parentId)
 
     while (!canceled) {
       receive(
-        (NumberMessage m) {
+        (NumberMsg m) {
           writeln("Received int: ", m.number);
         },
         (string text) {
           writeln("Received string: ", text);
         },
-        (CancelMessage m) {
+        (CancelMsg m) {
           writeln("Stopping ", thisTid, "...");
-          send(parentId, CancelAckMessage());
+          send(parentId, CancelAckMsg());
           canceled = true;
         }
       );
@@ -116,32 +111,32 @@ void worker(Tid parentId)
 
 void main()
 {
-    Tid[] threads;
-    // Spawn 10 little worker threads.
-    for (size_t i = 0; i < 10; ++i) {
-        threads ~= spawn(&worker, thisTid);
+    Tid[] workers;
+    // Spawn 10 worker threads.
+    foreach (i; 0 .. 10) {
+        workers ~= spawn(&worker, thisTid);
     }
 
     // Odd threads get a number, even threads
     // a string!
-    foreach(int idx, ref tid; threads) {
+    foreach (idx, ref tid; workers) {
         import std.string : format;
-        if (idx  % 2)
-            send(tid, NumberMessage(idx));
+        if (idx % 2)
+            send(tid, NumberMsg(idx % int.max));
         else
-            send(tid, format("T=%d", idx));
+            send(tid, "T=%d".format(idx));
     }
 
     // And all threads get the cancel message!
-    foreach(ref tid; threads) {
-        send(tid, CancelMessage());
+    foreach(tid; workers) {
+        send(tid, CancelMsg());
     }
 
     // And we wait until all threads have
     // acknowledged their stop request
-    foreach(ref tid; threads) {
-        receiveOnly!CancelAckMessage;
-        writeln("Received CancelAckMessage!");
+    foreach(tid; workers) {
+        receiveOnly!CancelAckMsg;
+        writeln("Received CancelAckMsg!");
     }
 }
 ```
