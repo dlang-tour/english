@@ -26,7 +26,7 @@ At compile time, any parameters associated with templates must be known, and all
 
 There are two ways of declaring function templates. First the longhand template notation, for example:
 
-```d
+```
 template dot(T)
 {
   auto dot(T[] x, T[] y)
@@ -44,7 +44,7 @@ template dot(T)
 
 Another aspect of the above template, is that it is *eponymous*, because it contains members that have the same name as the template itself. The shorthand notation for this same template is:
 
-```d
+```
 auto dot(T)(T[] x, T[] y)
 {
   T dist = 0;
@@ -61,7 +61,7 @@ Shorthand templates are *always* eponymous. The long and shorthand forms are tre
 
 Template functions are used with the form `dot!(T...)(T args)` for example:
 
-```d
+```
 import std.stdio: writeln;
 void main()
 {
@@ -73,7 +73,7 @@ void main()
 
 Gives the output:
 
-```d
+```
 dot product: 20
 ```
 
@@ -83,20 +83,20 @@ Note that `dot` is a template, `dot!(double)` is a function, and the next set of
 
 The D compiler is smart enough to do type inference of template functions. We can omit the type identifier, and call the template function, just like any other D function, on `x` and `y`. This means that `dot(x, y)`, will produce the same result as `dot!(double)(x, y)`. However in the case where `x` and `y` are of different types:
 
-```d
+```
 double[] x = [1., 2, 3, 4];
 float[] y = [4.0f, 3.0f, 2.0f, 1.0f];
 ```
 we get an error message:
 
-```d
+```
 Error: function functions.dot!double.dot(double[] x, double[] y) 
         is not callable using argument types (double[], float[])
 ```
 
 To remedy this, we can use two template parameters:
 
-```d
+```
 template dot(T, U)
 {
   auto dot(T[] x, U[] y)
@@ -118,7 +118,7 @@ At the moment, the output `dist` uses whatever `T` is as the return type. Later,
 
 Functions contained within a template, can have a different name from the template itself. For example:
 
-```d
+```
 template Kernel(T)
 {
   auto dot(T[] x, T[] y)
@@ -148,19 +148,19 @@ template Kernel(T)
 
 We access the functions in the template like this:
 
-```d
+```
 writeln("gaussian kernel: ", Kernel!(double).gaussian(x, y));
 ```
 
 So the *eponymous template* notation, can be viewed as a special case access pattern. However, the eponymous access pattern: 
 
-```d
+```
 dot!(double)(x, y)
 ``` 
 
 is **not** shorthand for this: 
 
-```d
+```
 dot!(double).dot(x, y)
 ```
 
@@ -168,7 +168,7 @@ which will fail.
 
 Templates in D can have value parameters, for instance the code below, restricts the arrays to static types of a specific length `N`:
 
-```d
+```
 import std.math: exp, sqrt;
 auto gaussian(long N = 4, T)(T[N] x, T[N] y)
 {
@@ -189,7 +189,7 @@ auto gaussian(long N = 4, T)(T[N] x, T[N] y)
 
 Our implementation of the `gaussian` kernel function, is missing a parameter `theta`. We can include this in its template argument as an `alias` parameter:
 
-```d
+```
 import std.math: exp, sqrt;
 template gaussian(alias theta) //alias template parameter
 {
@@ -210,13 +210,13 @@ template gaussian(alias theta) //alias template parameter
 
 which is then executed as:
 
-```d
+```
 writeln("gaussian kernel: ", gaussian!(0.75)(x, y));
 ```
 
 with the output:
 
-```d
+```
 gaussian kernel: 0.00257257
 ```
 
@@ -226,7 +226,7 @@ The `alias` directive in the template declaration, `template gaussian(alias thet
 
 Variadic template functions in D, are very similar in design to those in C++. The type sequence, is specified with an ellipsis `T...`. The template function below, can sum a variable number of inputs, each potentially of a different type:
 
-```d
+```
 auto sum(T)(T x)
 {
   return x;
@@ -241,26 +241,26 @@ the first `sum` function gives the case for a single item `T x`, and the second 
 
 Usage:
 
-```d
+```
 auto num = sum(1, 2.3f, 9.5L, 5.7);// type inference
 writeln("Sum: ", num);
 ```
 
 output:
 
-```d
+```
 Sum: 18.5
 ```
 
 also:
 
-```d
+```
 writeln("typeof(num): ", typeof(num).stringof);
 ```
 
 output:
 
-```d
+```
 typeof(num): real
 ```
 
@@ -270,7 +270,7 @@ The above example, shows that D carries out sensible numeric type promotions by 
 
 `is()` is a compile time directive, that converts expressions on types, into boolean constants. It can be used within template expressions, but also as a **template constraint**. For example we can restrict the `dot` template we created earlier to floating point types:
 
-```d
+```
 template dot(T)
 if(is(T == float) || is(T == double) || is(T == real))
 {
@@ -290,7 +290,7 @@ if(is(T == float) || is(T == double) || is(T == real))
 the expression `if(is(T == float) || is(T == double) || is(T == real))`, *constrains* the template to be valid for conditions were `T` is one of `float`, `double`, or `real`. Below, we have implemented a template overload for the converse case:
 
 
-```d
+```
 template dot(T)
 if(!(is(T == float) || is(T == double) || is(T == real)))
 {
@@ -299,13 +299,13 @@ if(!(is(T == float) || is(T == double) || is(T == real)))
 ```
 and this:
 
-```d
+```
 dot!(string) z;
 ```
 
 produces the requisite error:
 
-```d
+```
 Error: static assert:  "Type: string not value for the dot function"
       instantiated from here: dot!string
 ```
@@ -314,7 +314,7 @@ Error: static assert:  "Type: string not value for the dot function"
 
 We next explore template constraints and specializations, by considering code for calculating [vector norms](https://en.wikipedia.org/wiki/Lp_space). In the code snippet below, we import functions from the [core.stdc.math](https://dlang.org/phobos/core_stdc_math.html) module, and define an enumeration template `isFloat`. Predicates like this, are implemented in the [std.traits](https://dlang.org/phobos/std_traits.html) module of the D standard library. *(We shall revisit these enumeration templates later.)*
 
-```d
+```
 import std.stdio: writeln;
 import core.stdc.math: abs = fabs, abs = fabsf, abs = fabsl,
                        sqrt, sqrt = sqrtf, sqrt = sqrtl,
@@ -325,7 +325,7 @@ enum isFloat(T) = is(T == float) || is(T == double) || is(T == real);
 
 Using a boolean statement, we can create a template constraint, that selects which cases our implementation applies to. In this case, we only want floating point types, where `p == 1`, and where the type of `p`, matches the element type of `x`.
 
-```d
+```
 template norm(alias p, T)
 if((p == 1) && isFloat!(T) && is(typeof(p) == T))
 {
@@ -343,7 +343,7 @@ if((p == 1) && isFloat!(T) && is(typeof(p) == T))
 
 Below is the implementation for `p == 2`:
 
-```d
+```
 template norm(alias p, T)
 if((p == 2) && isFloat!(T) && is(typeof(p) == T))
 {
@@ -361,7 +361,7 @@ if((p == 2) && isFloat!(T) && is(typeof(p) == T))
 
 Below is the implementation for `infinity` norm:
 
-```d
+```
 template norm(alias p, T)
 if((p == T.infinity) && isFloat!(T) && is(typeof(p) == T))
 {
@@ -379,7 +379,7 @@ if((p == T.infinity) && isFloat!(T) && is(typeof(p) == T))
 
 Below is the implementation for all other cases:
 
-```d
+```
 template norm(alias p, T)
 if(((p != 1) && (p != 2) && (p != T.infinity)) && isFloat!(T) && is(typeof(p) == T))
 {
@@ -398,17 +398,17 @@ if(((p != 1) && (p != 2) && (p != T.infinity)) && isFloat!(T) && is(typeof(p) ==
 we can create a **partial template specialization** for `p = 2.0/3.0`:
 
 
-```d
+```
 alias astroid(T) = norm!(2.0/3.0, T);
 ```
 
 which can be called with:
 
-```d
+```
 writeln("astroid: ", astroid!(double)([0.1, 0.2, 0.3, 0.4, 0.5, 0.6]));
 ```
 
-```d
+```
 astroid: 1.35668
 ```
 
@@ -418,7 +418,7 @@ astroid: 1.35668
 
 The longhand way of declaring a `struct` is:
 
-```d
+```
 template Data(T)
 {
   struct Data
@@ -431,7 +431,7 @@ template Data(T)
 
 and the shorthand syntax is:
 
-```d
+```
 struct Data(T)
 {
   T[] x;
@@ -443,13 +443,13 @@ To the compiler, these two forms are interpreted as the same.
 
 Usage:
 
-```d
+```
 double[] x = [1., 2, 3, 4];
 double[] y = [4., 3, 2, 1];
 writeln("Data: ", Data!double(x, y));
 ```
 
-```d
+```
 Data: Data!double([1, 2, 3, 4], [4, 3, 2, 1])
 ```
 
@@ -457,7 +457,7 @@ In the same way that function templates with different parameters, are of differ
 
 The above template is an eponymous template, meaning that one of its members, has the same name as the template itself. This is in contrast to the template below:
 
-```d
+```
 template LineSegment(T)
 {
   struct Point
@@ -476,7 +476,7 @@ template LineSegment(T)
 
 usage:
 
-```d
+```
 alias F = double;
 alias ls = LineSegment!(F);
 auto from = ls.Point(0., 0., 0.);
@@ -485,13 +485,13 @@ auto line = ls.Line(from, to);
 writeln("Line: ", line);
 ```
 output:
-```d
+```
 Line: Line(Point(0, 0, 0), Point(1, 1, 1))
 ```
 
 Class and interface templates, are declared in the same way as struct templates:
 
-```d
+```
 import std.stdio: writeln;
 enum double pi = 3.14159265359;
 
@@ -565,7 +565,7 @@ class Cylinder(T): Shape!(T)
 
 Note how the parameter (`T`) of the interface template, is the same as in the subclasses, for example `class Cylinder(T): Shape!(T){\*... Code ...*\}`. This **must** be the case in this instance. We can **not** have `class Cylinder(T): Shape!(U){\*... Code ...*\}`, where `is(T == U)` is `false`, because the signatures of the methods defined in the interface, will not match their implementation in the subclasses. So care must be taken, when implementing inheritance patterns, for interface and class templates.
 
-```d
+```
 alias F = double;
 Shape!(F) box = new Box!(F)(2., 3., 4.);
 Shape!(F) cube = new Box!(F)(2.);
@@ -578,7 +578,7 @@ foreach(shape; shapes)
 }
 ```
 output:
-```d
+```
 Shape: Box, volume: 24
 Shape: Box, volume: 8
 Shape: Sphere, volume: 392.699
@@ -589,7 +589,7 @@ Shape: Cylinder, volume: 169.646
 
 In the same way as in function templates, variadic templates can be used in structs, classes, and interfaces. An example of a variadic struct is given below. The implementation for classes and interfaces follow the same pattern:
 
-```d
+```
 import std.conv: to;
 import std.stdio: writeln;
 
@@ -619,7 +619,7 @@ Friday, 28, August 2020
 
 Below is the implementation of a pair data structure:
 
-```d
+```
 import std.conv: to;
 import std.stdio: writeln;
 
@@ -640,7 +640,7 @@ template Pair(F, S)
 
 Checking the functionality:
 
-```d
+```
 writeln(Pair!(string, long)("Height", 196));
 ```
 output:
@@ -650,13 +650,13 @@ Pair!(string, long)(Height, 196)
 
 We can partially specialize setting `F` to `string`:
 
-```d
+```
 alias Dimension(S) = Pair!(string, S);
 ```
 
 Usage:
 
-```d
+```
 writeln(Dimension!(long)("Width", 80));
 ```
 output:
@@ -666,7 +666,7 @@ Pair!(string, long)(Width, 80)
 
 As with function templates, we can constrain structs, classes, and interfaces. Here we amend the implementation of the template `Pair!(F, S)` such that `S` can only be an unsigned integer.
 
-```d
+```
 template Pair(F, S)
 if(is(S == ushort) || is(S == uint) || is(S == ulong))
 {
@@ -685,7 +685,7 @@ if(is(S == ushort) || is(S == uint) || is(S == ulong))
 
 Below is a specialization for `F` as `char`:
 
-```d
+```
 template Pair(F: char, S)
 {
   struct Pair
@@ -703,7 +703,7 @@ template Pair(F: char, S)
 
 Usage:
 
-```d
+```
 writeln(Pair!(char, ulong)('D', 50));
 ```
 output:
@@ -715,7 +715,7 @@ Pair!(Specialization: char, ulong)(D, 50)
 
 Enumerations in D can be used to denote constants, and in compile time they are a useful way to declare data items. As with other templatable forms, enumerations have a longhand:
 
-```d
+```
 template isSignedInteger(T)
 {
   enum isSignedInteger = is(T == short) || is(T == int) || is(T == long);
@@ -724,20 +724,20 @@ template isSignedInteger(T)
 
 and a shorthand form:
 
-```d
+```
 enum isSignedInteger(T) = is(T == short) || is(T == int) || is(T == long);
 ```
 
 usage:
 
-```d
+```
 pragma(msg, "isSignedInteger!ulong: ", isSignedInteger!ulong);
 pragma(msg, "isSignedInteger!long: ", isSignedInteger!long);
 ```
 
 output:
 
-```d
+```
 isSignedInteger!ulong: false
 isSignedInteger!long: true
 ```
@@ -746,7 +746,7 @@ isSignedInteger!long: true
 
 `pragma(msg, "...")` is a compile time directive for printing messages. Enumerations are templatable, they are a great way of defining expressions in compile time predicates, for template constraints. These types of expressions, are used extensively in the [std.traits](https://dlang.org/phobos/std_traits.html) standard library. We can combine these predicate expressions *traits*, to form other expressions:
 
-```d
+```
 enum isSignedInteger(T) = is(T == short) || is(T == int) || is(T == long);
 enum isUnsignedInteger(T) = is(T == ushort) || is(T == uint) || is(T == ulong);
 enum isInteger(T) = isSignedInteger!(T) || isUnsignedInteger!(T);
@@ -756,7 +756,7 @@ enum isNumeric(T) = isInteger!(T) || isFloat!(T);
 
 These compile time expressions, can be used in template constraints with the `if()` directive. An example for template functions:
 
-```d
+```
 template dot(T)
 if(isFloat!(T))// template constraint is here
 {
@@ -775,7 +775,7 @@ if(isFloat!(T))// template constraint is here
 
 Structs, classes, and interfaces follow a similar pattern:
 
-```d
+```
 template LineSegment(T)
 if(isFloat(T))// template constraint is here
 {
@@ -797,13 +797,13 @@ if(isFloat(T))// template constraint is here
 
 The `alias` keyword in this context, is used for creating new symbols that are an *alias* for another type. However, as far as the compiler is concerned, they are identical. Consider `myFloat` below, it is just another name for the `float` type.
 
-```d
+```
 alias myFloat = float;
 ```
 
 you may also see notation like this:
 
-```d
+```
 alias float myFloat;
 ```
 
@@ -811,7 +811,7 @@ which does the same thing.
 
 An alias template in longhand for a pointer type is given below:
 
-```d
+```
 template P(T)
 {
   alias P = T*;
@@ -820,13 +820,13 @@ template P(T)
 
 shorthand:
 
-```d
+```
 alias P(T) = T*;
 ```
 
 usage:
 
-```d
+```
 double x0 = 2.99792458E8;
 P!(double) x1 = &x0;
 import std.stdio: writeln;
@@ -835,7 +835,7 @@ writeln("Speed of light: ", *x1, " m/s");
 
 output:
 
-```d
+```
 Speed of light: 2.99792e+08 m/s
 ```
 
@@ -845,7 +845,7 @@ The `static if` directive allows us to carry out conditional compilation. The co
 
 Recall the previous example for the `dot` kernel function template:
 
-```d
+```
 template dot(T, U)
 if(isFloat!(T) && isFloat!(U))
 {
@@ -866,7 +866,7 @@ The problem was that we don't really know if type `T` the return type, is more s
 
 We can use `static if` with `alias` to create a `promote` template expression:
 
-```d
+```
 template promote(T, U)
 {
   static if(T.sizeof > U.sizeof)
@@ -878,7 +878,7 @@ template promote(T, U)
 
 Notice also that eponymous naming of items in a template is a way of "returning" them. Let's go back to the `dot` example of template functions, which allows entries of different float types:
 
-```d
+```
 template isFloat(T)
 {
   enum isFloat = is(T == float) || is(T == double) || is(T == real);
@@ -928,26 +928,26 @@ These tools provide the programmer with an extensive capability, these tools ena
 `AliasSeq!(T)` is implemented in the `std.meta` library of Phobos; it allows us to create compile time sequences of types and data. Its implementation is simple:
 
 
-```d
+```
 alias AliasSeq(T...) = T;
 ```
 
 The `Nothing` template is also defined in the same module:
 
-```d
+```
 alias Nothing = AliasSeq!();
 ```
 
 We can create a compile time sequence like this:
 
-```d
+```
 alias tSeq = AliasSeq!(ushort, short, uint, int, ulong, long);
 pragma(msg, "Type sequence: ", tSeq);
 ```
 
 output:
 
-```d
+```
 Type sequence: (ushort, short, uint, int, ulong, long)
 ```
 
@@ -959,12 +959,12 @@ Type sequence: (ushort, short, uint, int, ulong, long)
 
 Here, we append `string` to the end of our type sequence:
 
-```d
+```
 alias appended = AliasSeq!(tSeq, string);
 pragma(msg, appended);
 ```
 output:
-```d
+```
 Append: (ushort, short, uint, int, ulong, long, string)
 ```
 
@@ -972,12 +972,12 @@ Append: (ushort, short, uint, int, ulong, long, string)
 
 Here, we prepend  `string` to the front of our type sequence:
 
-```d
+```
 alias appended = AliasSeq!(string, tSeq);
 pragma(msg, "Append: ", appended);
 ```
 Output:
-```d
+```
 Prepend: (string, ushort, short, uint, int, ulong, long)
 ```
 
@@ -985,7 +985,7 @@ Prepend: (string, ushort, short, uint, int, ulong, long)
 
 Here, we concatenate `AliasSeq!(ubyte, byte)` with our original type sequence:
 
-```d
+```
 alias bytes = AliasSeq!(ubyte, byte);
 alias concat = AliasSeq!(bytes, tSeq);
 pragma(msg, "Concatenate: ", concat);
@@ -993,7 +993,7 @@ pragma(msg, "Concatenate: ", concat);
 
 Output:
 
-```d
+```
 Concatenate: (ubyte, byte, ushort, short, uint, int, ulong, long)
 ```
 
@@ -1001,7 +1001,7 @@ Looking carefully at the code, above you may observe that each new sequence we c
 
 Let's take a closer look at what is happening with `AliasSeq` type sequences. Let's say we wanted to join (concatenate) two type sequences, we would do this:
 
-```d
+```
 alias AliasSeq(T...) = T;
 
 alias lhs = AliasSeq!(byte, ubyte);
@@ -1025,7 +1025,7 @@ void main(){}
 
 The output we get is:
 
-```d
+```
 L: byte
 R: (ubyte, short, ushort)
 Join!(lhs, rhs): (byte, ubyte, short, ushort)
@@ -1033,7 +1033,7 @@ Join!(lhs, rhs): (byte, ubyte, short, ushort)
 
 Meaning that the parameters expand, and `L` is now pattern matched to a single item in the type sequence, while the rest of the sequence is denoted in `R`. If we try to use this template instead:
 
-```d
+```
 template Join(L, R)
 {
   alias Join = AliasSeq!(L, R);
@@ -1042,14 +1042,14 @@ template Join(L, R)
 
 we will get a compiler error:
 
-```d
+```
 Error: template instance Join!(byte, ubyte, short, ushort) 
             does not match template declaration Join(L, R)
 ```
 
 Meaning that if no variadic symbols are used, D will assume single entities for the arguments. If we try
 
-```d
+```
 template Join(L..., R...)
 {
   alias Join = AliasSeq!(L, R);
@@ -1063,7 +1063,7 @@ we will get... `Error: variadic template parameter must be last`. So we can not 
 
 We can manipulate compile time sequences, and some *functional* modes of manipulation are given in the [std.meta](https://dlang.org/phobos/std_meta.html) module. Below, a template expression is implemented that allows us to replace an item in a compile time sequence `T...`, with a type `S`:
 
-```d
+```
 template Replace(size_t idx, S, Args...)
 {
   static if (Args.length > 0 && idx < Args.length)
@@ -1075,7 +1075,7 @@ template Replace(size_t idx, S, Args...)
 
 Let's see if this works:
 
-```d
+```
 alias replace0 = Replace!(0, int, tSeq);
 pragma(msg, "Modify (bool @ 0) => int: ", replace0);
 alias replace1 = Replace!(1, byte, tSeq);
@@ -1089,7 +1089,7 @@ pragma(msg, "Modify individual item: ", Replace!(0, double, AliasSeq!(int)));
 
 Output:
 
-```d
+```
 Modify (bool @ 0) => int: (int, short, uint, int, ulong, long)
 Modify (string @ 1) => byte: (ushort, byte, uint, int, ulong, long)
 Modify (ushort @ end) => uint: (ushort, short, uint, int, ulong, uint)
@@ -1106,7 +1106,7 @@ Note: In D the usual method for concatenating strings is the `'~'` operator, but
 
 The code below implements a `Replace` template specialization. It uses mixins to create compile time code "on the fly". These commands facilitate multiple replacements at locations in `Args` given by the sequence `indices`:
 
-```d
+```
 import std.conv: text;
 template Replace(alias indices, S, Args...)
 if(Args.length > 0)
@@ -1129,38 +1129,38 @@ We traverse `indices` using a `static foreach` loop, and use `static if` to comp
 
 Under the condition `static if(i == 0)` we have:
 
-```d
+```
 mixin(text(`alias x`, i, ` = Replace!(indices[i], S, Args);`));
 ```
 
 which translates to:
 
-```d
+```
 alias x0 = Replace!(indices[i], S, Args);
 ```
 
 and under the else condition, we have:
 
-```d
+```
 mixin(text(`alias x`, i, ` = Replace!(indices[i], S, x`, (i - 1), `);`));
 ```
 
 which for `i == 1` translates to:
 
-```d
+```
 alias x1 = Replace!(indices[i], S, x0);
 ```
 
 With successive iterations, we replace all the items specified by indices in `Args` with `S`. The template calls the first implementation of `Replace` at each index. Note that the back-tick `` ` `` in the mixins, is used as an alternative to the common string quote `"`. We can see that it works:
 
-```d
+```
 alias replace4 = Replace!([0, 2, 4], string, tSeq);
 pragma(msg, "Replace ([0, 2, 4]) => string: ", replace4);
 ```
 
 Output:
 
-```d
+```
 Replace ([0, 2, 4]) => string: (string, short, string, int, string, long)
 ```
 
@@ -1168,7 +1168,7 @@ Replace ([0, 2, 4]) => string: (string, short, string, int, string, long)
 
 In the static foreach loop example above, the variables at each iteration are **not** scoped, because we use single curly braces `{` `}`. This means that all the variables we generate, `x0..x(N-1)` are all available outside these braces at the last line, where we assign the last variable created to `Replace`, to be "returned". To scope variables created in a `static foreach` loops, we use double curly braces `{{` `}}` like this:
 
-```d
+```
 static foreach(i; 0..N)
 {{
   /* ... code here ... */
@@ -1180,7 +1180,7 @@ static foreach(i; 0..N)
 #### Contained type sequences
 We have already seen that there if we pass more than one `AliasSeq!(T)` sequence as template parameters, the template expands and we can not recover which items were in which parameter. To remedy this, we can build a tuple type as a container for types. For more information see <a href="https://dlang.org/phobos/std_typecons.html" target="_blank">std.typecons</a> which contains tools for interacting with tuples:
 
-```d
+```
 struct Tuple(T...)
 {
   enum ulong length = T.length;
@@ -1197,7 +1197,7 @@ So:
 
 Next we create a predicate trait that tells us whether something is a `Tuple` or not:
 
-```d
+```
 enum bool isTuple(Tup...) = false;
 enum bool isTuple(Tup: Tuple!T, T...) = true;
 ```
@@ -1206,20 +1206,20 @@ This is different from the previous predicates we defined. Firstly we do a kind 
 
 Let's see if these operations work:
 
-```d
+```
 alias tupleConcat = AliasSeq!(real, Tuple!(tSeq));
 pragma(msg, "Concatenation with Tuple: ", tupleConcat);
 ```
 
 output:
 
-```d
+```
 Concatenation with Tuple: (real, Tuple!(ushort, short, uint, int, ulong, long))
 ```
 
 Now the functionality of `Tuple`:
 
-```d
+```
 pragma(msg, "\nTuple length: ", Tuple!(tSeq).length);
 pragma(msg, "Tuple types: ", Tuple!(tSeq).getTypes);
 pragma(msg, "Tuple!(tSeq).get!(0): ", Tuple!(tSeq).get!(0));
@@ -1227,7 +1227,7 @@ pragma(msg, "Tuple!(tSeq).get!(1): ", Tuple!(tSeq).get!(1));
 pragma(msg, "Tuple!(tSeq).get!(2): ", Tuple!(tSeq).get!(2), "\n");
 ```
 output:
-```d
+```
 Tuple length: 6LU
 Tuple types: (ushort, short, uint, int, ulong, long)
 Tuple!(tSeq).get!(0): ushort
@@ -1237,7 +1237,7 @@ Tuple!(tSeq).get!(2): uint
 
 and `isTuple`:
 
-```d
+```
 pragma(msg, "\nisTuple (false): ", isTuple!(real));
 pragma(msg, "isTuple (false): ", 
                           isTuple!(AliasSeq!(long, ulong, real)));
@@ -1245,7 +1245,7 @@ pragma(msg, "isTuple (true): ",
                           isTuple!(Tuple!(long, ulong, real)), "\n");
 ```
 
-```d
+```
 isTuple (false): false
 isTuple (false): false
 isTuple (true): true
@@ -1253,7 +1253,7 @@ isTuple (true): true
 
 We are now ready for a template specialization that replaces multiple items in `AliasSeq` by the types in a tuple:
 
-```d
+```
 template Replace(alias indices, S, Args...)
 if((Args.length > 0) && isTuple!(S) && (indices.length == S.length))
 {
@@ -1274,18 +1274,18 @@ if((Args.length > 0) && isTuple!(S) && (indices.length == S.length))
 
 Usage:
 
-```d
+```
 alias replace6 = Replace!([0, 2, 4], Tuple!(long, ulong, real), tSeq);
 pragma(msg, "([0, 2, 4]) => (long, ulong, real): ", replace6);
 ```
 Output:
-```d
+```
 ([0, 2, 4]) => (long, ulong, real): (long, short, ulong, int, real, long)
 ```
 
 The template constraint includes `isTuple`, *so we should go back to our previous implementation of `Replace`, and amend it's constraints to ensure that they are distinguishable*:
 
-```d
+```
 // Replacing multiple items with an individual type
 template Replace(alias indices, S, Args...)
 if(Args.length > 0 && !isTuple!(S)){/*... Code ...*/}
@@ -1308,7 +1308,7 @@ if((Args.length > 0) && isTuple!(S) && (indices.length != S.length))
 
 A template `mixin` allows code blocks to be inserted at any relevant point in our script. Consider the following code using our previous kernel functions, but this time they are expressed as template mixins. We can choose which kernel function to compile by selecting the relevant `mixin`:
 
-```d
+```
 mixin template dot()
 {
   auto kernel(T)(T[] x, T[] y)
@@ -1348,7 +1348,7 @@ mixin gaussian!();//chosing the compile the gaussian kernel
 
 Compile Time Function Evaluation (CTFE) is a feature where a function can be evaluate at compile time, either explicitly by making its output an enumeration, or implicitly by the compiler opting to evaluate an immutable variable at compile time for efficiency purposes. Following from the mixins declared above we can use CTFE to calculate a value for the `kernel`.
 
-```d
+```
 //Inputs available at compile time
 enum x = [1., 2, 3, 4];
 enum y = [4., 3, 2, 1];
@@ -1362,7 +1362,7 @@ pragma(msg, "kernel: ", calc);
 
 If we put the template mixin code and CTFE evaluations above into a file named `code.d`, we could load them all in another D module at compile time by using the `import` directive:
 
-```d
+```
 //myModule.d
 enum code = import("code.d");
 mixin(code);
@@ -1370,7 +1370,7 @@ mixin(code);
 
 Now compile:
 
-```d
+```
 dmd myModule.d -J="." -o-
 ```
 
@@ -1380,7 +1380,6 @@ In this case we add the `-o-` flag because we don't use the `main` function in t
 ## Summary
 
 We can see that D has an array of powerful tools for generic and metaprogramming. These tools enables programmers to write generic flexible and highly targeted code, as well as to carry out metaprogramming to generate appropriate code for any given application.
-
 
 ### In-depth
 
