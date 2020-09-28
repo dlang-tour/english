@@ -21,9 +21,9 @@ backends are recommeded for Linux and Windows.
 /+dub.sdl:
 dependency "lubeck" version="~>1.1"
 +/
-import lubeck: mtimes;
+import kaleidic.lubeck: mtimes;
 import mir.algorithm.iteration: each;
-import mir.ndslice;
+import mir.ndslice: magic, repeat, as, slice, byDim;
 import std.stdio: writeln;
 
 void main()
