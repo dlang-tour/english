@@ -124,10 +124,10 @@ void main()
 
     // Odd threads get a number, even threads
     // a string!
-    foreach(int idx, ref tid; threads) {
+    foreach(idx, ref tid; threads) {
         import std.string : format;
         if (idx  % 2)
-            send(tid, NumberMessage(idx));
+            send(tid, NumberMessage(cast(int) idx));
         else
             send(tid, format("T=%d", idx));
     }
