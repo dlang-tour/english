@@ -127,7 +127,8 @@ void main()
     foreach(idx, ref tid; threads) {
         import std.string : format;
         if (idx  % 2)
-            send(tid, NumberMessage(cast(int) idx));
+            send(tid,
+                 NumberMessage(cast(int) idx));
         else
             send(tid, format("T=%d", idx));
     }
