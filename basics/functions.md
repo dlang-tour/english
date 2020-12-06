@@ -50,7 +50,7 @@ the parent's scope:
     void fun() {
         int local = 10;
         int fun_secret() {
-            local++; // that's legal
+            return local++; // that's legal
         }
         ...
 
