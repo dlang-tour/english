@@ -1,0 +1,27 @@
+name: Run sanitycheck
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: dlang-community/setup-dlang@v1
+
+    - name: 'Run sanitycheck'
+      run: |
+        git clone https://github.com/dlang-tour/core ../tour
+        mkdir -p ../tour/public/content/lang
+        mv * ../tour/public/content/lang
+        export PATH=$PATH:$PWD
+        (cd ../tour && dub --compiler=${DC} -- --sanitycheck .)
