@@ -99,7 +99,7 @@ class WebService
         // tags by inspecting the request's
         // headers property.
         string[] headers;
-        foreach(key, value; req.headers) {
+        foreach(key, value; req.headers.byKeyValue()) {
             headers ~=
                 "<li>%s: %s</li>"
                 .format(key, value);
@@ -113,7 +113,7 @@ class WebService
         %s
         </ul>
         </body>
-        </html>}.format(username_,
+        </html>}.format(cast(string)username_,
                 headers.join("\n"));
 
         res.writeBody(contents,
@@ -129,7 +129,7 @@ class WebService
         </head><body>
         <h1>Your name: %s</h1>
         </body>
-        </html>}.format(username_);
+        </html>}.format(cast(string)username_);
 
         res.writeBody(contents,
                 "text/html; charset=UTF-8");
