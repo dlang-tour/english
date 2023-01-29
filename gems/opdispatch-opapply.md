@@ -16,20 +16,25 @@ template parameter. `opDispatch` is a *catch-all*
 member function and allows another level of generic
 programming - completely at **compile time**!
 
-    struct C {
-        void callA(int i, int j) { ... }
-        void callB(string s) { ... }
-    }
-    struct CallLogger(C) {
-        C content;
-        void opDispatch(string name, T...)(T vals) {
-            writeln("called ", name);
-            mixin("content." ~ name)(vals);
-        }
-    }
-    CallLogger!C l;
-    l.callA(1, 2);
-    l.callB("ABC");
+	import std.stdio;
+
+	struct C {
+		void callA(int i, int j) { writeln("C.callA\n"); }
+		void callB(string s) 	 { writeln("C.callB\n"); }
+	}
+	struct CallLogger(Type) {
+		Type content;
+		void opDispatch(string name, T...)(T vals) {
+			writeln("opDispatch call: ", name);
+			mixin("content." ~ name)(vals);
+		}
+	}
+
+	void main(){
+		CallLogger!C l;
+		l.callA(1, 2);
+		l.callB("ABC");
+	}
 
 ### opApply
 
