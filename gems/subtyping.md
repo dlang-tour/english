@@ -23,8 +23,6 @@ in terms of memory or runtime. The compiler
 makes sure to do the right thing when
 accessing the `alias this` member.
 
-`alias this` work with classes too.
-
 ## {SourceCode}
 
 ```d
