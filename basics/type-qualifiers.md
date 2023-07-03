@@ -21,15 +21,15 @@ after that isn't allowed to change.
     err = 5; // won't compile
 
 `immutable` objects can thus be safely shared among different threads with no
-synchronization because they never change by definition. This also implies that
+synchronization, because they never change by definition. This also implies that
 `immutable` objects can be cached perfectly.
 
 ### `const`
 
-`const` objects can't be modified, too. This restriction is just valid for the
-current scope. A `const` pointer can be created from either a *mutable* or
-`immutable` object. This means that the object is `const` for your current
-scope, but someone else might modify it from a different context. It is common
+Objects can't be modified through a const reference.
+A mutable reference to the same object can still modify it.
+A `const` pointer can be created from either a *mutable* or
+`immutable` object. It is common
 for APIs to accept `const` arguments to ensure they don't modify the input as
 that allows the same function to process both mutable and immutable data.
 
@@ -47,8 +47,27 @@ that allows the same function to process both mutable and immutable data.
     foo("abcd"); // string is an immutable array
     foo("abcd".dup); // .dup returns a mutable copy
 
+## Transitivity
+
 Both `immutable` and `const` are _transitive_ type qualifiers, which ensures that once
 `const` is applied to a type, it applies recursively to every sub-component of that type.
+
+    immutable int* p = new int;
+    p = null; // error
+    *p = 5; // error
+
+The element type of a pointer (or array) can be qualified separately:
+
+    immutable p = new int; // immutable(int*)
+    immutable(int)* q = p; // OK, mutable pointer
+    q = null; // OK
+    *q = 5; // error
+
+The [`string` type](alias-strings) is defined as `immutable(char)[]`:
+
+    string s = "hi";
+    s ~= " world"; // OK, append new characters
+    s[0] = 'c'; // error, can't change existing data
 
 ### In-depth
 
