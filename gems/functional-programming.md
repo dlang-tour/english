@@ -2,7 +2,10 @@
 
 D puts an emphasis on *functional programming* and provides
 first-class support for development
-in a functional style.
+in a functional style. See:
+* [immutable](../basics/type-qualifiers) type qualifier
+* [anonymous functions](../basics/delegates#anonymous-functions-lambdas)
+* [range algorithms](range-algorithms)
 
 ## Pure functions
 
