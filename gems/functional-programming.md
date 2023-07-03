@@ -4,7 +4,9 @@ D puts an emphasis on *functional programming* and provides
 first-class support for development
 in a functional style.
 
-In D a function can be declared as `pure` which implies
+## Pure functions
+
+In D a function can be declared as `pure`, which implies
 that given the same input parameters, the **same** output
 is always generated. `pure` functions cannot access or change
 any mutable global state and are thus just allowed to call other
@@ -26,8 +28,22 @@ have mutable parameters:
     }
 
 These functions are still considered pure and can't
-access or change any mutable global state. Just passed-in
-mutable parameters might be altered.
+access or change any mutable global state. Only passed-in
+mutable parameters can be altered. A strongly pure
+function can call a weakly pure function, because only
+temporary state is changed:
+
+```d
+int add(int lhs, int rhs) pure {
+    int result;
+    add(result, lhs, rhs);
+    return result;
+}
+```
+
+Pure functions can allocate memory, and [the result can
+be implicitly converted](https://dlang.org/spec/function.html#pure-factory-functions)
+to other type qualifiers.
 
 Due to the constraints imposed by `pure`, pure functions
 are ideal for multi-threading environments to prevent
@@ -35,8 +51,8 @@ data races *by design*. Additionally pure functions
 can be cached easily and allow a range of compiler
 optimizations.
 
-The attribute `pure` is automatically inferred
-by the compiler for templated functions and `auto` functions,
+The `pure` attribute is automatically inferred
+by the compiler for templated, nested or literal functions and `auto` functions,
 where applicable (this is also true for `@safe`, `nothrow`,
 and `@nogc`).
 
