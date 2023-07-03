@@ -43,7 +43,16 @@ int add(int lhs, int rhs) pure {
 
 Pure functions can allocate memory, and [the result can
 be implicitly converted](https://dlang.org/spec/function.html#pure-factory-functions)
-to other type qualifiers.
+to other type qualifiers. For example, when the result is
+a pointer to mutable data, it can convert to `immutable`.
+This is because there are no mutable references to the
+result remaining after the call.
+
+```d
+int* heap(int v) pure => new int(v);
+
+immutable int* p = heap(42);
+```
 
 Due to the constraints imposed by `pure`, pure functions
 are ideal for multi-threading environments to prevent
