@@ -8,7 +8,7 @@ The brave can disable this safety feature with the
 compiler flag `-boundscheck=off`
 in order to gain speed improvements at the cost of safety.
 
-#### Static arrays
+### Static arrays
 
 Static arrays are stored on the stack if defined inside a function,
 or in static memory otherwise. They have a fixed,
@@ -20,7 +20,7 @@ the fixed size:
 `arr`'s type is `int[8]`. Note that the size of the array is denoted
 next to the type, and not after the variable name like in C/C++.
 
-#### Dynamic arrays
+### Dynamic arrays
 
 Dynamic arrays are stored on the heap and can be expanded
 or shrunk at runtime. A dynamic array is created using a `new` expression
@@ -35,10 +35,29 @@ in more detail in the [next section](basics/slices).
 Multi-dimensional arrays can be created easily
 using the `auto arr = new int[3][3]` syntax.
 
-#### Array operations and properties
+### Array operations and properties
+
+Both static and dynamic arrays provide the property `.length`,
+which is read-only for static arrays, but can be used in the case of
+dynamic arrays to change its size dynamically. The
+property `.dup` creates a copy of the array.
+
+Indexing an array refers to an element of that array.
+When indexing an array through the `arr[idx]` syntax, a special
+`$` symbol denotes an array's length. For example, `arr[$ - 1]` references
+the last element and is a short form for `arr[arr.length - 1]`.
 
 Arrays can be concatenated using the `~` operator, which
 will create a new dynamic array.
+
+    int[] a = [1, 2];
+    a ~= [3, 4];
+    assert(a.length == 4);
+    a[0] = 10;
+    a.length--;
+    assert(a == [10, 2, 3]);
+
+#### Vector operations
 
 Mathematical operations can
 be applied to whole arrays using a syntax like `c[] = a[] + b[]`, for example.
@@ -53,15 +72,6 @@ value:
 These operations might be optimized
 by the compiler to use special processor instructions that
 do the operations in one go.
-
-Both static and dynamic arrays provide the property `.length`,
-which is read-only for static arrays, but can be used in the case of
-dynamic arrays to change its size dynamically. The
-property `.dup` creates a copy of the array.
-
-When indexing an array through the `arr[idx]` syntax, a special
-`$` symbol denotes an array's length. For example, `arr[$ - 1]` references
-the last element and is a short form for `arr[arr.length - 1]`.
 
 ### Exercise
 
