@@ -30,7 +30,7 @@ programming - completely at **compile time**!
 		}
 	}
 
-	void main(){
+	void main() {
 		CallLogger!C l;
 		l.callA(1, 2);
 		l.callB("ABC");
