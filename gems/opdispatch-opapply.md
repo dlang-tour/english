@@ -22,9 +22,9 @@ programming - completely at **compile time**!
 		void callA(int i, int j) { writeln("C.callA\n"); }
 		void callB(string s) 	 { writeln("C.callB\n"); }
 	}
-	struct CallLogger(Type) {
-		Type content;
-		void opDispatch(string name, T...)(T vals) {
+	struct CallLogger(T) {
+		T content;
+		void opDispatch(string name, Types...)(Types vals) {
 			writeln("opDispatch call: ", name);
 			mixin("content." ~ name)(vals);
 		}
