@@ -63,7 +63,7 @@ The element type of a pointer (or array) can be qualified separately:
     q = null; // OK
     *q = 5; // error
 
-The [`string` type](alias-strings) is defined as `immutable(char)[]`:
+The [`string` type](basics/alias-strings) is defined as `immutable(char)[]`:
 
     string s = "hi";
     s ~= " world"; // OK, append new characters
