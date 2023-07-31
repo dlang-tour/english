@@ -21,7 +21,4 @@ jobs:
     - name: 'Run sanitycheck'
       run: |
         git clone https://github.com/dlang-tour/core ../tour
-        mkdir -p ../tour/public/content/lang
-        mv * ../tour/public/content/lang
-        export PATH=$PATH:$PWD
-        (cd ../tour && dub --compiler=${DC} -- --sanitycheck .)
+        dub --root=../core --compiler=${DC} -- --sanitycheck --lang-dir=.
