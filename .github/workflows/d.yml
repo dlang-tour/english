@@ -11,14 +11,29 @@ permissions:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        dc: [dmd-latest, ldc-latest]
+    runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: dlang-community/setup-dlang@v1
+    - name: Clone ${{ github.repository }}
+      uses: actions/checkout@v3
+      with:
+        path: ${{ github.event.repository.name }}
+
+    - name: Clone dlang-tour/core
+      uses: actions/checkout@v3
+      with:
+        repository: dlang-tour/core
+        path: core
+
+    - name: Install D compiler
+      uses: dlang-community/setup-dlang@v1
+      with:
+        compiler: ${{ matrix.dc }}
 
     - name: 'Run sanitycheck'
       run: |
-        git clone https://github.com/dlang-tour/core ../tour
-        dub --root=../core --compiler=${DC} -- --sanitycheck --lang-dir=.
+        dub --root=core --compiler=${DC} -- --sanitycheck --lang-dir=./${{ github.event.repository.name }}
