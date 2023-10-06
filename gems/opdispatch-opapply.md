@@ -48,7 +48,7 @@ delegate as a parameter:
             this.lhs = lhs;
             this.rhs = rhs;
         }
-        int opApply(int delegate(Tree) dg) {
+        int opApply(scope int delegate(ref Tree) dg) {
             if (int res = lhs ? lhs.opApply(dg) : 0) return res;
             if (int res = rhs ? rhs.opApply(dg) : 0) return res;
             return dg(this);
