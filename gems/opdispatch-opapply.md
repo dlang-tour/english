@@ -40,8 +40,14 @@ over such a type will call `opApply` with a special
 delegate as a parameter:
 
     class Tree {
+        int val;
         Tree lhs;
         Tree rhs;
+        this(int val, Tree lhs=null, Tree rhs=null){
+            this.val = val;
+            this.lhs = lhs;
+            this.rhs = rhs;
+        }
         int opApply(int delegate(Tree) dg) {
             if (int res = lhs ? lhs.opApply(dg) : 0) return res;
             if (int res = rhs ? rhs.opApply(dg) : 0) return res;
