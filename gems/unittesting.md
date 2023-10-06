@@ -1,11 +1,11 @@
 # Unit Testing
 
-Tests are an excellent way to ensure stable, bug-free applications.
-They serve as an interactive documentation and allow the modification
+Tests are an excellent way to help ensure stable, bug-free applications.
+They serve as interactive documentation and allow the modification
 of code without fear of breaking functionality. D provides a convenient
 and native syntax for `unittest` blocks as part of the D language.
 Anywhere in a D module `unittest` blocks can be used to test
-functionality of the source code.
+functionality.
 
     // Block for my function
     unittest
@@ -19,10 +19,10 @@ on demand.
 
 ### Run & execute `unittest` blocks
 
-`unittest` blocks can contain arbitrary code which is just
-compiled in and run when the command line flag `-unittest`
+`unittest` blocks can contain arbitrary code which is
+compiled in and run *only* when the command line flag `-unittest`
 is passed to the DMD compiler. DUB also features compiling
-and running unittest through the `dub test` command.
+and running unittests with the `dub test` command.
 
 ### Verify examples with `assert`
 
@@ -34,17 +34,18 @@ within classes or structs.
 
 ### Increasing code coverage
 
-Unit tests are a powerful weapon to ensure bullet-proof applications.
-A common measurement to check how much of a program
-is being covered by tests, is the _code coverage_.
-It is the ratio of executed versus existing lines of code.
+Unit tests are a powerful tool to help ensure reliable applications.
+A common measure of how much of a program's
+code is tested, is its _code coverage_.
+This is the ratio of executed versus existing lines of code.
 The DMD compiler makes generating code coverage reports easy
-by adding `-cov`. For every module a `.lst` file, which contains
-detailed statistics, will be generated.
+with the `-cov` flag. Use of this flag will cause a corresponding `.lst` file 
+to be generated for every D module that's compiled. Each `.lst` file contains
+detailed coverage statistics.
 
-As the compiler is able to infer attributes for templated code
-automatically, it is a common pattern to add annotated `unittest`s
-to ensure such attributes for the tested code:
+Since the compiler is able to infer attributes for templated code
+automatically, it is a common pattern to add annotations to `unittest`s
+to ensure matching attributes for the tested code:
 
     @safe @nogc nothrow pure unittest
     {
