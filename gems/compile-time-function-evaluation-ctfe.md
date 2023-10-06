@@ -1,11 +1,11 @@
 # Compile Time Function Evaluation (CTFE)
 
 CTFE is a mechanism which allows the compiler to execute
-functions at **compile time**. There is no special set of the D
+functions at **compile time**. There is no special subset of the D
 language necessary to use this feature - whenever
-a function just depends on compile time known values
-the D compiler might decide to interpret
-it during compilation.
+a function depends only on values known at compile time
+the D compiler might decide to perform the computation
+during compilation.
 
     // result will be calculated at compile
     // time. Check the machine code, it won't
@@ -27,10 +27,10 @@ it, and the same code can perfectly be shared:
 One prominent example in D is the [std.regex](https://dlang.org/phobos/std_regex.html)
 library. It provides the `ctRegex` type which uses
 *string mixins* and CTFE to generate a highly optimized
-regular expression automaton that is generated during
-compilation. The same code base is re-used for
-the run-time version `regex` that allows regular
-expressions only available at run-time to be compiled.
+regular expression automaton that is generated at
+compile-time. The same code base is re-used for
+the run-time version `regex` that handles regular
+expressions which are only available at run-time to be compiled.
 
     auto ctr = ctRegex!(`^.*/([^/]+)/?$`);
     auto tr = regex(`^.*/([^/]+)/?$`);
@@ -69,7 +69,6 @@ auto sqrt(T)(T x) {
     import std.math : abs;
     // choose a good starting value.
     T z = x*x, old = 0;
-    int iter;
     while (abs(z - old) > GoodEnough) {
         old = z;
         z -= ((z*z)-x) / (2*z);
