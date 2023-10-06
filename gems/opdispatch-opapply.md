@@ -55,9 +55,10 @@ delegate as a parameter:
             return 0;
         }
     }
-    Tree tree = new Tree;
+    Tree tree = new Tree(5,
+                         new Tree(3, new Tree(190)), new Tree(6));
     foreach(node; tree) {
-        ...
+        node.val.writeln;
     }
 
 The compiler transforms the `foreach` body to a special
