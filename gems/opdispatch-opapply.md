@@ -56,7 +56,7 @@ delegate as a parameter:
     }
     Tree tree = new Tree(5,
                          new Tree(3, new Tree(190)), new Tree(6));
-    foreach(node; tree) {
+    foreach (node; tree) {
         node.val.writeln;
     }
 
