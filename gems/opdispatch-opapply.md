@@ -51,8 +51,7 @@ delegate as a parameter:
         int opApply(int delegate(Tree) dg) {
             if (int res = lhs ? lhs.opApply(dg) : 0) return res;
             if (int res = rhs ? rhs.opApply(dg) : 0) return res;
-            if (int res = dg(this)) return res;
-            return 0;
+            return dg(this);
         }
     }
     Tree tree = new Tree(5,
