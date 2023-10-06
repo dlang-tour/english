@@ -43,7 +43,7 @@ delegate as a parameter:
         int val;
         Tree lhs;
         Tree rhs;
-        this(int val, Tree lhs=null, Tree rhs=null){
+        this(int val, Tree lhs = null, Tree rhs = null) {
             this.val = val;
             this.lhs = lhs;
             this.rhs = rhs;
