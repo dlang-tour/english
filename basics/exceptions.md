@@ -5,7 +5,7 @@ and should __never__ be caught.
 
 ### Catching Exceptions
 
-A common case for exceptions is to validate potentially invalid user input.
+A common use case for exceptions is to validate potentially invalid user input.
 Once an exception is thrown, the stack will be unwound until the first matching exception
 handler is found.
 
@@ -20,7 +20,7 @@ catch (FileException e)
 }
 ```
 
-It's possible to have multiple `catch` blocks and a `finally` block that is executed
+It's possible to have multiple `catch` blocks. And a `finally` block can be used to ensure that some code is executed
 regardless of whether an error occurred. Exceptions are thrown with `throw`.
 
 ```d
@@ -42,12 +42,12 @@ finally
 }
 ```
 
-Remember that the [scope guard](gems/scope-guards) is usually a better solution to the `try-finally`
+Note that using [scope guard](gems/scope-guards) is normally a better alternative to the `try-finally`
 pattern.
 
 ### Custom exceptions
 
-One can easily inherit from `Exception` and create custom exceptions:
+Custom exceptions are created by inheriting from the `Exception` class:
 
 ```d
 class UserNotFoundException : Exception
@@ -56,7 +56,7 @@ class UserNotFoundException : Exception
         super(msg, file, line);
     }
 }
-throw new UserNotFoundException("D-Man is on vacation");
+throw new UserNotFoundException("D-User is on vacation");
 ```
 
 ### Enter a safe world with `nothrow`
@@ -73,7 +73,7 @@ bool lessThan(int a, int b) nothrow
 }
 ```
 
-Please note that the compiler is able to infer attributes for templated code
+The compiler is able to infer attributes for templated code
 automatically.
 
 ### std.exception
