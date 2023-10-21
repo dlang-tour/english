@@ -4,8 +4,9 @@ D provides four loop constructs.
 
 ### 1) `while`
 
-`while`  loops execute the given code block
-while a certain condition is met:
+`while`  loops execute the given code block while a certain condition is `true`.
+(If the condition starts out `false` the code block isn't executed at all,
+and the flow of control continues from the statement following the loop's block.)
 
     while (condition)
     {
@@ -14,10 +15,10 @@ while a certain condition is met:
 
 ### 2) `do ... while`
 
-The `do .. while` loops execute the given code block
-while a certain condition is met, but in contrast to `while`
-the _loop block_ is executed before the loop condition is
-evaluated for the first time.
+A `do .. while` loop unconditionally executes the given code block once,
+and _then_ checks the condition.
+So long as the condition is `true`, the code block is executed again, and the process
+(check the condition, execute the code if the condition is `true`) is repeated.
 
     do
     {
@@ -27,7 +28,7 @@ evaluated for the first time.
 ### 3) Classical `for` loop
 
 The classical `for` loop known from C/C++ or Java
-with _initializer_, _loop condition_ and _loop statement_:
+with _initializer_; _loop condition_; _loop statement_:
 
     for (int i = 0; i < arr.length; i++)
     {
@@ -38,24 +39,34 @@ with _initializer_, _loop condition_ and _loop statement_:
 The [`foreach` loop](basics/foreach) which will be introduced in more detail
 in the next section:
 
-    foreach (el; arr)
+    foreach (element; arr)
     {
         ...
     }
 
 #### Special keywords and labels
 
-The special keyword `break` will immediately abort the current loop.
-In a nested loop a _label_ can be used to break out of any outer loop:
+If a `break` statement is encountered, the flow of control will immediately
+jump to the statement following the loop's block.
+If a _labelled_ `break` statement is encountered, the flow of control will
+jump to the statement following the labelled loop's block. This allows us
+to immediately break out of two or more nested loops if required.
 
     outer: for (int i = 0; i < 10; ++i)
     {
         for (int j = 0; j < 5; ++j)
         {
             ...
-            break outer;
+            break outer; // control jumps to (A)
+            ...
+        }
+    }
+    // (A) execution resumes here
 
-The keyword `continue` starts with the next loop iteration.
+A `continue` statement immediately moves the flow of control to the start of the loop's
+next iteration e.g., to the top of a `while` loop to reevaluate the condition, to the top of a
+`foreach` loop to get the next item,or to the _loop statement_ in a classic `for` loop.
+
 
 ### In-depth
 
