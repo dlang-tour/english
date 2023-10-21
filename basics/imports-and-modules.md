@@ -2,10 +2,9 @@
 
 {{#img-right}}turtle.svg{{/img-right}}
 
-One of D's core design decision was to be consistent and avoid corner cases
-in the language.
+One of D's core design decisions was for the language to be consistent and avoid corner cases.
 This is called [_turtles all the way down_](https://en.wikipedia.org/wiki/Turtles_all_the_way_down).
-One good example for this consistency are `import`s.
+One good example of this consistency are `import`s.
 
 ## Imports
 
@@ -17,7 +16,7 @@ and types from the given **module** available.
 
 An `import` statement __does not__ need to appear at the top of a source file.
 It can also be used locally within functions or any other scope.
-In the following chapters you will see that this applies to almost all concepts in D. The language doesn't impose arbitrary restrictions on you.
+In the following sections you will see that this applies to almost all concepts in D. The language doesn't impose arbitrary restrictions on you.
 
 ### Selective imports
 
@@ -26,7 +25,7 @@ is located under the **package** `std`
 and its modules are referenced through `import std.MODULE`.
 
 The `import` statement can also be used to selectively
-import certain symbols of a module:
+import only certain symbols from a module:
 
     import std.stdio : writeln, writefln;
 
@@ -39,13 +38,13 @@ prevent clashing of symbols with the same name from different modules.
 D's module system — in contrast to other systems — is entirely based on files.
 For example, `my.cat` always refers to a file `cat.d` in the folder `my/`.
 The folder `my` needs to be in the current working directory or
-in one of the explicitly specified directory imports (`-I`).
+in one of the explicitly specified import directories (`-I`).
 Lastly, to ease splitting big modules up into multiple smaller files,
-instead of `cat.d`, a folder `cat/` could be used as well.
-The D compiler would then try to load `my/cat/package.d` instead of `my/cat.d`.
+instead of `cat.d`, a folder `cat/` could be used instead. In this case,
+the D compiler would then try to load `my/cat/package.d` instead of `my/cat.d`.
 
 The convention (but not a hard rule) for `package.d` files is to publicly import
-all other modules in the same folder.
+all the other modules in the same folder.
 
 ## {SourceCode}
 
