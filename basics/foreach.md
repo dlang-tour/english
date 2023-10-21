@@ -2,20 +2,20 @@
 
 {{#img-right}}dman-teacher-foreach.jpg{{/img-right}}
 
-D features a `foreach` loop which allows for
-less error-prone and more readable iteration.
+D provides a `foreach` loop for easy-to-use
+and more readable iteration.
 
 ### Element iteration
 
 Given an array `arr` of type `int[]` it is possible to
-iterate over the elements using a `foreach` loop:
+iterate over each element in turn using a `foreach` loop:
 
     foreach (int e; arr) {
         writeln(e);
     }
 
 The first parameter in a `foreach` loop is the variable
-name used for each iteration. Its type can be inferred automatically like so:
+name used for each iteration's item. Its type can be inferred automatically, for example:
 
     foreach (e; arr) {
         // typeof(e) is int
@@ -28,9 +28,9 @@ object called a **range** which will be introduced in the [next section](basics/
 ### Access by reference
 
 Elements will be copied from the array or range during iteration.
-This is acceptable for basic types, but might be a problem for
-large types. To prevent copying or to enable *in-place
-*mutation, `ref` can be used:
+This is acceptable for basic types, but might be expensive for
+large types. To prevent copying or to enable *in-place*
+mutation, `ref` can be used:
 
     foreach (ref e; arr) {
         e = 10; // overwrite value
@@ -38,20 +38,23 @@ large types. To prevent copying or to enable *in-place
 
 ### Iterate `n` times
 
-D allows us to write iterations which should be executed
-`n` times, more concisely with the `..` syntax:
+D allows us to iterate a specific number of times using
+the `..` syntax:
 
     foreach (i; 0 .. 3) {
         writeln(i);
     }
     // 0 1 2
 
-The last number in `a .. b` is excluded from the range,
-thus the loop body is executed `3` times.
+D's `..` ranges go from the first (start) number up to
+one _before_ the second (end) number. So, in this case,
+`i` will be `0`, then `1`, then `2`, with the loop body
+executing exactly `3` times.
 
 ### Iteration with index counter
 
-For arrays, it's also possible to access a separate index variable.
+For arrays, it's also possible to access a separate index variable
+(which always counts from `0`).
 
     foreach (i, e; [4, 5, 6]) {
         writeln(i, ":", e);
