@@ -72,6 +72,20 @@ The [`foreach` loop](basics/foreach) will be introduced in more detail in a late
         ... // body
     }
 
+#### Special keywords and labels
+
+The special keyword `break` will immediately abort the current loop.
+In a nested loop a _label_ (`outer:` below) can be used to break out of any outer loop:
+
+    outer: for (int i = 0; i < 10; ++i)
+    {
+        for (int j = 0; j < 5; ++j)
+        {
+            ...
+            break outer;
+
+The keyword `continue` starts with the next loop iteration.
+
 ### In-depth
 
 - Logical expressions in [_Programming in D_](http://ddili.org/ders/d.en/logical_expressions.html), [specification](https://dlang.org/spec/expression.html#logical_expressions)
