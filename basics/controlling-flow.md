@@ -62,7 +62,7 @@ At the end of every loop iteration, the third part is evaluated (`i+=1`), increm
         ... // body
     }
 
-Thus this example repeats it's body 10 times.
+Thus this example repeats its body 10 times.
 
 ### Foreach Loop
 
