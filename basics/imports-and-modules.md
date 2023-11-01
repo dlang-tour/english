@@ -47,6 +47,11 @@ The D compiler would then try to load `my/cat/package.d` instead of `my/cat.d`.
 The convention (but not a hard rule) for `package.d` files is to publicly import
 all other modules in the same folder.
 
+### In-Depth
+
+- [Modules and Libraries in _Programming in D_](http://ddili.org/ders/d.en/modules.html)
+- [Modules specification](https://dlang.org/spec/module.html)
+
 ## {SourceCode}
 
 ```d
