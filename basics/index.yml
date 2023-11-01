@@ -10,7 +10,6 @@ ordering:
 - arrays
 - slices
 - alias-strings
-- loops
 - foreach
 - ranges
 - associative-arrays
