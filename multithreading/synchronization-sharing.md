@@ -24,16 +24,18 @@ its own variable.
 
 `synchronized` blocks are used to tell the compiler
 to create  a critical section that can only be entered
-by one thread at a time.
+by one thread at a time. With no arguments, a unique mutex
+for that statement alone will be locked and unlocked.
 
     synchronized {
         importStuff();
     }
 
-Within `class` member functions these blocks might be
-limited to different member objects *mutexes*
-with `synchronized(member1, member2)` to reduce
-contention. The D compiler inserts *critical
+Synchronization can be limited to just a class object's
+*mutex* by passing the object as an argument using
+`synchronized (obj)` to reduce contention.
+
+The D compiler inserts *critical
 sections* automatically. A whole class can be marked
 as `synchronized` as well in which case the compiler will
 make sure that just one thread accesses a concrete
