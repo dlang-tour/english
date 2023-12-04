@@ -55,7 +55,9 @@ helper:
 - [Lock-Based Synchronization with `synchronized`](http://www.informit.com/articles/article.aspx?p=1609144&seqNum=13)
 - [Deadlocks and `synchronized`](http://www.informit.com/articles/article.aspx?p=1609144&seqNum=15)
 - [`synchronized` specification](https://dlang.org/spec/statement.html#SynchronizedStatement)
-- [Implicit conversions with `shared` data types](https://dlang.org/spec/const3.html#implicit_conversions)
+- [`synchronized` classes](https://dlang.org/spec/class.html#synchronized-classes)
+- [`shared` type qualifier](https://dlang.org/spec/const3.html#shared)
+- [Implicit conversions with `shared` data types](https://dlang.org/spec/const3.html#implicit_qualifier_conversions)
 
 ## {SourceCode}
 
