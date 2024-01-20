@@ -40,18 +40,24 @@ over such a type will call `opApply` with a special
 delegate as a parameter:
 
     class Tree {
+        int val;
         Tree lhs;
         Tree rhs;
-        int opApply(int delegate(Tree) dg) {
-            if (lhs && lhs.opApply(dg)) return 1;
-            if (dg(this)) return 1;
-            if (rhs && rhs.opApply(dg)) return 1;
-            return 0;
+        this(int val, Tree lhs = null, Tree rhs = null) {
+            this.val = val;
+            this.lhs = lhs;
+            this.rhs = rhs;
+        }
+        int opApply(scope int delegate(ref Tree) dg) {
+            if (int res = lhs ? lhs.opApply(dg) : 0) return res;
+            if (int res = rhs ? rhs.opApply(dg) : 0) return res;
+            return dg(this);
         }
     }
-    Tree tree = new Tree;
-    foreach(node; tree) {
-        ...
+    Tree tree = new Tree(5,
+                         new Tree(3, new Tree(190)), new Tree(6));
+    foreach (node; tree) {
+        node.val.writeln;
     }
 
 The compiler transforms the `foreach` body to a special
