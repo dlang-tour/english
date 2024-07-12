@@ -22,7 +22,7 @@ for (auto __rangeCopy = range;
 ```
 
 Any object which fulfills the following interface is called a **range**
-(or more specific `InputRange`) and is thus a type that can be iterated over:
+(or more specifically an `InputRange`) and is thus a type that can be iterated over:
 
 ```
     interface InputRange(E)
@@ -47,7 +47,7 @@ Hence, a range from an infinite range can be taken:
 
 ## Value vs. Reference types
 
-If the range object is a value type, then range will be copied and only the copy
+If the range object is a value type, then the range will be copied and only the copy
 will be consumed:
 
 ```d
