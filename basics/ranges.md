@@ -76,13 +76,14 @@ import std.range;
 42.repeat.take(3).writeln; // [42, 42, 42]
 ```
 
-## Value vs. Reference types
+## Value vs. Reference Semantics
 
-If the range object is a [value type](basis/structs), then the range will be
+If the range object has value semantics (e.g [structs](basics/structs)
+without reference type fields), then the range will be
 copied when passing it as a value parameter to a function, and only the copy
 will be consumed.
 
-Below `iota` produces a struct value instance, and `drop` accepts it by value:
+Below `iota` produces a struct instance, and `drop` accepts it by value:
 
 ```d
 import std.range;
@@ -92,8 +93,9 @@ r.drop(5).writeln; // []
 r.writeln; // [0, 1, 2, 3, 4]
 ```
 
-If the range object is a reference type (e.g. [`class`](basics/classes) or [`std.range.refRange`](https://dlang.org/phobos/std_range.html#refRange)),
-then the range will be consumed and won't be reset:
+If the range object has reference semantics (e.g. a [`class`](basics/classes)
+or [`std.range.refRange`](https://dlang.org/phobos/std_range.html#refRange)),
+then the source range will also be consumed:
 
 ```d
 auto r = 5.iota;
@@ -101,6 +103,9 @@ auto r2 = refRange(&r);
 r2.drop(5).writeln; // []
 r2.writeln; // []
 ```
+
+A dynamic array has reference semantics for its element values, but value
+semantics for its length and starting address.
 
 ### Copyable `InputRanges` are `ForwardRanges`
 
