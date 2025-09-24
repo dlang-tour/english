@@ -2,13 +2,13 @@
 
 The standard modules [std.range](http://dlang.org/phobos/std_range.html)
 and [std.algorithm](http://dlang.org/phobos/std_algorithm.html)
-provide a multitude of great functions that can be
-composed to express complex operations in a still
-readable way - based on *ranges* as building blocks.
+provide many excellent functions that can be
+composed together to express complex operations in a still
+readable way - using *ranges* as building blocks.
 
-The great thing with these algorithms is that you just
-have to define your own range and you will directly
-be able to profit from what already is in the standard
+The great thing about these algorithms is that if you
+define your own range, you will immediately
+be able to use it with the existing functions in the standard
 library.
 
 ### std.algorithm
@@ -29,13 +29,14 @@ function:
     [1, 2, 3].each!(a => writeln(a));
 
 ### std.range
-`take` - Limit to *N* elements:
 
-    theBigBigRange.take(10);
+`take` - limit to the first *N* elements:
 
-`zip` - iterates over two ranges
-in parallel returning a tuple from both
-ranges during iteration:
+    aBigBigRange.take(10);
+
+`zip` - iterate over *M* ranges
+in parallel returning a succession of *M*-tuples, each with
+the next element from each of the ranges:
 
     assert(zip([1,2], ["hello","world"]).front
       == tuple(1, "hello"));
@@ -52,8 +53,11 @@ forever.
     // range will never be empty!
     assert(!c.empty);
 
-### The documentation is awaiting your visit!
+### Library Documentation
 
+Visit [std.range](http://dlang.org/phobos/std_range.html)
+and [std.algorithm](http://dlang.org/phobos/std_algorithm.html)
+for the full list of functions and details of their usage.
 
 ### In-depth
 
