@@ -1,23 +1,23 @@
 # Alias & Strings
 
-Now that we know what arrays are, have gotten in touch with `immutable`,
-and had a quick look at the basic types, it's time to introduce two
+Now that you know the fundamentals of D's arrays and have learnt about
+D's basic types, as well as `immutable`, it's time to introduce two
 new constructs in one line:
 
     alias string = immutable(char)[];
 
-The term `string` is defined by an `alias` statement which defines it
+The name `string` is created by an `alias` statement which defines it
 as a slice of `immutable(char)`s. This means, once a `string` has been constructed
 its content will never change again. And actually this is the second
 introduction: welcome UTF-8 `string`!
 
-Due to their immutablility, `string`s can be shared perfectly among
+Due to their immutablility, `string`s can be freely shared among
 different threads. As `string` is a slice, parts can be taken out of it without
 allocating memory. The standard function
 [`std.algorithm.splitter`](https://dlang.org/phobos/std_algorithm_iteration.html#.splitter)
 for example, splits a string by newline without any memory allocations.
 
-Besides the UTF-8 `string`, there are two more types:
+In addition to the UTF-8 `string`, there are two other kinds:
 
     alias wstring = immutable(wchar)[]; // UTF-16
     alias dstring = immutable(dchar)[]; // UTF-32
@@ -31,19 +31,19 @@ the `to` method from `std.conv`:
 ### Unicode strings
 
 This means that a plain `string` is defined as an array of 8-bit Unicode [code
-units](http://unicode.org/glossary/#code_unit). All array operations can be
-used on strings, but they will work on a code unit level, and not a character level. At
-the same time, standard library algorithms will interpret `string`s as sequences
+units](http://unicode.org/glossary/#code_unit). All the array operations can be
+used on strings, but they work at the level of code units (i.e., bytes), not characters.
+However, standard library algorithms will interpret `string`s as sequences
 of [code points](http://unicode.org/glossary/#code_point), and there is also an
 option to treat them as sequences of
-[graphemes](http://unicode.org/glossary/#grapheme) by explicit usage of
+[graphemes](http://unicode.org/glossary/#grapheme) using
 [`std.uni.byGrapheme`](https://dlang.org/library/std/uni/by_grapheme.html).
 
 This small example illustrates the difference in interpretation:
 
     string s = "\u0041\u0308"; // Ä
 
-    writeln(s.length); // 3
+    writeln(s.length); // 3, i.e., 3 bytes
 
     import std.range : walkLength;
     writeln(s.walkLength); // 2
@@ -51,19 +51,19 @@ This small example illustrates the difference in interpretation:
     import std.uni : byGrapheme;
     writeln(s.byGrapheme.walkLength); // 1
 
-Here the actual array length of `s` is 3, because it contains 3 code units:
-`0x41`, `0x03` and `0x08`. Those latter two define a single code point
-(combining diacritics character) and
+Here the actual array length of `s` is 3, because it contains 3 code units (i.e., 3 bytes):
+`0x41`, `0x03` and `0x08`. The string itself consists of an `A` character followed by a
+combining diacritics character, each of which is represented by a Unicode code point. Hence, the
 [`walkLength`](https://dlang.org/library/std/range/primitives/walk_length.html)
 (standard library function to calculate arbitrary range length) counts two code
-points total. Finally, `byGrapheme` performs rather expensive calculations
+points in total. Finally, the `byGrapheme` function performs rather expensive calculations
 to recognize that these two code points combine into a single displayed
 character.
 
 Correct processing of Unicode can be very complicated, but most of the time, D
-developers can simply consider `string` variables as magical byte arrays and
-rely on standard library algorithms to do the right job.
-If by element (code unit) iteration is desired, one can use
+developers can simply consider `string` variables as rather special byte arrays and
+rely on standard library algorithms to do the right things.
+If by element (code unit) iteration is desired, you can use
 [`byCodeUnit`](http://dlang.org/phobos/std_utf.html#.byCodeUnit).
 
 Auto-decoding in D is explained in more detail
@@ -71,7 +71,7 @@ in the [Unicode gems chapter](gems/unicode).
 
 ### Multi-line strings
 
-Strings in D can always span over multiple lines:
+Strings in D may span multiple lines:
 
     string multiline = "
     This
@@ -79,10 +79,10 @@ Strings in D can always span over multiple lines:
     long document
     ";
 
-When quotes appear in the document, Wysiwyg strings (see below) or
+When quotes appear in a string, WYSIWYG strings (see below) or
 [heredoc strings](http://dlang.org/spec/lex.html#delimited_strings) can be used.
 
-### Wysiwyg strings
+### WYSIWYG strings
 
 It is also possible to use raw strings to minimize laborious escaping
 of reserved symbols. Raw strings can be declared using either backticks (`` `
