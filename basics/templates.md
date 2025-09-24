@@ -1,14 +1,14 @@
 # Templates
 
-**D** allows defining templated functions similar to C++ and Java
-which is a means to define **generic** functions or objects which work
+**D** supports the creation of templated functions similar to C++ and Java.
+This makes it possible to define **generic** functions or objects which work
 for any type that compiles with the statements within the function's body:
 
     auto add(T)(T lhs, T rhs) {
         return lhs + rhs;
     }
 
-The template parameter `T` is defined in a set of parentheses
+The template parameter `T` is defined in a pair of parentheses
 in front of the actual function parameters. `T` is a placeholder
 which is replaced by the compiler when actually *instantiating*
 the function using the `!` operator:
@@ -19,29 +19,29 @@ the function using the `!` operator:
 
 ### Implicit Template Parameters
 
-Function templates have two parameter sets - the first is for
+Function templates have *two* parameter sets - the first is for
 compile-time arguments and the second is for run-time arguments.
 (Non-templated functions can accept only run-time arguments).
-If one or more compile-time arguments are left unspecified when the function is called,
-the compiler tries to deduce them from the list of run-time arguments as the types of those arguments.
+If one or more compile-time arguments are not specified when the function is called,
+the compiler will try to deduce their types based on the given list of run-time arguments.
 
     int a = 5; int b = 10;
-    add(a, b); // T is to deduced to `int`
+    add(a, b); // T is to deduced to be `int`
     float c = 5.0;
-    add(a, c); // T is deduced to `float`
+    add(a, c); // T is deduced to be `float`
 
 ### Template properties
 
 A function can have any number of template parameters which
-are specified during instantiation using the `func!(T1, T2 ..)`
-syntax. Template parameters can be of any basic type
+are specified during instantiation using the syntax `func!(T1, T2 ..)`.
+Template parameters can be of any basic type
 including `string`s and floating point numbers.
 
 Unlike generics in Java, templates in D are compile-time only, and yield
 highly optimized code tailored to the specific set of types
-used when actually calling the function
+used when actually calling the function.
 
-Of course, `struct`, `class` and `interface` types can be defined as template
+Of course, `struct`, `class`, and `interface` types can be defined as template
 types too.
 
     struct S(T) {
