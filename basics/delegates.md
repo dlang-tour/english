@@ -2,7 +2,11 @@
 
 ### Functions as arguments
 
-A function can also be a parameter to another function:
+D supports *first class functions*, that is, D's functions can be
+passed to other functions and can also be stored in variables.
+
+Here is an example of a *higher order function*, that is, a
+function which has a function parameter:
 
     void doSomething(int function(int, int) doer) {
         // call passed function
@@ -12,19 +16,20 @@ A function can also be a parameter to another function:
     doSomething(&add); // use global function `add` here
                        // add must have 2 int parameters
 
-`doer` can then be called like any other normal function.
+The passed in function (e.g.,`doer` in this example),
+can then be called like any other normal function.
 
 ### Local functions with context
 
 The above example uses the `function` type which is
 a pointer to a global function. As soon as a member
 function or a local function is referenced, `delegate`'s
-have to be used. It's a function pointer
+must be used instead. A `delegate` is a function pointer
 that additionally contains information about its
-context - or *enclosure*, thus also called **closure**
-in other languages. For example a `delegate`
+context - or *enclosure*. (These are called **closure**s
+in other languages.) For example a `delegate`
 that points to a member function of a class also includes
-the pointer to the class object. A `delegate` created by
+a pointer to the class object. And a `delegate` created inside
 a nested function includes a link to the enclosing context
 instead. However, the D compiler may automatically make a copy of
 the context on the heap if it is necessary for memory safety -
@@ -40,27 +45,29 @@ then a delegate will link to this heap area.
 The same function `doSomething` taking a `delegate`
 would look like this:
 
-    void doSomething(int delegate(int,int) doer);
+    void doSomething(int delegate(int, int) doer);
 
 `delegate` and `function` objects cannot be mixed. But the
 standard function
 [`std.functional.toDelegate`](https://dlang.org/phobos/std_functional.html#.toDelegate)
 converts a `function` to a `delegate`.
 
-### Anonymous functions & Lambdas
+### Anonymous functions and Lambdas
 
-As functions can be saved as variables and passed to other functions,
-it is laborious to give them their own name and to define them. Hence D allows
-nameless functions and one-line _lambdas_.
+Functions that are stored in variables or passed to other functions
+don't really need their own names (since the variable or parameter
+name is used to call them). Furthermore, many such functions are
+rather short. To support these use cases, D supports nameless (anonymous)
+functions, and one-line _lambda_ functions.
 
-    auto f = (int lhs, int rhs) {
+    auto f = (int lhs, int rhs) { // Nameless function assigned to variable f
         return lhs + rhs;
     };
     auto f = (int lhs, int rhs) => lhs + rhs; // Lambda - internally converted to the above
 
 It is also possible to pass-in strings as template arguments to functional parts
 of D's standard library. For example they offer a convenient way
-to define a folding (aka reducer):
+to define a fold (reduce) function:
 
     [1, 2, 3].reduce!`a + b`; // 6
 
