@@ -1,6 +1,6 @@
 # Attributes
 
-Functions can be attributed in various ways in D.
+D supports the application of attributes to functions (similar to annotations in some other languages).
 Let's have a look at two built-in attributes
 as well as *user-defined attributes*. There
 are also the built-ins `@safe`, `@system` and `@trusted`
@@ -10,7 +10,7 @@ mentioned in the first chapter.
 
 Properties are functions that can be syntactically treated as if they were fields or variables.
 Properties can be read from or written to.
-A property is read by calling a method or function with no arguments; a property is written by calling a method or function with its argument being the value it is set to.
+A property is read by calling a method or function with no arguments; a property is written by calling a method or function with its argument being the value it is to be set to.
 
 A function marked as `@property` looks like
 a normal member to the outside world:
@@ -29,7 +29,7 @@ a normal member to the outside world:
 When the D compiler encounters a function that is marked as `@nogc`
 it will make sure that **no** memory allocations are done
 within the context of that function. A `@nogc`
-function is just allowed to call other `@nogc`
+function is only allowed to call other `@nogc`
 functions.
 
 
@@ -40,8 +40,7 @@ functions.
 
 ### User-defined attributes (UDAs)
 
-Any function or type in D can be attributed with user-defined
-types:
+Any function or type in D can have user-defined attribues applied:
 
     struct Bar { this(int x) {} }
 
@@ -53,10 +52,10 @@ types:
       }
     }
 
-Any type, built-in or user-defined, can be attributed
+Any type, built-in or user-defined, can be applied as an attribute
 to functions. The function `foo()` in this example
 will have the attributes `"Hello"` (type `string`)
-and `Bar` (type `Bar` with value `10`). To get
+and `Bar` (type `Bar` with value `10`). To access
 the attributes of a function (or type) use
 the built-in compiler *traits*
 `__traits(getAttributes, Foo)` which returns
