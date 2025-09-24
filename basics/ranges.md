@@ -22,7 +22,7 @@ for (auto __rangeCopy = range;
 ```
 
 Any object which fulfills the following interface is called a **range**
-(or more specific `InputRange`) and is thus a type that can be iterated over:
+(or more specifically, `InputRange`) and is thus a type that can be iterated over:
 
 ```
     interface InputRange(E)
