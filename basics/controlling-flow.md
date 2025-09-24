@@ -1,6 +1,6 @@
 # Control flow
 
-An application's flow can be controlled conditionally with `if` and `else`
+An application's flow of control can be changed using `if` and `else`
 statements:
 
     if (a == 5) {
@@ -14,14 +14,14 @@ statements:
 When an `if` or `else` block only contains one statement,
 the braces can be omitted.
 
-D provides the same operators as C/C++ and Java to test
+D provides the same operators as C/C++ to test
 variables for equality or compare them:
 
 * `==` and `!=` for testing equality and inequality
 * `<`, `<=`, `>` and `>=` for testing less than (or equal to) and greater than (or equal to)
 
-For combining multiple conditions, the `||` operator represents
-the logical *OR*, and `&&` the logical *AND*.
+For combining multiple conditions, the `||` operator is used
+for logical *OR*, and `&&` for logical *AND*.
 
 D also defines a `switch`..`case` statement which executes one case
 depending on the value of *one* variable. `switch`
