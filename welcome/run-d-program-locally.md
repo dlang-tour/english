@@ -1,6 +1,6 @@
 # Run D program locally
 
-D comes with a compiler `dmd`, a script-like run tool `rdmd` and
+D comes with a compiler `dmd`, a script-like run tool `rdmd`, and
 a package manager `dub`.
 
 ### DMD Compiler
@@ -16,13 +16,13 @@ Browse the [online documentation](https://dlang.org/dmd.html#switches) or run `d
 ### On-the-fly compilation with `rdmd`
 
 The helper tool `rdmd`, distributed with the DMD compiler,
-will make sure to compile all dependencies and automatically runs
+will ensure that the program and all its dependencies are compiled, and then automatically runs
 the resulting application:
 
     rdmd hello.d
 
 On UNIX systems the shebang line `#!/usr/bin/env rdmd` can be put
-on the first line of an executable D file to allow a script-like
+on the first line of an executable D file to allow script-like
 usage.
 
 Browse the [online documentation](https://dlang.org/rdmd.html) or run `rdmd --help` for an overview of available flags.
@@ -30,7 +30,7 @@ Browse the [online documentation](https://dlang.org/rdmd.html) or run `rdmd --he
 ### Package manager `dub`
 
 D's standard package manager is [`dub`](http://code.dlang.org). When `dub` is
-installed locally, a new project `hello` can be created using
+installed locally, a new project, for example, `hello`, can be created using
 the command line:
 
     dub init hello
