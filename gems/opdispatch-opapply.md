@@ -33,39 +33,40 @@ programming - completely at **compile time**!
 
 ### opApply
 
-An alternative way to implementing a `foreach` traversal
-instead of defining a user defined *range* is to implement
+An alternative way to implement a `foreach` traversal
+instead of using a user-defined *range* is to implement
 an `opApply` member function. Iterating with `foreach`
 over such a type will call `opApply` with a special
 delegate as a parameter:
 
-    class Tree {
-        Tree lhs;
-        Tree rhs;
-        int opApply(int delegate(Tree) dg) {
-            if (lhs && lhs.opApply(dg)) return 1;
-            if (dg(this)) return 1;
-            if (rhs && rhs.opApply(dg)) return 1;
+    struct S {
+        int[] arr;
+        int opApply(int delegate(int) dg) {
+            foreach (e; arr) {
+                auto r = dg(e);
+                if (r)
+                    return r;
+            }
             return 0;
         }
     }
-    Tree tree = new Tree;
-    foreach(node; tree) {
+    foreach (i; S([2, 3, 4])) {
         ...
     }
 
 The compiler transforms the `foreach` body to a special
 delegate that is passed to the object. Its one and only
 parameter will contain the current
-iteration's value. The magic `int` return value
-must be interpreted and if it is not `0`, the iteration
-must be stopped.
+iteration's value. The delegate's magic `int` result
+must be returned if it is not `0`, allowing `foreach`
+iteration to stop.
 
 ### In-depth
 
 - [Operator overloading in _Programming in D_](http://ddili.org/ders/d.en/operator_overloading.html)
 - [`opApply` in _Programming in D_](http://ddili.org/ders/d.en/foreach_opapply.html)
-- [Operator overloading in D](https://dlang.org/spec/operatoroverloading.html)
+- [Operator overloading spec](https://dlang.org/spec/operatoroverloading.html)
+- [`opApply` spec](https://dlang.org/spec/statement.html#foreach_over_struct_and_classes)
 
 ## {SourceCode}
 
