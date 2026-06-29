@@ -26,23 +26,21 @@ for (auto __rangeCopy = range;
 
 The remainder of range behaviour is defined in the standard library.
 
-## Range Interface
+## Range primitives
 
-Any object which has defined the following methods is called an *input range*
+Any type which supports the following primitives is called an *input range*
 and is thus a type that can be iterated over:
 
 ```
-    interface InputRange(E)
-    {
-        bool empty();
-        E front();
-        void popFront();
-    }
+bool empty();
+E front();
+void popFront();
 ```
 
 `E` is the element type of the range.
 
-A [dynamic array](basics/arrays) can be a range by importing `std.range`.
+A [dynamic array](basics/arrays) can be a range by importing
+[`std.range.primitives`](http://dlang.org/phobos/std_range_primitives.html).
 This module defines range primitives on arrays, which can be called by
 [UFCS](gems/uniform-function-call-syntax-ufcs):
 
@@ -59,12 +57,15 @@ assert(a == [2, 3]);
 Have a look at the example on the right to inspect the implementation and usage
 of a custom input range.
 
+Algorithms can be written generically to work with any range,
+regardless of how the primitives are implemented.
+
 ## Laziness
 
 Ranges are __lazy__. They won't be evaluated until requested.
 Hence, a range can produce infinite elements.
 
-Below a range is created by calling `repeat`, which produces infinite
+Below a range is returned from `repeat`, which produces infinite
 elements, each the same as its initial argument. That range is
 processed by `take`, which will select the first N elements.
 Range functions are often called in a 'pipeline' style using
@@ -76,7 +77,7 @@ import std.range;
 42.repeat.take(3).writeln; // [42, 42, 42]
 ```
 
-## Value vs. Reference Semantics
+## Value vs. reference semantics
 
 If the range object has value semantics (e.g [structs](basics/structs)
 without reference type fields), then the range will be
@@ -101,25 +102,26 @@ then the source range will also be consumed:
 auto r = 5.iota;
 auto r2 = refRange(&r);
 r2.drop(5).writeln; // []
-r2.writeln; // []
+r.writeln; // []
 ```
 
 A dynamic array has reference semantics for its element values, but value
 semantics for its length and starting address.
 
-### Copyable `InputRanges` are `ForwardRanges`
+## Forward ranges
+
+A forward range is an input range which can copy its iteration state.
 
 Most of the ranges in the standard library are structs and so `foreach`
-iteration is usually non-destructive, though not guaranteed. If this
-guarantee is important, a specialization of an `InputRange` can be used—
+iteration is usually non-destructive, though that is not guaranteed. If this
+guarantee is important, a specialization of an input range can be used —
 **forward** ranges with a `.save` method:
 
 ```
-interface ForwardRange(E) : InputRange!E
-{
-    typeof(this) save();
-}
+typeof(this) save();
 ```
+
+Calling `save` makes an independent copy of the range's iteration state:
 
 ```d
 // by value (Structs)
@@ -129,42 +131,44 @@ r2.save.drop(5).writeln; // []
 r2.writeln; // [0, 1, 2, 3, 4]
 ```
 
-### `ForwardRanges` can be extended to Bidirectional ranges + random access ranges
+`r2.save` is a copy of `r2`, so dropping elements from the copy does not shorten
+`r2`.
 
-There are two extensions of the copyable `ForwardRange`: (1) a bidirectional range
-and (2) a random access range.
-A bidirectional range allows iteration from the back:
+## Bidirectional ranges
+
+A bidirectional range extends a forward range, allowing iteration from the back:
 
 ```d
-interface BidirectionalRange(E) : ForwardRange!E
-{
-     E back();
-     void popBack();
-}
+E back();
+void popBack();
 ```
+
+`E` is the element type of the range. Below `iota` produces a bidirectional range.
+[`std.range.retro`](https://dlang.org/phobos/std_range.html#retro) iterates that
+range backwards:
 
 ```d
 5.iota.retro.writeln; // [4, 3, 2, 1, 0]
 ```
 
-A random access range has a known `length` and each element can be directly accessed.
+## Random access ranges
+
+A random access range extends a bidirectional range.
+It has a known `length` and each element can be directly accessed:
 
 ```d
-interface RandomAccessRange(E) : ForwardRange!E
-{
-     E opIndex(size_t i);
-     size_t length();
-}
+E opIndex(size_t i);
+size_t length();
 ```
 
-The best known random access range is D's array:
+The best known random access range is D's array (which has built-in indexing):
 
 ```d
 auto r = [4, 5, 6];
 r[1].writeln; // 5
 ```
 
-### Lazy range algorithms
+## Lazy range algorithms
 
 The functions in [`std.range`](http://dlang.org/phobos/std_range.html) and
 [`std.algorithm`](http://dlang.org/phobos/std_algorithm.html) provide
@@ -176,7 +180,7 @@ in an iteration e.g. when the next range's element is accessed.
 Special range algorithms will be presented later in the
 [D's Gems](gems/range-algorithms) section.
 
-### In-depth
+## In-depth
 
 - [`std.algorithm`](http://dlang.org/phobos/std_algorithm.html)
 - [`std.range`](http://dlang.org/phobos/std_range.html)
