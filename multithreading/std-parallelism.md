@@ -5,10 +5,10 @@ high level primitives for convenient concurrent programming.
 
 ### parallel
 
-[`std.parallelism.parallel`](http://dlang.org/phobos/std_parallelism.html#.parallel) allows to automatically distribute
-a `foreach`'s body to different threads:
+[`std.parallelism.parallel`](http://dlang.org/phobos/std_parallelism.html#.parallel) allows you
+to automatically distribute a `foreach`'s body to different threads:
 
-    // parallel squaring of arr
+    // parallel squaring of each element of array arr
     auto arr = iota(1,100).array;
     foreach(ref i; parallel(arr)) {
         i = i*i;
@@ -17,29 +17,30 @@ a `foreach`'s body to different threads:
 `parallel` uses the `opApply` operator internally.
 The global `parallel`  is a shortcut to `taskPool.parallel`
 which is a `TaskPool` that uses *total number of cpus - 1*
-working threads. Creating your own instance allows
+working threads. Creating your own instance allows you
 to control the degree of parallelism.
 
 Beware that the body of a `parallel` iteration must
 make sure that it doesn't modify items that another
-working unit might have access to.
+*working unit* might have access to.
+(A "working unit" is a subset of the items that are processed in a particular thread.)
 
 The optional `workingUnitSize` specifies the number of elements processed
 per worker thread.
 
 ### reduce
 
-The function
-[`std.algorithm.iteration.reduce`](http://dlang.org/phobos/std_algorithm_iteration.html#reduce) -
-known from other functional contexts as *accumulate* or *foldl* -
+The
+[`std.algorithm.iteration.reduce`](http://dlang.org/phobos/std_algorithm_iteration.html#reduce) function -
+sometimes called *accumulate* or *foldl* in other functional contexts -
 calls a function `fun(acc, x)` for each element `x`
-where `acc` is the previous result:
+where `acc` (accumulator) is the previous result:
 
     // 0 is the "seed"
     auto sum = reduce!"a + b"(0, elements);
 
 [`Taskpool.reduce`](http://dlang.org/phobos/std_parallelism.html#.TaskPool.reduce)
-is the parallel analog to `reduce`:
+does the same computation as `reduce`, but spreads the work over multiple threads:
 
     // Find the sum of a range in parallel, using the first
     // element of each work unit as the seed.
@@ -65,7 +66,7 @@ Or directly be executed in its own, new thread:
     t.executeInNewThread();
 
 To get a task's result call `yieldForce`
-on it. It will block until the result is available.
+on it. This will block until the result is available.
 
     auto fileData = t.yieldForce;
 

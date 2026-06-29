@@ -1,6 +1,9 @@
 # Ranges
 
-If a `foreach` is encountered by the compiler
+A range produces a series of elements (values) of the same type.
+
+If a [`foreach` statement](basics/foreach) is encountered by the compiler
+with an expression recognised as a *range*:
 
 ```
 foreach (element; range)
@@ -15,17 +18,21 @@ it's internally rewritten similar to the following:
 for (auto __rangeCopy = range;
      !__rangeCopy.empty;
      __rangeCopy.popFront())
- {
+{
     auto element = __rangeCopy.front;
     // Loop body...
 }
 ```
 
-Any object which fulfills the following interface is called a **range**
-(or more specific `InputRange`) and is thus a type that can be iterated over:
+The remainder of range behaviour is defined in the standard library.
+
+## Range Interface
+
+Any object which has defined the following methods is called an *input range*
+and is thus a type that can be iterated over:
 
 ```
-    interface InputRange(E)
+    interface InputRange(E)
     {
         bool empty();
         E front();
@@ -33,31 +40,62 @@ Any object which fulfills the following interface is called a **range**
     }
 ```
 
+`E` is the element type of the range.
+
+A [dynamic array](basics/arrays) can be a range by importing `std.range`.
+This module defines range primitives on arrays, which can be called by
+[UFCS](gems/uniform-function-call-syntax-ufcs):
+
+```
+import std.range;
+
+int[] a = [1, 2, 3];
+assert(!a.empty);
+assert(a.front == 1);
+a.popFront();
+assert(a == [2, 3]);
+```
+
 Have a look at the example on the right to inspect the implementation and usage
-of an input range closer.
+of a custom input range.
 
 ## Laziness
 
 Ranges are __lazy__. They won't be evaluated until requested.
-Hence, a range from an infinite range can be taken:
+Hence, a range can produce infinite elements.
+
+Below a range is created by calling `repeat`, which produces infinite
+elements, each the same as its initial argument. That range is
+processed by `take`, which will select the first N elements.
+Range functions are often called in a 'pipeline' style using
+[UFCS](gems/uniform-function-call-syntax-ufcs) chains:
 
 ```d
+import std.range;
+
 42.repeat.take(3).writeln; // [42, 42, 42]
 ```
 
-## Value vs. Reference types
+## Value vs. Reference Semantics
 
-If the range object is a value type, then range will be copied and only the copy
-will be consumed:
+If the range object has value semantics (e.g [structs](basics/structs)
+without reference type fields), then the range will be
+copied when passing it as a value parameter to a function, and only the copy
+will be consumed.
+
+Below `iota` produces a struct instance, and `drop` accepts it by value:
 
 ```d
+import std.range;
+
 auto r = 5.iota;
 r.drop(5).writeln; // []
 r.writeln; // [0, 1, 2, 3, 4]
 ```
 
-If the range object is a reference type (e.g. `class` or [`std.range.refRange`](https://dlang.org/phobos/std_range.html#refRange)),
-then the range will be consumed and won't be reset:
+If the range object has reference semantics (e.g. a [`class`](basics/classes)
+or [`std.range.refRange`](https://dlang.org/phobos/std_range.html#refRange)),
+then the source range will also be consumed:
 
 ```d
 auto r = 5.iota;
@@ -65,6 +103,9 @@ auto r2 = refRange(&r);
 r2.drop(5).writeln; // []
 r2.writeln; // []
 ```
+
+A dynamic array has reference semantics for its element values, but value
+semantics for its length and starting address.
 
 ### Copyable `InputRanges` are `ForwardRanges`
 
