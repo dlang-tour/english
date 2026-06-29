@@ -12,7 +12,8 @@ The parent context gains control again but the
 fiber's state - all variables on the stack - are
 saved. The fiber can then be resumed
 and will continue at the instruction right *after*
-it called `Fiber.yield()`. Magic? Yes.
+it called `Fiber.yield()`.
+(This is very similar to the way Python's generators work.)
 
     void foo() {
         writeln("Hello");
