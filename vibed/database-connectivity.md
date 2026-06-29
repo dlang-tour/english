@@ -41,11 +41,12 @@ too.
 
 ### Postgresql
 
-A full-featured Postgresql client is implemented
-with the external module [dpq2](http://code.dlang.org/packages/dpq2)
-that is based on the official *libpq* library.
-It uses vibe.d's event system to implement
-asynchronous behaviour.
+A full-featured Postgresql client is implemented with the external
+package
+[vibe-d-postgresql](https://code.dlang.org/packages/vibe-d-postgresql)
+which uses [dpq2](http://code.dlang.org/packages/dpq2) (based on the
+official *libpq* library) together with vibe.d's event system to
+provide asynchronous behaviour.
 
 Another alternative for Postgresql is
 [ddb](http://code.dlang.org/packages/ddb)
