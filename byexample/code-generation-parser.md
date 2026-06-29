@@ -2,7 +2,7 @@
 
 In this example, a configuration parser is generated at compile-time.
 Let's assume our program has a couple of configuration options,
-summarized in a settings `struct`:
+encapsulated in a settings `struct`:
 
 ```d
 struct Config
@@ -12,13 +12,13 @@ struct Config
 }
 ```
 
-While writing a parser for this struct, wouldn't be difficult, we would have to
+While writing a parser for this struct wouldn't be difficult, we would have to
 constantly update the parser, whenever we modify the `Config` object.
 Hence, we are interested in writing a generic `parse` function that can
 read arbitrary configuration options. For simplicity, `parse` will accept
 a very simple format of `key1=value1,key2=value2` configuration options, but the same technique
 can be used for any arbitrary configuration format. For many popular
-configuration format, of course, readers already exist on the [DUB registry](https://code.dlang.org).
+configuration formats, readers already exist in the [DUB registry](https://code.dlang.org).
 
 Reading the configuration
 -------------------------
@@ -42,11 +42,11 @@ Hence, `Conf.tupleof[idx].stringof` will yield the individual members of the str
 and generate a case statement for each member.
 Equally, while being in the static loop, the individual members can be accessed by their index:
 `c.tupleof[idx]` and thus we can assign the respective member the parsed value from the given
-configuration string. Moreover, `dropOne` is necessary, because the splitted range still
-points at the key and thus `dropOne.front` will return the second element.
-Furthermore, `to!(typeof(field))` will do the actual parsing of the input string
-to the respective type of the member of the configuration struct.
-Finally, as the foreach loop is unrolled at compile-time a `break` would stop this loop.
+configuration string. The call to `dropOne` is necessary, because the splitted range still
+refers to the key and thus `dropOne.front` will return the second element.
+The `to!(typeof(field))` call does the actual parsing of the input string
+converting it into the respective type of the member of the configuration struct.
+Since the `static foreach` loop is unrolled at compile-time a `break` would stop this loop.
 However, after a configuration option has been successfully parsed, we don't want to jump
 to the next case in the switch statement and thus a labeled break is used to break out the
 switch statement.

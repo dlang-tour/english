@@ -1,6 +1,6 @@
 # Fibers
 
-**Fibers** are a way to implemented concurrency
+**Fibers** are a way to implement concurrency
 in a *cooperative* fashion. The class `Fiber`
 is defined in the module [`core.thread`](https://dlang.org/phobos/core_thread.html).
 
