@@ -37,7 +37,7 @@ for many diverse languages and has a unique set of features:
 
 Each section comes with a source code example that can be modified and used
 to experiment with D's language features.
-Click the run button (or `Ctrl-enter`) to compile and run it.
+Click the run button (or `Ctrl-Enter`) to compile and run it.
 
 To navigate this tour, either use the "`<` previous" and "next `>`" links at the
 bottom (or left and right arrow keys), or else go straight to particular sections
@@ -70,6 +70,6 @@ void main()
     sort(chain(arr1, arr2, arr3));
     writefln("%s\n%s\n%s\n", arr1, arr2, arr3);
     // To learn more about this example, see the
-    // "Range algorithms" page under "Gems"
+    // "Range algorithms" page under "D's Gems"
 }
 ```
