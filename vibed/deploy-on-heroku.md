@@ -9,8 +9,8 @@
 ### 1 : Setup the app
 
 Heroku needs to know how to communicate with a deployed application.
-Hence a global `PORT` environment variable is provided which needs to be injected into an application and
-it should bind and listen to this port.
+Hence a global `PORT` environment variable is provided which needs to be injected into an application
+that should bind and listen to this port.
 For development a default port (here __8080__) should be set:
 
 ```d
@@ -23,7 +23,7 @@ shared static this() {
 }
 ```
 
-Additionally create a `Procfile`, which is a text file in the root directory of the application, which explicitly declares what command
+Additionally create a `Procfile`, which is a text file in the application's root directory, which explicitly declares what command
 should be executed to start the app.
 
 The `Procfile` in the example app looks like this:
@@ -34,7 +34,7 @@ web: ./hello-world
 
 ### 2 : Prepare the app
 
-Before going further login to the Heroku Command Line by using the [Heroku Toolbelt](https://toolbelt.heroku.com/standalone).
+Before going further, login to the Heroku Command Line by using the [Heroku Toolbelt](https://toolbelt.heroku.com/standalone).
 
 This provides access to the Heroku Command-Line Interface (CLI), which can be used for managing and scaling your applications and add-ons.
 
@@ -47,7 +47,7 @@ $ heroku login
 ### 3 : Create the app
 
 Go to the [heroku dashboard](https://dashboard.heroku.com) and create a new app.
-After doing this memorize the name of the created app, it will be useful later.
+After doing this record the name of the created app, since it will be useful later.
 
 Or use the Command-Line like this:
 
@@ -89,10 +89,10 @@ For deployement the [Vibe.d buildpack](https://github.com/MartinNowak/heroku-bui
 $ heroku buildpacks:set https://github.com/MartinNowak/heroku-buildpack-d
 ```
 By default the buildpack uses the latest `dmd` compiler.
-It is possible to use GDC or LDC and to choose a specific compiler versions by adding a `.d-compiler` file to your project.
+It is possible to use GDC or LDC and to choose a specific compiler version by adding a `.d-compiler` file to your project.
 
 Use `dmd`, `ldc`, or `gdc` to select the latest or `dmd-2.0xxx`, `ldc-1.0xxx`, or `gdc-4.9xxx` to
-select a specific version of a compiler.
+select a specific compiler version.
 
 ### Deploy the code
 
@@ -134,7 +134,7 @@ To git@heroku.com:rocky-hamlet-67506.git
  * [new branch]      master -> master
 ```
 
-Open the app in the browser with the following command
+Open the app in the browser with the following command:
 
 ```
 $ heroku open
@@ -174,9 +174,9 @@ providing a single channel for all of the events.
 $ heroku logs --tail
 ```
 
-## More informations
+## More information
 
-After deploying the app to Heroku you can make it more awesome by using add-ons. For example :
+After deploying the app to Heroku you can make it more awesome by using add-ons. For example:
 
 - [Postgresql](https://elements.heroku.com/addons/heroku-postgresql)
 - [MongoDb](https://elements.heroku.com/addons/mongohq)
